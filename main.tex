@@ -1,1 +1,158 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[sfdefault]{roboto}
 
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage{fontawesome5}
+\usepackage{setspace}
+\usepackage[export]{adjustbox}
+\usepackage[margin=20mm]{geometry}
+\usepackage{multicol}
+\usepackage{subfiles}
+
+\usepackage{xcolor}
+\definecolor{turbo_purple}{RGB}{112,105,160}
+\definecolor{partner_bronze}{RGB}{205,127,50}
+\definecolor{partner_silver}{RGB}{170,169,173}
+\definecolor{partner_gold}{RGB}{212,175,55}
+
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\normalfont\Huge\bfseries\centering}{}{1em}{\vspace{-4em}}[\vspace{-1em}]
+\titleformat{\section}[display]{\normalfont\huge\bfseries}{}{1em}{\vspace{-2em}}
+\titleformat{\subsection}[display]{\normalfont\Large\bfseries\color{turbo_purple}}{}{1em}{\vspace{-0.5em}}[\vspace{-0.5em}]
+\titleformat{\subsubsection}[display]{\normalfont\large\bfseries}{}{1em}{\vspace{-1em}}[\vspace{-0.7em}]
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikzpagenodes}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{25pt}
+\lhead{}
+\rhead{\begin{tikzpicture}[remember picture,overlay]
+\draw  let \p1=($(current page.north)-(current page header area.south)$),
+      \n1={veclen(\x1,\y1)} in
+node [inner sep=0,outer sep=0,below left] 
+      at (current page.north east){\includegraphics[height=\n1]{./assets/Sponsorship Header - Solid.png}};
+\end{tikzpicture}}
+\lfoot{\begin{tikzpicture}[remember picture,overlay]
+\draw  let \p1=($(current page footer area.north)-(current page.south)$),
+      \n1={veclen(\x1,\y1)} in
+node [inner sep=0,outer sep=0,above right] 
+      at (current page.south west){\includegraphics[height=\n1]{./assets/Sponsorship Footer - Solid.png}};
+\end{tikzpicture}}
+\cfoot{\sffamily\selectfont\thepage}
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\usepackage[hidelinks]{hyperref}
+
+\def\cstar{\faStar}
+\def\ostar{\faStar[regular]}
+
+\begin{document}
+
+\begin{titlepage}
+    \newgeometry{right=0mm,left=0mm,top=20mm,bottom=0mm}
+    \begin{center}
+        \vspace*{15mm}
+        \includegraphics[width=0.7\paperwidth]{./assets/Logo (Dark).png} \\
+        \vspace{1cm}
+        \Huge MARS CAD Guide \\
+        \huge \textcolor{turbo_purple}{Autodesk Inventor 2023}
+    \end{center}
+    \vfill
+    \includegraphics[height=0.5\paperheight, right]{./assets/Pattern - PCB (Solid).png}
+    \vspace*{10mm}
+\end{titlepage}
+\restoregeometry
+\newpage
+\tableofcontents
+
+\section{Sketches}
+
+2D Sketching is one of the most fundamental parts of Autodesk Inventor, providing the baseline geometry for creating 3D features. 
+
+\subsection{Creating a Sketch}
+
+2D sketches can be created in any plane or flat surface, via any of the following ways:
+
+\begin{itemize}
+\item Clicking on a plane or flat surface and selecting "Create Sketch" on the popup ribbon
+\item Clicking on a plane or flat surface and selecting "3D Model > Sketch > Start 2D Sketch" or "Sketch > Sketch > Start 2D Sketch" on the window ribbon
+\item Right clicking on a plane or flat surface and selecting "New Sketch" on the popup wheel
+\item Selecting "3D Model > Sketch > Start 2D Sketch" or "Sketch > Sketch > Start 2D Sketch" on the window ribbon and then clicking on the desired plane or flat surface
+\item Right clicking on the model browser and selecting "New Sketch"
+\end{itemize}
+
+\subsection{Adding Geometry}
+Geometry can be added to a 2D sketch through the "Create" tab of the "Sketch" ribbon. In general, geometry can be added freeform or can be snapped to existing points (signified by a green dot) or existing curves (signified by a yellow dot). Before placing geometry, you can press "Tab" to specify coordinates, and during placement you can usually specify dimensions of a shape using "Tab". 
+\subsubsection{Line}
+
+\subsection{Constraints and Dimensions}
+Some constraints are automatically added to geometry when you place it. For example, the opposing sides of a rectangle will automatically have a "Parallel Constraint", and if you snap geometry to existing points or edges they will have a "Coincident Constraint". We recommend that, especially for complex sketches, you add all constraints and dimensions for fixed geometry. If geometries are not constrained, they can be freely moved simply by clicking and dragging (which is sometimes a good thing)!
+
+
+\subsubsection{Types of Constraints}
+
+\begin{enumerate}
+\item Coincident: a point is constrained to another point or along another curve
+\item Collinear: two straight lines (or axes) constrained to lie along the same line
+\item Concentric: two curves, ellipses or circles constrained to the same center point
+\item Fixed: locks geometry in place
+\item Parallel: two lines constrained to lie parallel
+\item Perpendicular: two lines constrained to lie perpendicular
+\item Horizontal: a line or pair of points constrained parallel to the x axis
+\item Vertical: a line or pair of points constrained parallel to the z axis
+\item Tangent: two curves constrained to be tangent to each other
+\item Smooth: a splined curve constrained to be tangent to and join endpoints with a curve
+\item Symmetric: two curves constrained to be symmetric about a third selected line
+\item Equal: two curves constrained to have the same radius or two lines constrained to have the same length
+\item: Project Geometry: essentially a fixed constraint, it cannot be added to geometry but instead is automatically applied to any projected geometry.
+\end{enumerate}
+
+\subsubsection{Types of Dimensions}
+
+
+\subsubsection{Adding Constraints}
+Constraints can be added through the "Constrain" tab of the "Sketch" ribbon. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
+
+\subsubsection{Viewing and Editing Constraints}
+All Constraints can be viewed by right clicking on the workspace and selecting "Show All Constraints" or using the F8 hotkey. Constraints can be hidden by right clicking on the workspace and selecting "Hide All Constraints" or using the F9 hotkey.
+
+To toggle the visibility of a selected geometry's constraints, click on the "Show Constraints" icon under the "Constrain" tab in the ribbon.
+
+
+To delete all constraints from geometry, select the desired geometry, press right click and select "Delete Constraints".
+
+To delete specific constraints, show constraints either by using F8 or selecting the parent geometry, click on the respective constraint icon beside the geometry and either press "Del" or right click and select "Delete".
+
+\subsection{Constraint Inference and Settings}
+
+
+%\subfile{chapters/Introduction.tex}
+    
+%\subfile{chapters/About.tex}
+
+%\subfile{chapters/Plan.tex}
+
+%\subfile{chapters/Electives.tex}
+
+%\subfile{chapters/Courses.tex}
+
+%\subfile{chapters/Advice.tex}
+
+%\subfile{chapters/Partners.tex}
+
+%\subfile{chapters/Acknowledgements.tex}
+
+\end{document}
