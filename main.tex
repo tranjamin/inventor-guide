@@ -78,9 +78,9 @@ node [inner sep=0,outer sep=0,above right]
 \newpage
 \tableofcontents
 
-\section{Sketches}
+\section{2D Sketches}
 
-2D Sketching is one of the most fundamental parts of Autodesk Inventor, providing the baseline geometry for creating 3D features. 
+2D Sketching is one of the most fundamental parts of Autodesk Inventor, providing the baseline geometry for creating 3D features. They are used everywhere, from extrusion cross-sections to guide rails to surface boundaries.
 
 \subsection{Creating a Sketch}
 
@@ -95,11 +95,93 @@ node [inner sep=0,outer sep=0,above right]
 \end{itemize}
 
 \subsection{Adding Geometry}
-Geometry can be added to a 2D sketch through the "Create" tab of the "Sketch" ribbon. In general, geometry can be added freeform or can be snapped to existing points (signified by a green dot) or existing curves (signified by a yellow dot). Before placing geometry, you can press "Tab" to specify coordinates, and during placement you can usually specify dimensions of a shape using "Tab". 
-\subsubsection{Line}
+
+$ $
+
+\subsubsection{Tips and Tricks for Adding Geometry}
+\begin{itemize}
+    \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press "Tab" to specify coordinates or switch between multiple dimensions.
+    \item The bottom right of your workspace will display a lot of useful imformation when creating geometry, such as coordinate positions, deltas, and dimensions.
+    \item You can "snap" your geometry to existing points. A green dot will signify you are placing your geometry on an existing point, and a yellow dot will signify you are placing your geometry along an existing curve. This is often useful to make sure that all your lines connect to form a closed shape.
+    \item The above is a case of constraint inference (ref. Constraints), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding CTRL.
+    \item When starting the Line command, you can easily create tangent or normal lines. Click your starting point on existing geometry, and then click and drag the starting point. The direction you drag determines whether the line will be tangential or normal.
+    \item Existing 3D objects can sometimes obstruct your view of your sketch. You can either change the camera angle or Right Click > "Slice Graphics".
+\end{itemize}
+
+\subsubsection{Types of Geometry}
+
+When selecting the start point of a line, you can click and drag on existing geometry to create a line which is tangent/perpendicular (see "Constraints"). There are several types of geometry which can be placed:
+
+\begin{itemize}
+\item Line: Creates either simple lines or joined segments of lines and arcs. Click on your starting point, and then your endpoint (to create a line) or click and drag your starting point (to create a curve). Finish the command by double clicking on the final endpoint or click ESC.
+\item Spline: Creates a spline (parametric curve), either by specifying points for the spline to pass through or control vertices. 
+\item Equation Curve: Creates a curve based on a mathematical equation. The equation can be explicit or parametric, and use polar or cartesian coordinates.
+\item Bridge Curve: Creates a curve that joins two line/curve endpoints together such that the bridge curve is tangent to both segments (ref. G2 Smooth Constraint).
+\item Circle: Creates a circle, using either a center point or three tangent lines.
+\item Ellipse: Creates an ellipse based on two axial lines
+\item Arc: Creates an arc, using the endpoints and either a center point or midpoint (Three Point Arc). Can also create an arc that joins a line's endpoint and is tangent to it.
+\item Rectangle: Creates a rectangle using various key points.
+\item Slot: Creates a slot or capsule, using various key points.
+\item Polygon: Creates a polygon of any order, and can be drawn inscribed or circumscribed.
+\item Fillets and Chamfers: Transforms sharp corners into curved corners (fillets) or bevelled corners (chamfers). The radius or angle of these fillets/chamfers can be adjusted in the popup dialog.
+\item Text: Creates text as geometry, which can be further extruded, swept, etc. Various formatting options can be adjusted in the popup dialog.
+\item Geometry Text: Creates text that lies along lines or simple curves. Cannot be used for more complex geometries such as splines.
+\item Point: Creates points.
+
+\end{itemize}
+
+\subsubsection{Projecting Geometry}
+The Project Geometry feature is a very powerful tool which allows you to copy existing geometry, whether 2D or 3D, to your current sketch. Try to always project geometry which is above the current sketch in the model browser. Generally, projected geometry is adaptive, which means changes to the reference geometry will be reflected in your sketch. To prevent this, hold down CTRL when projecting geometry, right click on the geometry and select "Break Link", or manually delete the Project Geometry Constraint (ref. Constraints). There are the following options:
+
+\begin{itemize}
+\item Project Geometry: Projects 2D sketches, 3D sketches, object edges and more into your sketch.
+\item Project Cut Edges: Projects the cross-section that the sketch plane makes with any object. Can also be used to project the intersection of the sketch plane with a composite feature or surface.
+\item Project Flat Pattern: Used predominately in sheet metal projects, unfolds an object into the plane.
+\item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see "3D Sketches" or "3D Model > Surface".
+\item Project DWG Geometry:  ------------------------------
+\end{itemize}
+
+\subsection{Geometry Patterns}
+Inventor allows you to duplicate geometries to streamline your work. Geometry can be mirrored or repeated in a circular or rectangular pattern. The patterns are associative, so changes to any one of the object instances will change the entire pattern.
+
+\subsection{Modifying Existing Geometry}
+The Modify tab allows you to make changes to geometry you have already created. You can:
+
+\begin{itemize}
+\item Move geometry
+\item Copy geometry to a new location
+\item Rotate geometry
+\item Scale geometry
+\item Trim parts of your geometry off by points of intersection
+\item Extend a line or other geometry until it intersects with another geometry
+\item Split geometry into multiple parts according to points of intersection.
+\item Stretch certain geometry out
+\item Offset geometry by creating a slightly larger or smaller copy.
+\end{itemize}
+
+\subsubsection{Tips and Tricks}
+\begin{itemize}
+\item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error) by clicking the ">>" button on the popup dialog of the modify tools and changing the settings.
+\item By checking the "Precise Input" box on the popup dialog of many of these tools, you can specify the exact coordinates with which you want to modify your geometry with.
+\item You can choose whether an offset geometry adapts to changes in the original geometry by right clicking when using the Offset tool and toggling "Constrain Offset". Under these options, you can also change whether Inventor offsets entire loops or single line/curve segments.
+\end{itemize}
 
 \subsection{Constraints and Dimensions}
-Some constraints are automatically added to geometry when you place it. For example, the opposing sides of a rectangle will automatically have a "Parallel Constraint", and if you snap geometry to existing points or edges they will have a "Coincident Constraint". We recommend that, especially for complex sketches, you add all constraints and dimensions for fixed geometry. If geometries are not constrained, they can be freely moved simply by clicking and dragging (which is sometimes a good thing)!
+Constraints and dimensions determine the relationships between geometries. If a sketch is not fully constrained, it means that you can freely move it around by simply clicking and dragging. We recommend that, in general, you fully constrain all sketches. The bottom right of your workspace will tell you how many more dimensions/constraints you would need to achieve this.
+
+\subsubsection{Dimensions}
+Dimensions allow to you to display and specify the length or angle between two pieces of geometry. Dimensions can also be added when creating geometry, by pressing Tab to toggle between possible dimensions. The following dimensions can be created (noting that curves are usually dimensioned by the center point):
+
+\begin{enumerate}
+\item Two parallel lines: the distance between them
+\item Two nonparallel lines: the angle between them
+\item Two curves/points: the distance between them. The movement of your cursor dictates whether this will be the vertical distance or horizontal distance. By clicking a third time in between the two points, the dimension will be the Euclidean distance.
+\item A line and curve/point: the distance between them in the direction orthogonal to that of the line
+\end{enumerate}
+
+Two types of dimensions can be created: regular dimensions and driven dimensions. Driven dimensions are dimensions which are redundant (already specified by existing constraints/dimensions), and thus are only used to display measurements. They are signified by brackets. On the other hand, regular dimensions can be edited to change the geometry. Regular dimensions can be made and unmade driven by selecting "Format > Driven Dimension" or by right clicking and selecting "Driven Dimension".
+
+Dimensions can be edited by double clicking on the dimension. The formatting of the dimension can be modified by right clicking and selecting "Dimension Properties", allowing you to specify naming, precision, and tolerance type for both the individual dimension and the default settings.
 
 
 \subsubsection{Types of Constraints}
@@ -117,27 +199,74 @@ Some constraints are automatically added to geometry when you place it. For exam
 \item Smooth: a splined curve constrained to be tangent to and join endpoints with a curve
 \item Symmetric: two curves constrained to be symmetric about a third selected line
 \item Equal: two curves constrained to have the same radius or two lines constrained to have the same length
-\item: Project Geometry: essentially a fixed constraint, it cannot be added to geometry but instead is automatically applied to any projected geometry.
+\item Project Geometry: essentially a fixed constraint, it cannot be added to geometry but instead is automatically applied to any projected geometry. If you want to edit projected geometry, you need to remove these constraints.
 \end{enumerate}
 
-\subsubsection{Types of Dimensions}
-
-
 \subsubsection{Adding Constraints}
-Constraints can be added through the "Constrain" tab of the "Sketch" ribbon. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
+Constraints can be added through the "Constrain" tab. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
 
 \subsubsection{Viewing and Editing Constraints}
-All Constraints can be viewed by right clicking on the workspace and selecting "Show All Constraints" or using the F8 hotkey. Constraints can be hidden by right clicking on the workspace and selecting "Hide All Constraints" or using the F9 hotkey.
+All constraints can be viewed by right clicking on the workspace and selecting "Show All Constraints" or using the F8 hotkey. Constraints can be hidden by right clicking on the workspace and selecting "Hide All Constraints" or using the F9 hotkey.
 
 To toggle the visibility of a selected geometry's constraints, click on the "Show Constraints" icon under the "Constrain" tab in the ribbon.
 
-
 To delete all constraints from geometry, select the desired geometry, press right click and select "Delete Constraints".
 
-To delete specific constraints, show constraints either by using F8 or selecting the parent geometry, click on the respective constraint icon beside the geometry and either press "Del" or right click and select "Delete".
+To delete specific constraints, show constraints either by using F8 or selecting the parent geometry, click on the respective constraint icon beside the geometry and press DEL.
 
-\subsection{Constraint Inference and Settings}
+\subsubsection{Constraint Inference, Relax Mode and Settings}
 
+Sometimes constraints can be inferred while placing geometry. For example, drawing a line which is horizontal will create an inferred horizontal constraint, and likewise for constraints such as parallel constraints. If you find that a constraint is being inferred with the wrong geometry (for example if you want to a parallel constraint to one line but it infers a parallel constraint with another), you can first mouseover ("scrub") the desired constraint geometry. You can temporarily disable inferred constraints by holding CTRL when placing geometry.
+
+Inferred constraints can be persistent or non-persistent. Persistant constraints remain after the geometry is placed, however non-persistent constraints will not, and will only help you while placing geometry. 
+
+Usually, constraints will restrict you from freemoving geometry. For example, if you have two circles with a concentric constraint, moving one circle will also cause the other to move. When Relax Mode is enabled, geometry can be moved freely. Instead of also moving constrained geometry, any constraints which are broken will be deleted. In the above case, only the selected circle will move and the concentric constraint will be removed. You can also choose to only enable Relax Mode for specific constraint types.
+
+Settings for constraints can be modified under "Constraint Settings" under the "Constrain" tab. You can:
+
+\begin{enumerate}
+    \item Under "Inference", turn all inferred constraints on/off
+    \item Under "Inference", turn specific inferred constraints on/off, such as turning off any inferred horizontal constraints
+    \item Under "Inference", choose to infer parallel/perpendicular constraints over horizontal/vertical constraints, when there is an option
+    \item Enable "Relax Mode"
+\end{enumerate}
+
+\subsubsection{Automatic Dimensions}
+By selecting "Automatic Dimensions and Constraints" under the "Constrain" tab, dimensions and constraints can be added to fully paramaterise the sketch.
+
+\subsection{Formatting}
+
+The graphic display of geometry can be adjusted under the "Format" tab. Construction formatting identifies geometry as being a scaffold to the sketch and not part of the final product, such as radius lines. These are still visible and can be dimensioned/constrained, however cannot be used for extrusions or any other 3D feature. Some shapes, such as center point rectangles, automatically come with construction lines, and in order to use these lines for 3D features it must be disabled in the same way construction lines are enabled.
+
+Centerline formatting signifies a line being a symmetric center of geometry, and behaves in the same way as construction lines. Center points have the same philosophy.
+
+Geometry can also be custom formatted by changing the pattern, colour and weight. These custom formats can be turned on/off by clicking "Show Format" under the "Format" tab.
+
+\subsection{Layout}
+
+$ $
+
+\subsubsection{Assembly and Component Layouts}
+This is part of a more complex feature of Inventor which comprises of creating hierarchies of assemblies, components and parts. In short, the Make Part and Make Components features allows you to import 2D sketches into assemblies as layout parts. This is useful because you can create 3D features in the assembly without changing the layout file, and as such these files can be used concurrently for multiple projects.
+
+\subsubsection{Sketch Blocks}
+Sketch blocks are similar to object grouping in Microsoft Office; it allows you to constrain portions of sketches to be fixed relative to each other, and instead of moving each piece of individual geometry the entire block moves. This is especially useful if you copy and paste a lot of sketch data from other applications or do a lot of sketching over images - it removes the need to constrain every line and curve. Sketch blocks can be created under "Layout > Create Block"
+
+\subsection{Insert}
+
+$ $
+
+\subsubsection{Inserting Images}
+Images can be inserted into a 2D sketch under "Insert > Image", and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the "3D Sketch" section!
+
+\subsubsection{Inserting Points Spreadsheets}
+If you have a large number of points that you want to copy into modelling software - such as from point cloud scanners - your best option is to import it via an excel spreadsheet. Your first row should contain only your units specification, your second row should contain the headings x, y and (optionally) z. Each subsequent row should represent the coordinates of one point.
+
+\subsubsection{Inserting AutoCAD Files}
+If you use AutoCAD to create drawings, you can import 2D drawings into a sketch here. This should work for any DWG or DXF file.
+
+\subsection{Parameters}
+Ref. Parameters
 
 %\subfile{chapters/Introduction.tex}
     
