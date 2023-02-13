@@ -1,0 +1,116 @@
+\section{3D Modelling}
+
+This is where all the magic happens! Transform sketches into 3D features, surfaces and more.
+
+\subsection{Creating Features}
+In order to create a feature, you need to have valid sketches. The following features can be created:
+
+\subsubsection{Extrude}
+Takes a 2D cross-section and extrudes it into a prism. 
+
+Surface Mode:
+Instead of creating a prism, you can set the extrusion to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
+
+Profiles:
+These are the cross-sections which are to be extruded. Select them by clicking on any desired closed areas within a single sketch.
+
+From:
+Choose the plane that the extrusion will start at (it does not have to be the sketch plane, although it will default to this).
+
+Direction:
+The extrusion can be set as in either direction, symmetric in both directions or asymmetric in the two directions.
+
+Distance:
+The distance of extrusion can be set as:
+
+\begin{itemize}
+    \item Manual Distance: specify the numerical distance of extrusion (for asymmetric extrusions you will need to specify a distance for each direction). You can click the arrow beside the input box to quickly measure dimensions, use an existing dimension for reference or use recently used values.
+    \item Through All: the extrusion will pass through all objects (also can be used for cut or intersect extrusions).
+    \item To: select the plane or feature that the extrusion will end at. If the feature is has multiple possible termination points (such as the closest and furthest side of a cylinder), select Alternate Solution to end the extrusion at the closest face of the feature
+    \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
+\end{itemize}
+
+Output:
+Determines the output of the extrusion, either:
+\begin{itemize}
+    \item Join: adds extrusion to the selected solid
+    \item Cut: remvoes material from the selected solid
+    \item Intersect: keeps the intersection between the extrusion and the selected solid
+    \item New Solid: creates the extrusion as a new solid
+\end{itemize}
+
+Taper:
+The extrusion tapers slightly inwards (negative values) or outwards (positive values).
+
+Settings:
+Additional settings can be accessed by the hamburger menu on the top right of the popup dialog. Of most note is the option to keep the sketch visible after extrusion - otherwise, the sketch will be consumed in the process.
+
+\subsubsection{Revolve}
+Revolves a section around a specified axis.
+
+Surface Mode:
+Instead of creating a solid feature, you can set the revolution to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
+
+Profiles:
+These are the cross-sections which are to be revolved. Select them by clicking on any desired closed areas within a single sketch.
+
+From:
+Choose the plane that the revolution will start at (it does not have to be the sketch plane, although it will default to this).
+
+Direction:
+The revolution can be set as in either direction, symmetric in both directions or asymmetric in the two directions.
+
+Distance:
+The distance of revolution can be set as:
+
+\begin{itemize}
+    \item Manual Angle: specify the numerical angle of revolution (for asymmetric extrusions you will need to specify a distance for each direction). You can click the arrow beside the input box to quickly measure dimensions, use an existing dimension for reference or use recently used values.
+    \item Full: a 360 degree revolution
+    \item To: select the plane or feature that the extrusion will end at. If the feature is has multiple possible termination points (such as the closest and furthest side of a cylinder), select Minimum Solution to end the revolution at the closest face of the feature.
+    \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
+\end{itemize}
+
+Output:
+Determines the output of the revolution, either:
+\begin{itemize}
+    \item Join: adds revolution to the selected solid
+    \item Cut: remvoes material from the selected solid
+    \item Intersect: keeps the intersection between the revolution and the selected solid
+    \item New Solid: creates the revolution as a new solid
+\end{itemize}
+
+\subsection{Sweep}
+Takes a 2D cross section and sweeps it across a path to create a pipe-like feature.
+
+Surface Mode:
+Instead of creating a solid object, you can set the sweep to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
+
+Profiles:
+These are the cross-sections which are to be sweep. Select them by clicking on any desired closed areas within a single sketch. They do not necessarily have to be connected but errors may occur if you try to sweep dispersed profiles along tricky paths. The
+
+Path:
+Choose the path (a 2D/3D curve or edge) for the profiles to follow. It does not necessarily have to intersect the profiles, but the path must intersect the profile plane.
+
+Behaviour:
+Determines how the profile follows the path:
+
+\begin{itemize}
+    \item Follow Path: the profile is swept along the path, where every cross section taken normal to the path stays constant. Adjust the twist and taper as necessary - 360 degree twist corresponds to one single twist, and positive/negative taper corresponds to a widening/narrowing of the sweep away from the start point.
+    \item Fixed: the profile is swept along the path, where the cross section taken parallel to profile plane stays constant. Twist and taper are not available.
+    \item Guide: 
+\end{itemize}
+
+
+Output:
+Determines the output of the sweep, either:
+\begin{itemize}
+    \item Join: adds sweep to the selected solid
+    \item Cut: remvoes material from the selected solid
+    \item Intersect: keeps the intersection between the sweep and the selected solid
+    \item New Solid: creates the sweep as a new solid
+\end{itemize}
+
+
+
+\subsection{Primitives}
+Primitives provide shortcuts to easily create basic features: a box, sphere, cylinder or torus. These features just reuse the Create features detailed above.
