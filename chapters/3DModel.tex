@@ -79,14 +79,17 @@ Determines the output of the revolution, either:
     \item New Solid: creates the revolution as a new solid
 \end{itemize}
 
-\subsection{Sweep}
+\subsubsection{Sweep}
 Takes a 2D cross section and sweeps it across a path to create a pipe-like feature.
 
 Surface Mode:
 Instead of creating a solid object, you can set the sweep to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
 
+Presets:
+-------------------
+
 Profiles:
-These are the cross-sections which are to be sweep. Select them by clicking on any desired closed areas within a single sketch. They do not necessarily have to be connected but errors may occur if you try to sweep dispersed profiles along tricky paths. The
+These are the cross-sections which are to be sweep. Select them by clicking on any desired closed areas within a single sketch. They do not necessarily have to be connected but errors may occur if you try to sweep dispersed profiles along tricky paths (i.e if it causes the sweep to self-intersect)
 
 Path:
 Choose the path (a 2D/3D curve or edge) for the profiles to follow. It does not necessarily have to intersect the profiles, but the path must intersect the profile plane.
@@ -97,7 +100,7 @@ Determines how the profile follows the path:
 \begin{itemize}
     \item Follow Path: the profile is swept along the path, where every cross section taken normal to the path stays constant. Adjust the twist and taper as necessary - 360 degree twist corresponds to one single twist, and positive/negative taper corresponds to a widening/narrowing of the sweep away from the start point.
     \item Fixed: the profile is swept along the path, where the cross section taken parallel to profile plane stays constant. Twist and taper are not available.
-    \item Guide: 
+    \item Guide: the profile is swept along a path in the same manner as Follow Path. A second guide rail is used to determine how the profile scales (either in one or both directions) along the path - it guides the outside of the sweep.
 \end{itemize}
 
 
@@ -109,6 +112,65 @@ Determines the output of the sweep, either:
     \item Intersect: keeps the intersection between the sweep and the selected solid
     \item New Solid: creates the sweep as a new solid
 \end{itemize}
+
+\subsubsection{Loft}
+Creates an object that transitions between sketches.
+
+Surface Mode:
+Instead of creating a solid object, you can set the loft to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
+
+Sections:
+These are the cross-sections that the loft will transition through. You need at least two profiles, however they do not have to be in parallel planes. You can also loft between two profiles on the same plane, which will create a flat (2D) feature. You can also loft to single points rather than sections by simply selecting a point.
+
+
+These are the cross-sections which are to be sweep. Select them by clicking on any desired closed areas within a single sketch. They do not necessarily have to be connected but errors may occur if you try to sweep dispersed profiles along tricky paths. The
+
+Path:
+Choose the path (a 2D/3D curve or edge) for the profiles to follow. It does not necessarily have to intersect the profiles, but the path must intersect the profile plane.
+
+Behaviour:
+Determines how the loft follows rails.
+
+\begin{itemize}
+    \item Rails: determines which points of the profile will connect to each other.
+    \item Centerline: determines how the center of the loft moves.
+    \item Area Loft: determines how the center of the loft moves, as well as the more control over intermediate cross sections.
+\end{itemize}
+
+Closed Loops and Tangent Faces:
+You can select the Closed Loop checkbox to join the last section to the first, creating a closed loop object.
+
+You can select the Tangent Faces checkbox to blend faces of the loft together which end up tangent with each other.
+
+Output:
+Determines the output of the sweep, either:
+\begin{itemize}
+    \item Join: adds sweep to the selected solid
+    \item Cut: remvoes material from the selected solid
+    \item Intersect: keeps the intersection between the sweep and the selected solid
+    \item New Solid: creates the sweep as a new solid
+\end{itemize}
+
+Conditions:
+Allows you to control whether the loft meets each profile at a tangent or any other angle. The weight of the sketch controls which conditions take priority over the others.
+
+Transition:
+-------
+
+\subsubsection{Coil}
+Takes profile and rotates it around an axis to form a helical, threaded or flat spiral. Threaded objects are achieved by rotating around an internal axis, while helices and spirals are created by revolving around an external axis.
+
+Presets:
+-------
+
+Behaviour:
+Controls the coil using a combination of pitch, height and revolution. Also allows you to create a spiral rather than a helix. You can also modify the number of rotations.
+
+\subsubsection{Emboss}
+Engraves or embosses text or other geometry onto a face. You can raise the geometry out of the face, cut the geometry away from the face or do a combination. You can also control the appearance of the emboss.
+
+\subsubsection{Decal}
+Wraps an image to a face. By selecting multiple faces or Automatic Face Chain, you can also wrap the image over multiple faces.
 
 
 
