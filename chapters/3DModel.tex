@@ -1,0 +1,229 @@
+\section{3D Modelling}
+
+This is where all the magic happens! Transform sketches into 3D features, surfaces and more.
+
+\subsection{Creating Features}
+
+$ $
+
+\subsubsection{Types of Features: At a Glance}
+\begin{itemize}
+\item Extrude: takes a cross-section from a 2D sketch and extrudes it into a prism.
+\item Revolve: takes a section from a 2D sketch and rotates it around a specified axis.
+\item Sweep: takes a cross-section from a 2D sketch and pulls it along a 2D/3D path to create a pipe-like solid.
+\item Loft: creates an object that transitions between multiple cross-sections.
+\item Coil: takes a profile and transforms it into a helical, spiraled or threaded object around a specified axis.
+\item Emboss: takes text or other geometry and engraves or embosses it onto an object.
+\item Decal: wraps an image to a face or multiple faces.
+\item Rib: adds ribbed or webbed support walls to an object.
+\item Import: allows you to import other CAD formats into your Modelling.
+\item Unwrap: unwraps a solid body, often of sheet metal, until it becomes flat.
+\item Derive: allows you to import an Inventor model to form the base of the current part, which you can then build on top of and is adaptive.
+\end{itemize}
+
+\subsubsection{Examples of When to use Features}
+\begin{itemize}
+    \item Extrude: you want to create basic objects, prisms and boxes.
+    \item Revolve: you have a solid of revolution that you would like to model, such as a sphere or torus.
+    \item Sweep: you would like to design an intricate slide, so you take the cross-section of the slide and sweep it around your 3D path.
+    \item Loft: you identify using stress analysis two major load areas in a solid body, one large area and one small area. You would like to add structure between these areas to reinforce it, so you use a loft to create a solid that transitions from the large area to small area.
+    \item Coil: you would like to manually model a spring, threaded screw or spiral.
+    \item Emboss: you would like to engrave your brand name and logo into your products.
+    \item Decal: you have a vehicle or other product that would be manufactured with an image printed on it.
+    \item Rib: you have a corner that you would like to reinforce by adding a diagonal brace.
+    \item Import: you have a model in a different format but want to use it as in Inventor part.
+    \item Unwrap: you have a sheet metal object and want to unwrap it to give you a clear idea of how to manufacture the part prior to applying bends.
+    \item Derive: you have a 3D modelled product and want to personalise it by adding an engraving. Insert the generic part with the Derive tool, and then add an your engraving. Changes to the generic part will update in the new part, but adding an engraving in the new part will not add it to the old part.
+\end{itemize}
+
+\subsubsection{Common Options}
+When using the Create tools above, most of them have options which allow you even more flexibility with 3D modelling:
+
+\begin{itemize}
+
+\item Surface Mode: Instead of creating a solid object, you can instead create a surface. For example, instead of a sweep creating a solid pipe it will create a hollow one.
+\item Profiles: the cross-sections you want to be turned into 3D features. You can often choose multiple, and they don't always have to be in the same sketch, plane or even the same orientation.
+\item Presets: if the Create tool has many different parameters, you can create presets to speed up your workflow
+\item Direction: direction can either be default, flipped, symmetric (same distance in each direction) or asymmetric (different distance in each direction)
+\item Solid body: a part can be comprised of several distinct bodies. When creating a feature, you can choose which solid body it will be incorporated into.
+\item Output (Boolean): the type of operation being performed. You can join the 3D feature to an existing solid body, cut the feature away from the body, take the intersection between the feature and body or create an entirely new solid.
+\item Numerical Values: when entering numerical values, you can often click the arrow beside the input box to quickly measure dimensions, access recently used values or tell Inventor to use an existing dimension as a reference (updating the dimension in the future will also update the feature).
+\item Keep Sketch Visible: under the hamburger menu on the top right of the popup dialog, you can specify to keep the sketch visible after executing the feature. This allows it to be reused.
+
+\end{itemize}
+
+\subsubsection{Additional Options: Extrusions}
+
+\begin{itemize}
+    \item From (Start Plane): you can choose the plane the extrusion will start at - it does not have to be the sketch plane!
+    \item Distance (End Plane): you can specify how far the profile extrudes by:
+    
+    \begin{itemize}
+        \item Manual Distance: specify the numerical distance of extrusion
+        \item Through All: the extrusion will pass through all objects (for cut or intersect extrusions only).
+        \item To: select the plane or feature that the extrusion will end at. For curved planes, Alternate Solution specifies to choose the closest side of the curved surface.
+        \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
+    \end{itemize}
+
+    \item Taper: the extrusion tapers slightly inwards or outwards
+
+\end{itemize}
+
+\subsubsection{Additional Options: Revolve}
+
+\begin{itemize}
+    \item From (Start Plane): you can choose the plane the revolution will start at - it does not have to be the sketch plane!
+    \item Distance (End Plane): you can specify how far the profile revolves by:
+    
+    \begin{itemize}
+        \item Manual Angle: specify the numerical angle of revolution.
+        \item Full: a 360 degree revolution.
+        \item To: select the plane or feature that the extrusion will end at. For curved planes, Minimum Solution specifies to choose the closest side.
+        \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
+    \end{itemize}
+
+\end{itemize}
+
+\subsubsection{Additional Options: Sweep}
+
+\begin{itemize}
+    \item Path: Choose the path (a 2D/3D curve or edge) for the profiles to follow. It does not necessarily have to intersect the profiles, but the path must intersect the profile plane.
+    \item Behaviour: Determines how the profile follows the path:
+    \begin{itemize}
+        \item Follow Path: the profile is swept along the path, where every cross section taken normal to the path stays constant. Adjust the twist and taper as necessary - 360 degree twist corresponds to one single twist, and positive/negative taper corresponds to a widening/narrowing of the sweep away from the start point.
+        \item Fixed: the profile is swept along the path, where the cross section taken parallel to profile plane stays constant. Twist and taper are not available.
+        \item Guide: the profile is swept along a path in the same manner as Follow Path. A second guide rail is used to determine how the profile scales (either in one or both directions) along the path - it guides the outside of the sweep.
+    \end{itemize}
+    
+\end{itemize}
+
+
+\subsubsection{Additional Options: Loft}
+
+\begin{itemize}
+    \item Sections: the cross-sections for the loft to transition through. You need at least two profiles, however they do not have to be in parallel planes. You can also loft between two profiles on the same plane, which will create a flat (2D) feature. You can also loft to single points rather than sections by simply selecting a point.
+    \item Rails: the paths for the loft to follow
+    \item Behaviour: how the rails are treated - either as outer rails or center lines.
+    \item Conditions: allows you to control what angle the loft meets the sections at (i.e tangent to the plane)
+    \item Closed Loops: joins the last section to the first section to form a closed loop object.
+    \item Merge Tangent Faces: blends together faces that end up tangent with each other.
+    \item Transition: 
+
+\end{itemize}
+
+\subsubsection{Additional Options: Coil}
+
+\begin{itemize}
+\item Axis: the axis the sketch will coil about. An internal axis will create a threaded object, and an external axis will create a helical object.
+\item Behaviour: controls the physical properties of the coil, such as pitch height and revolution. Allows you to create a spiral (no vertical displacement)
+\end{itemize}
+
+\subsubsection{Additional Options: Emboss}
+
+\begin{itemize}
+\item Behaviour: determines whether the emboss raises up or recesses into the object. There is a third option, Emboss/Engrave From Plane, which allows you to create an emboss/engraving where the depth changes. In this option, you can also transition from an emboss to an engraving, which is a very powerful tool.
+\item Taper: allows you to determine how the profile tapers (scales) when Emboss/Engrave From Plane is enabled.
+\item Appearance: allows you to automatically change the visual appearance of the emboss
+\item Wrap to Face: if embossing on a curved face, allows the emboss to follow the curve around. With this enabled, the emboss will always have the same depth at every location.
+\end{itemize}
+
+\subsubsection{Additional Options: Decal}
+
+\begin{itemize}
+    \item Automatic Face Chain: the image automatically wraps over adjacent faces.
+\end{itemize}
+
+\subsubsection{Additional Options: Derive}
+
+\begin{itemize}
+\item Derive Style: determines how the solid bodies of the derived part import.
+\item Status: allows you to select which elements of the part will be imported.
+\item Options: more options which, most importantly, allows you to scale and flip the part before importing.
+\end{itemize}
+
+\subsubsection{Additional Options: Import}
+
+\begin{itemize}
+\item Import Options: some file types have additional options (beside the "Open" button) which allows you to control the unit imported, change the subformat and more.
+\end{itemize}
+
+\subsubsection{Additional Options: Rib}
+
+\begin{itemize}
+\item Style: allows you to specify whether the ribs are created parallel or normal to the sketch plane. This is not important for basic ribs, but further customisation usually requires the style to be Normal to Sketch Plane
+\item Thickness: determines the thickness of the ribs. The direction this thickness refers to depends on the style.
+\item Hold Thickness (Normal to Sketch Plane > Draft): specifies whether the quoted thickness is taken from the top or bottom of the taper
+\item Draft Angle (Normal to Sketch Plane > Draft): adds a taper to the normal face of the rib.
+\item Boss: allows you to create ribs for bosses (which are like standoffs and usually have ribs on both sides).
+\item Distance: determines the thickness of the ribs in the other direction. 
+\end{itemize}
+
+\subsubsection{Additional Options: Unwrap}
+
+\begin{itemize}
+\item Auto Face Chain
+\item Alignment
+\item Behaviour
+\end{itemize}
+
+\subsection{Primitives}
+Primitives provide shortcuts to easily create basic features: a box, sphere, cylinder or torus. These features just reuse the Create features detailed above.
+
+\subsection{Modifying 3D Features}
+
+You can apply the following modifiers to change already existing 3D features. It is often better practice to use one of these tools, such as the Hole feature, instead of incorporating a hole into your sketch for the 3D features.
+
+\subsubsection{Modifiers}
+
+\begin{itemize}
+\item Hole: allows you to create holes of all kinds
+\item Fillet: rounds out sharp edges and corners
+\item Chamfer: applies a bevel to sharp edges and corners
+\item Shell: hollows out an object
+\item Draft: angles existing faces
+\item Thread: adds a thread to faces (including holes)
+\item Combine: takes two solid bodies and joins, cuts or intersects them (the same options as 3D Create Features)
+\item Thicken/Offset: thickens or thins faces 
+\item Split: Splits solids and faces apart along planes, sketches or surfaces
+\item Mark: adds text and other markings to faces. In essence, this splits the face and uses the border lines to show the marking
+\item Delete Face: removes selected faces, leaving the other faces on the 3D feature intact
+\item Move Bodies: allows you to move around solid bodies in relation to each other
+\item Bend Part: takes an object and bends it over a line
+\item Copy Object: duplicates objects
+\item Direct Edit: allows you to edit imported models
+\end{itemize}
+
+\subsection{Patterning 3D Features}
+
+$ $
+
+\subsection{Freeform 3D Modelling}
+
+$ $
+
+\subsection{Surfaces}
+
+$ $
+
+\subsection{Simplifying 3D Models}
+
+$ $
+
+\subsection{Plastic Parts}
+
+$ $
+
+\subsection{Insert}
+
+$ $
+
+\subsection{Harness}
+
+$ $
+
+\subsection{iParts}
+
+\subsection{The Shape Generator}
+Shape Generator is Autodesk Inventor's version of generative design, which is a powerful feature which takes a load scenario and creates highly optimised structural designs.
+
+\subsection{Feature Management}
