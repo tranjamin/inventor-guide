@@ -48,125 +48,149 @@ When using the Create tools above, most of them have options which allow you eve
 \item Solid body: a part can be comprised of several distinct bodies. When creating a feature, you can choose which solid body it will be incorporated into.
 \item Output (Boolean): the type of operation being performed. You can join the 3D feature to an existing solid body, cut the feature away from the body, take the intersection between the feature and body or create an entirely new solid.
 \item Numerical Values: when entering numerical values, you can often click the arrow beside the input box to quickly measure dimensions, access recently used values or tell Inventor to use an existing dimension as a reference (updating the dimension in the future will also update the feature).
+\item Keep Sketch Visible: under the hamburger menu on the top right of the popup dialog, you can specify to keep the sketch visible after executing the feature. This allows it to be reused.
 
 \end{itemize}
 
-\subsubsection{Extrude}
-Takes a 2D cross-section and extrudes it into a prism. 
-
-Profiles:
-These are the cross-sections which are to be extruded. Select them by clicking on any desired closed areas within a single sketch.
-
-From:
-Choose the plane that the extrusion will start at (it does not have to be the sketch plane, although it will default to this).
-
-Direction:
-The extrusion can be set as in either direction, symmetric in both directions or asymmetric in the two directions.
-
-Distance:
-The distance of extrusion can be set as:
+\subsubsection{Additional Options: Extrusions}
 
 \begin{itemize}
-    \item Manual Distance: specify the numerical distance of extrusion (for asymmetric extrusions you will need to specify a distance for each direction). You can click the arrow beside the input box to quickly measure dimensions, use an existing dimension for reference or use recently used values.
-    \item Through All: the extrusion will pass through all objects (also can be used for cut or intersect extrusions).
-    \item To: select the plane or feature that the extrusion will end at. If the feature is has multiple possible termination points (such as the closest and furthest side of a cylinder), select Alternate Solution to end the extrusion at the closest face of the feature
-    \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
+    \item From (Start Plane): you can choose the plane the extrusion will start at - it does not have to be the sketch plane!
+    \item Distance (End Plane): you can specify how far the profile extrudes by:
+    
+    \begin{itemize}
+        \item Manual Distance: specify the numerical distance of extrusion
+        \item Through All: the extrusion will pass through all objects (for cut or intersect extrusions only).
+        \item To: select the plane or feature that the extrusion will end at. For curved planes, Alternate Solution specifies to choose the closest side of the curved surface.
+        \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
+    \end{itemize}
+
+    \item Taper: the extrusion tapers slightly inwards or outwards
+
 \end{itemize}
 
-Taper:
-The extrusion tapers slightly inwards (negative values) or outwards (positive values).
-
-Settings:
-Additional settings can be accessed by the hamburger menu on the top right of the popup dialog. Of most note is the option to keep the sketch visible after extrusion - otherwise, the sketch will be consumed in the process.
-
-\subsubsection{Revolve}
-Revolves a section around a specified axis.
-
-Profiles:
-These are the cross-sections which are to be revolved. Select them by clicking on any desired closed areas within a single sketch.
-
-From:
-Choose the plane that the revolution will start at (it does not have to be the sketch plane, although it will default to this).
-
-Direction:
-The revolution can be set as in either direction, symmetric in both directions or asymmetric in the two directions.
-
-Distance:
-The distance of revolution can be set as:
+\subsubsection{Additional Options: Revolve}
 
 \begin{itemize}
-    \item Manual Angle: specify the numerical angle of revolution (for asymmetric extrusions you will need to specify a distance for each direction). You can click the arrow beside the input box to quickly measure dimensions, use an existing dimension for reference or use recently used values.
-    \item Full: a 360 degree revolution
-    \item To: select the plane or feature that the extrusion will end at. If the feature is has multiple possible termination points (such as the closest and furthest side of a cylinder), select Minimum Solution to end the revolution at the closest face of the feature.
-    \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
+    \item From (Start Plane): you can choose the plane the revolution will start at - it does not have to be the sketch plane!
+    \item Distance (End Plane): you can specify how far the profile revolves by:
+    
+    \begin{itemize}
+        \item Manual Angle: specify the numerical angle of revolution.
+        \item Full: a 360 degree revolution.
+        \item To: select the plane or feature that the extrusion will end at. For curved planes, Minimum Solution specifies to choose the closest side.
+        \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
+    \end{itemize}
+
 \end{itemize}
 
-\subsubsection{Sweep}
-Takes a 2D cross section and sweeps it across a path to create a pipe-like feature.
-
-Profiles:
-These are the cross-sections which are to be sweep. Select them by clicking on any desired closed areas within a single sketch. They do not necessarily have to be connected but errors may occur if you try to sweep dispersed profiles along tricky paths (i.e if it causes the sweep to self-intersect)
-
-Path:
-Choose the path (a 2D/3D curve or edge) for the profiles to follow. It does not necessarily have to intersect the profiles, but the path must intersect the profile plane.
-
-Behaviour:
-Determines how the profile follows the path:
+\subsubsection{Additional Options: Sweep}
 
 \begin{itemize}
-    \item Follow Path: the profile is swept along the path, where every cross section taken normal to the path stays constant. Adjust the twist and taper as necessary - 360 degree twist corresponds to one single twist, and positive/negative taper corresponds to a widening/narrowing of the sweep away from the start point.
-    \item Fixed: the profile is swept along the path, where the cross section taken parallel to profile plane stays constant. Twist and taper are not available.
-    \item Guide: the profile is swept along a path in the same manner as Follow Path. A second guide rail is used to determine how the profile scales (either in one or both directions) along the path - it guides the outside of the sweep.
+    \item Path: Choose the path (a 2D/3D curve or edge) for the profiles to follow. It does not necessarily have to intersect the profiles, but the path must intersect the profile plane.
+    \item Behaviour: Determines how the profile follows the path:
+    \begin{itemize}
+        \item Follow Path: the profile is swept along the path, where every cross section taken normal to the path stays constant. Adjust the twist and taper as necessary - 360 degree twist corresponds to one single twist, and positive/negative taper corresponds to a widening/narrowing of the sweep away from the start point.
+        \item Fixed: the profile is swept along the path, where the cross section taken parallel to profile plane stays constant. Twist and taper are not available.
+        \item Guide: the profile is swept along a path in the same manner as Follow Path. A second guide rail is used to determine how the profile scales (either in one or both directions) along the path - it guides the outside of the sweep.
+    \end{itemize}
+    
 \end{itemize}
 
-\subsubsection{Loft}
-Creates an object that transitions between sketches.
 
-Sections:
-These are the cross-sections that the loft will transition through. You need at least two profiles, however they do not have to be in parallel planes. You can also loft between two profiles on the same plane, which will create a flat (2D) feature. You can also loft to single points rather than sections by simply selecting a point.
-
-
-These are the cross-sections which are to be sweep. Select them by clicking on any desired closed areas within a single sketch. They do not necessarily have to be connected but errors may occur if you try to sweep dispersed profiles along tricky paths. The
-
-Path:
-Choose the path (a 2D/3D curve or edge) for the profiles to follow. It does not necessarily have to intersect the profiles, but the path must intersect the profile plane.
-
-Behaviour:
-Determines how the loft follows rails.
+\subsubsection{Additional Options: Loft}
 
 \begin{itemize}
-    \item Rails: determines which points of the profile will connect to each other.
-    \item Centerline: determines how the center of the loft moves.
-    \item Area Loft: determines how the center of the loft moves, as well as the more control over intermediate cross sections.
+    \item Sections: the cross-sections for the loft to transition through. You need at least two profiles, however they do not have to be in parallel planes. You can also loft between two profiles on the same plane, which will create a flat (2D) feature. You can also loft to single points rather than sections by simply selecting a point.
+    \item Rails: the paths for the loft to follow
+    \item Behaviour: how the rails are treated - either as outer rails or center lines.
+    \item Conditions: allows you to control what angle the loft meets the sections at (i.e tangent to the plane)
+    \item Closed Loops: joins the last section to the first section to form a closed loop object.
+    \item Merge Tangent Faces: blends together faces that end up tangent with each other.
+    \item Transition: 
+
 \end{itemize}
 
-Closed Loops and Tangent Faces:
-You can select the Closed Loop checkbox to join the last section to the first, creating a closed loop object.
+\subsubsection{Additional Options: Coil}
 
-You can select the Tangent Faces checkbox to blend faces of the loft together which end up tangent with each other.
+\begin{itemize}
+\item Axis: the axis the sketch will coil about. An internal axis will create a threaded object, and an external axis will create a helical object.
+\item Behaviour: controls the physical properties of the coil, such as pitch height and revolution. Allows you to create a spiral (no vertical displacement)
+\end{itemize}
 
-Conditions:
-Allows you to control whether the loft meets each profile at a tangent or any other angle. If you have multiple sections in a loft, you can also specify the lofts to be smooth with each other. The weight of the sketch controls how quickly the loft moves to the specified angle.
+\subsubsection{Additional Options: Emboss}
 
-Transition:
--------
+\begin{itemize}
+\item Behaviour: determines whether the emboss raises up or recesses into the object. There is a third option, Emboss/Engrave From Plane, which allows you to create an emboss/engraving where the depth changes. In this option, you can also transition from an emboss to an engraving, which is a very powerful tool.
+\item Taper: allows you to determine how the profile tapers (scales) when Emboss/Engrave From Plane is enabled.
+\item Appearance: allows you to automatically change the visual appearance of the emboss
+\item Wrap to Face: if embossing on a curved face, allows the emboss to follow the curve around. With this enabled, the emboss will always have the same depth at every location.
+\end{itemize}
 
-\subsubsection{Coil}
-Takes profile and rotates it around an axis to form a helical, threaded or flat spiral. Threaded objects are achieved by rotating around an internal axis, while helices and spirals are created by revolving around an external axis.
+\subsubsection{Additional Options: Decal}
 
-Presets:
--------
+\begin{itemize}
+    \item Automatic Face Chain: the image automatically wraps over adjacent faces.
+\end{itemize}
 
-Behaviour:
-Controls the coil using a combination of pitch, height and revolution. Also allows you to create a spiral rather than a helix. You can also modify the number of rotations.
+\subsubsection{Additional Options: Derive}
 
-\subsubsection{Emboss}
-Engraves or embosses text or other geometry onto a face. You can raise the geometry out of the face, cut the geometry away from the face or do a combination. You can also control the appearance of the emboss.
+\begin{itemize}
+\item Derive Style: determines how the solid bodies of the derived part import.
+\item Status: allows you to select which elements of the part will be imported.
+\item Options: more options which, most importantly, allows you to scale and flip the part before importing.
+\end{itemize}
 
-\subsubsection{Decal}
-Wraps an image to a face. By selecting multiple faces or Automatic Face Chain, you can also wrap the image over multiple faces.
+\subsubsection{Additional Options: Import}
 
+\begin{itemize}
+\item Import Options: some file types have additional options (beside the "Open" button) which allows you to control the unit imported, change the subformat and more.
+\end{itemize}
 
+\subsubsection{Additional Options: Rib}
+
+\begin{itemize}
+\item Style: allows you to specify whether the ribs are created parallel or normal to the sketch plane. This is not important for basic ribs, but further customisation usually requires the style to be Normal to Sketch Plane
+\item Thickness: determines the thickness of the ribs. The direction this thickness refers to depends on the style.
+\item Hold Thickness (Normal to Sketch Plane > Draft): specifies whether the quoted thickness is taken from the top or bottom of the taper
+\item Draft Angle (Normal to Sketch Plane > Draft): adds a taper to the normal face of the rib.
+\item Boss: allows you to create ribs for bosses (which are like standoffs and usually have ribs on both sides).
+\item Distance: determines the thickness of the ribs in the other direction. 
+\end{itemize}
+
+\subsubsection{Additional Options: Unwrap}
+
+\begin{itemize}
+\item Auto Face Chain
+\item Alignment
+\item Behaviour
+\end{itemize}
 
 \subsection{Primitives}
 Primitives provide shortcuts to easily create basic features: a box, sphere, cylinder or torus. These features just reuse the Create features detailed above.
+
+\subsection{Modifying 3D Features}
+
+You can apply the following modifiers to change already existing 3D features. It is often better practice to use one of these tools, such as the Hole feature, instead of incorporating a hole into your sketch for the 3D features.
+
+\subsubsection{Modifiers}
+
+\begin{itemize}
+\item Hole: allows you to create holes of all kinds
+\item Fillet: rounds out sharp edges and corners
+\item Chamfer: applies a bevel to sharp edges and corners
+\item Shell: hollows out an object
+\item Draft: angles existing faces
+\item Thread: adds a thread to faces (including holes)
+\item Combine: takes two solid bodies and joins, cuts or intersects them (the same options as 3D Create Features)
+\item Thicken/Offset: thickens or thins faces 
+\item Split: Splits solids and faces apart along planes, sketches or surfaces
+\item Mark: adds text and other markings to faces. In essence, this splits the face and uses the border lines to show the marking
+\item Delete Face: removes selected faces, leaving the other faces on the 3D feature intact
+\item Move Bodies: allows you to move around solid bodies in relation to each other
+\item Bend Part: takes an object and bends it over a line
+\item Copy Object: duplicates objects
+\item Direct Edit: allows you to edit imported models
+\end{itemize}
+
+\subsubsection
