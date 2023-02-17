@@ -3,13 +3,56 @@
 This is where all the magic happens! Transform sketches into 3D features, surfaces and more.
 
 \subsection{Creating Features}
-In order to create a feature, you need to have valid sketches. The following features can be created:
+
+$ $
+
+\subsubsection{Types of Features}
+\begin{itemize}
+\item Extrude: takes a cross-section from a 2D sketch and extrudes it into a prism.
+\item Revolve: takes a section from a 2D sketch and rotates it around a specified axis.
+\item Sweep: takes a cross-section from a 2D sketch and pulls it along a 2D/3D path to create a pipe-like solid.
+\item Loft: creates an object that transitions between multiple cross-sections.
+\item Coil: takes a profile and transforms it into a helical, spiraled or threaded object around a specified axis.
+\item Emboss: takes text or other geometry and engraves or embosses it onto an object.
+\item Decal: wraps an image to a face or multiple faces.
+\item Rib: adds ribbed or webbed support walls to an object.
+\item Import: allows you to import other CAD formats into your Modelling.
+\item Unwrap: unwraps a solid body, often of sheet metal, until it becomes flat.
+\item Derive: allows you to import an Inventor model to form the base of the current part, which you can then build on top of and is adaptive.
+\end{itemize}
+
+\subsubsection{Examples of When to use Features}
+\begin{itemize}
+    \item Extrude: you want to create basic objects, prisms and boxes.
+    \item Revolve: you have a solid of revolution that you would like to model, such as a sphere or torus.
+    \item Sweep: you would like to design an intricate slide, so you take the cross-section of the slide and sweep it around your 3D path.
+    \item Loft: you identify using stress analysis two major load areas in a solid body, one large area and one small area. You would like to add structure between these areas to reinforce it, so you use a loft to create a solid that transitions from the large area to small area.
+    \item Coil: you would like to manually model a spring, threaded screw or spiral.
+    \item Emboss: you would like to engrave your brand name and logo into your products.
+    \item Decal: you have a vehicle or other product that would be manufactured with an image printed on it.
+    \item Rib: you have a corner that you would like to reinforce by adding a diagonal brace.
+    \item Import: you have a model in a different format but want to use it as in Inventor part.
+    \item Unwrap: you have a sheet metal object and want to unwrap it to give you a clear idea of how to manufacture the part prior to applying bends.
+    \item Derive: you have a 3D modelled product and want to personalise it by adding an engraving. Insert the generic part with the Derive tool, and then add an your engraving. Changes to the generic part will update in the new part, but adding an engraving in the new part will not add it to the old part.
+\end{itemize}
+
+\subsubsection{Common Options}
+When using the Create tools above, most of them have options which allow you even more flexibility with 3D modelling:
+
+\begin{itemize}
+
+\item Surface Mode: Instead of creating a solid object, you can instead create a surface. For example, instead of a sweep creating a solid pipe it will create a hollow one.
+\item Profiles: the cross-sections you want to be turned into 3D features. You can often choose multiple, and they don't always have to be in the same sketch, plane or even the same orientation.
+\item Presets: if the Create tool has many different parameters, you can create presets to speed up your workflow
+\item Direction: direction can either be default, flipped, symmetric (same distance in each direction) or asymmetric (different distance in each direction)
+\item Solid body: a part can be comprised of several distinct bodies. When creating a feature, you can choose which solid body it will be incorporated into.
+\item Output (Boolean): the type of operation being performed. You can join the 3D feature to an existing solid body, cut the feature away from the body, take the intersection between the feature and body or create an entirely new solid.
+\item 
+
+\end{itemize}
 
 \subsubsection{Extrude}
 Takes a 2D cross-section and extrudes it into a prism. 
-
-Surface Mode:
-Instead of creating a prism, you can set the extrusion to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
 
 Profiles:
 These are the cross-sections which are to be extruded. Select them by clicking on any desired closed areas within a single sketch.
@@ -30,15 +73,6 @@ The distance of extrusion can be set as:
     \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
 \end{itemize}
 
-Output:
-Determines the output of the extrusion, either:
-\begin{itemize}
-    \item Join: adds extrusion to the selected solid
-    \item Cut: remvoes material from the selected solid
-    \item Intersect: keeps the intersection between the extrusion and the selected solid
-    \item New Solid: creates the extrusion as a new solid
-\end{itemize}
-
 Taper:
 The extrusion tapers slightly inwards (negative values) or outwards (positive values).
 
@@ -47,9 +81,6 @@ Additional settings can be accessed by the hamburger menu on the top right of th
 
 \subsubsection{Revolve}
 Revolves a section around a specified axis.
-
-Surface Mode:
-Instead of creating a solid feature, you can set the revolution to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
 
 Profiles:
 These are the cross-sections which are to be revolved. Select them by clicking on any desired closed areas within a single sketch.
@@ -70,23 +101,8 @@ The distance of revolution can be set as:
     \item To Next: the extrusion will end at the next feature or plane. Said feature or plane should entirely overlay the cross-section profile.
 \end{itemize}
 
-Output:
-Determines the output of the revolution, either:
-\begin{itemize}
-    \item Join: adds revolution to the selected solid
-    \item Cut: remvoes material from the selected solid
-    \item Intersect: keeps the intersection between the revolution and the selected solid
-    \item New Solid: creates the revolution as a new solid
-\end{itemize}
-
 \subsubsection{Sweep}
 Takes a 2D cross section and sweeps it across a path to create a pipe-like feature.
-
-Surface Mode:
-Instead of creating a solid object, you can set the sweep to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
-
-Presets:
--------------------
 
 Profiles:
 These are the cross-sections which are to be sweep. Select them by clicking on any desired closed areas within a single sketch. They do not necessarily have to be connected but errors may occur if you try to sweep dispersed profiles along tricky paths (i.e if it causes the sweep to self-intersect)
@@ -103,21 +119,8 @@ Determines how the profile follows the path:
     \item Guide: the profile is swept along a path in the same manner as Follow Path. A second guide rail is used to determine how the profile scales (either in one or both directions) along the path - it guides the outside of the sweep.
 \end{itemize}
 
-
-Output:
-Determines the output of the sweep, either:
-\begin{itemize}
-    \item Join: adds sweep to the selected solid
-    \item Cut: remvoes material from the selected solid
-    \item Intersect: keeps the intersection between the sweep and the selected solid
-    \item New Solid: creates the sweep as a new solid
-\end{itemize}
-
 \subsubsection{Loft}
 Creates an object that transitions between sketches.
-
-Surface Mode:
-Instead of creating a solid object, you can set the loft to create a surface instead, by selecting the relevant button on the top right of the popup dialog.
 
 Sections:
 These are the cross-sections that the loft will transition through. You need at least two profiles, however they do not have to be in parallel planes. You can also loft between two profiles on the same plane, which will create a flat (2D) feature. You can also loft to single points rather than sections by simply selecting a point.
@@ -141,15 +144,6 @@ Closed Loops and Tangent Faces:
 You can select the Closed Loop checkbox to join the last section to the first, creating a closed loop object.
 
 You can select the Tangent Faces checkbox to blend faces of the loft together which end up tangent with each other.
-
-Output:
-Determines the output of the sweep, either:
-\begin{itemize}
-    \item Join: adds sweep to the selected solid
-    \item Cut: remvoes material from the selected solid
-    \item Intersect: keeps the intersection between the sweep and the selected solid
-    \item New Solid: creates the sweep as a new solid
-\end{itemize}
 
 Conditions:
 Allows you to control whether the loft meets each profile at a tangent or any other angle. If you have multiple sections in a loft, you can also specify the lofts to be smooth with each other. The weight of the sketch controls how quickly the loft moves to the specified angle.
