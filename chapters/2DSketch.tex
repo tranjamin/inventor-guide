@@ -25,6 +25,7 @@ $ $
     \item You can "snap" your geometry to existing points. A green dot will signify you are placing your geometry on an existing point, and a yellow dot will signify you are placing your geometry along an existing curve. This is often useful to make sure that all your lines connect to form a closed shape.
     \item The above is a case of constraint inference (ref. Constraints), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding CTRL.
     \item When starting the Line command, you can easily create tangent or normal lines. Click your starting point on existing geometry, and then click and drag the starting point. The direction you drag determines whether the line will be tangential or normal.
+    \item Splines are very powerful tools that are commonly used. If you have created a spline using control vertices, you can move these vertices around to change the shape of the spline. If you hvae created a spline using interpolation points, you can either move around the interpolation points or adjust the "handles" of the spline - these are construction lines that appear when you click on the spline, and represent the tangent lines at the interpolation points.
     \item Existing 3D objects can sometimes obstruct your view of your sketch. You can either change the camera angle or Right Click > "Slice Graphics".
 \end{itemize}
 
@@ -138,11 +139,12 @@ To delete specific constraints, show constraints either by using F8 or selecting
 
 Sometimes constraints can be inferred while placing geometry. For example, drawing a line which is horizontal will create an inferred horizontal constraint, and likewise for constraints such as parallel constraints. If you find that a constraint is being inferred with the wrong geometry (for example if you want to a parallel constraint to one line but it infers a parallel constraint with another), you can first mouseover ("scrub") the desired constraint geometry. You can temporarily disable inferred constraints by holding CTRL when placing geometry.
 
-Inferred constraints can be persistent or non-persistent. Persistant constraints remain after the geometry is placed, however non-persistent constraints will not, and will only help you while placing geometry. 
+Inferred constraints can be persistent or non-persistent. Persistant constraints remain after the geometry is placed, however non-persistent constraints will not, and will only help you while placing geometry. In general, inferred constraints will appear as a small grey box when you are creating geometry. They will also either include yellow/green points (for coincident constraints) or solid lines (for other constraints). Any dotted lines that appear are NOT inferred constraints and are merely guide lines that will not persist (though otherwise they behave similarly).
 
 Usually, constraints will restrict you from freemoving geometry. For example, if you have two circles with a concentric constraint, moving one circle will also cause the other to move. When Relax Mode is enabled, geometry can be moved freely. Instead of also moving constrained geometry, any constraints which are broken will be deleted. In the above case, only the selected circle will move and the concentric constraint will be removed. You can also choose to only enable Relax Mode for specific constraint types.
 
 Settings for constraints can be modified under "Constraint Settings" under the "Constrain" tab. You can:
+
 
 \begin{enumerate}
     \item Under "Inference", turn all inferred constraints on/off
@@ -150,6 +152,16 @@ Settings for constraints can be modified under "Constraint Settings" under the "
     \item Under "Inference", choose to infer parallel/perpendicular constraints over horizontal/vertical constraints, when there is an option
     \item Enable "Relax Mode"
 \end{enumerate}
+
+You can also edit the scope at which constraints are inferred. Under "Constrain > Constraint Inference Scope", the three options are:
+
+\begin{enumerate}
+    \item Geometry in current command: constraints will only be inferred with the same type of geometry (e.g line, arc, rectangle). Remember that guide lines will still appear with reference to other geometry types.
+    \item All geometry: constraints will be inferred with all geometry, regardless of type or location.
+    \item Select: you can choose which pieces of geometry constraints can be inferred with.
+
+It is also possible to realign a coordinate system, either by relocating the origin or the two axes. Select "Constrain > Edit Coordinate System", and then relocate either the origin by clicking on a new vertex or the axis/axes by clicking on new edges. To flip the direction of the axes, right click and select the appropriate option. You may need to move the camera in order to do this, and remember that your sketch needs to be below any reference objects in the model browser. 
+
 
 \subsubsection{Automatic Dimensions}
 By selecting "Automatic Dimensions and Constraints" under the "Constrain" tab, dimensions and constraints can be added to fully paramaterise the sketch.
@@ -185,5 +197,4 @@ If you have a large number of points that you want to copy into modelling softwa
 \subsubsection{Inserting AutoCAD Files}
 If you use AutoCAD to create drawings, you can import 2D drawings into a sketch here. This should work for any DWG or DXF file.
 
-\subsection{Parameters}
-Ref. Parameters
+\subsection{Managing 2D Sketches}
