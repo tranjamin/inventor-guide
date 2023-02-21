@@ -18,7 +18,7 @@ $ $
     \item The above is a case of constraint inference (ref. Constraints), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding CTRL.
     \item When starting the Line command, you can easily create tangent or normal lines. Click your starting point on existing geometry, and then click and drag the starting point. The direction you drag determines whether the line will be tangential or normal.
     \item Splines are very powerful tools that are commonly used. If you have created a spline using control vertices, you can move these vertices around to change the shape of the spline. If you hvae created a spline using interpolation points, you can either move around the interpolation points or adjust the "handles" of the spline - these are construction lines that appear when you click on the spline, and represent the tangent lines at the interpolation points.
-    \item Existing 3D objects can sometimes obstruct your view of your sketch. You can either change the camera angle or Right Click > "Slice Graphics".
+    \item Existing 3D objects can sometimes obstruct your view of your sketch. You can either change the camera angle or \appcommand{Right Click \textgreater Slice Graphics}.
 \end{itemize}
 
 \subsubsection{Types of Geometry}
@@ -26,7 +26,7 @@ $ $
 When selecting the start point of a line, you can click and drag on existing geometry to create a line which is tangent/perpendicular (see "Constraints"). There are several types of geometry which can be placed:
 
 \begin{itemize}
-\item Line: Creates either simple lines or joined segments of lines and arcs. Click on your starting point, and then your endpoint (to create a line) or click and drag your starting point (to create a curve). Finish the command by double clicking on the final endpoint or clicking ESC.
+\item Line: Creates either simple lines or joined segments of lines and arcs. Click on your starting point, and then your endpoint (to create a line) or click and drag your starting point (to create a curve). Finish the command by double clicking on the final endpoint or clicking \hotkey{ESC}.
 \item Spline: Creates a spline (parametric curve), either by specifying points for the spline to pass through or control vertices. 
 \item Equation Curve: Creates a curve based on a mathematical equation. The equation can be explicit or parametric, and use polar or cartesian coordinates.
 \item Bridge Curve: Creates a curve that joins two line/curve endpoints together such that the bridge curve is tangent to both segments (ref. G2 Smooth Constraint).
@@ -44,13 +44,13 @@ When selecting the start point of a line, you can click and drag on existing geo
 \end{itemize}
 
 \subsubsection{Projecting Geometry}
-The Project Geometry feature is a very powerful tool which allows you to copy existing geometry, whether 2D or 3D, to your current sketch. Try to always project geometry which is above the current sketch in the model browser. Generally, projected geometry is adaptive, which means changes to the reference geometry will be reflected in your sketch. To prevent this, hold down CTRL when projecting geometry, right click on the geometry and select "Break Link", or manually delete the Project Geometry Constraint (ref. Constraints). There are the following options:
+The Project Geometry feature is a very powerful tool which allows you to copy existing geometry, whether 2D or 3D, to your current sketch. Try to always project geometry which is above the current sketch in the model browser. Generally, projected geometry is adaptive, which means changes to the reference geometry will be reflected in your sketch. To prevent this, hold down CTRL when projecting geometry, right click on the geometry and select \appcommand{Break Link}, or manually delete the Project Geometry Constraint (ref. Constraints). There are the following options:
 
 \begin{itemize}
 \item Project Geometry: Projects 2D sketches, 3D sketches, object edges and more into your sketch.
 \item Project Cut Edges: Projects the cross-section that the sketch plane makes with any object. Can also be used to project the intersection of the sketch plane with a composite feature or surface.
 \item Project Flat Pattern: Used predominately in sheet metal projects, unfolds an object into the plane.
-\item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see "3D Sketches" or "3D Model > Surface".
+\item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see "3D Sketches" or \appcommand{3D Model \textgreater Surface}.
 \item Project DWG Geometry:  ------------------------------
 \end{itemize}
 
@@ -74,8 +74,8 @@ The Modify tab allows you to make changes to geometry you have already created. 
 
 \subsubsection{Tips and Tricks}
 \begin{itemize}
-\item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error) by clicking the ">>" button on the popup dialog of the modify tools and changing the settings.
-\item By checking the "Precise Input" box on the popup dialog of many of these tools, you can specify the exact coordinates with which you want to modify your geometry with.
+\item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error) by clicking the \appcommand{\textgreater \textgreater} button on the popup dialog of the modify tools and changing the settings.
+\item By checking the \fcolorbox{black}{lightgray}{Precise Input} box on the popup dialog of many of these tools, you can specify the exact coordinates with which you want to modify your geometry with.
 \item You can choose whether an offset geometry adapts to changes in the original geometry by right clicking when using the Offset tool and toggling "Constrain Offset". Under these options, you can also change whether Inventor offsets entire loops or single line/curve segments.
 \end{itemize}
 
@@ -92,9 +92,9 @@ Dimensions allow to you to display and specify the length or angle between two p
 \item A line and curve/point: the distance between them in the direction orthogonal to that of the line
 \end{enumerate}
 
-Two types of dimensions can be created: regular dimensions and driven dimensions. Driven dimensions are dimensions which are redundant (already specified by existing constraints/dimensions), and thus are only used to display measurements. They are signified by brackets. On the other hand, regular dimensions can be edited to change the geometry. Regular dimensions can be made and unmade driven by selecting "Format > Driven Dimension" or by right clicking and selecting "Driven Dimension".
+Two types of dimensions can be created: regular dimensions and driven dimensions. Driven dimensions are dimensions which are redundant (already specified by existing constraints/dimensions), and thus are only used to display measurements. They are signified by brackets. On the other hand, regular dimensions can be edited to change the geometry. Regular dimensions can be made and unmade driven by selecting \appcommand{Format \textgreater Driven Dimension} or by right clicking and selecting \appcommand{Driven Dimension}.
 
-Dimensions can be edited by double clicking on the dimension. The formatting of the dimension can be modified by right clicking and selecting "Dimension Properties", allowing you to specify naming, precision, and tolerance type for both the individual dimension and the default settings.
+Dimensions can be edited by double clicking on the dimension. The formatting of the dimension can be modified by right clicking and selecting \appcommand{Dimension Properties}, allowing you to specify naming, precision, and tolerance type for both the individual dimension and the default settings.
 
 
 \subsubsection{Types of Constraints}
@@ -116,14 +116,14 @@ Dimensions can be edited by double clicking on the dimension. The formatting of 
 \end{enumerate}
 
 \subsubsection{Adding Constraints}
-Constraints can be added through the "Constrain" tab. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
+Constraints can be added through the \appcommand{Constrain} tab. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
 
 \subsubsection{Viewing and Editing Constraints}
-All constraints can be viewed by right clicking on the workspace and selecting "Show All Constraints" or using the F8 hotkey. Constraints can be hidden by right clicking on the workspace and selecting "Hide All Constraints" or using the F9 hotkey.
+All constraints can be viewed by right clicking on the workspace and selecting \appcommand{Show All Constraints} or using the F8 hotkey. Constraints can be hidden by right clicking on the workspace and selecting \appcommand{Hide All Constraints} or using the F9 hotkey.
 
-To toggle the visibility of a selected geometry's constraints, click on the "Show Constraints" icon under the "Constrain" tab in the ribbon.
+To toggle the visibility of a selected geometry's constraints, click on the \appcommand{Show Constraints} icon under the \appcommand{Constrain} tab in the ribbon.
 
-To delete all constraints from geometry, select the desired geometry, press right click and select "Delete Constraints".
+To delete all constraints from geometry, select the desired geometry, press right click and select \appcommand{Delete Constraints}.
 
 To delete specific constraints, show constraints either by using F8 or selecting the parent geometry, click on the respective constraint icon beside the geometry and press DEL.
 
@@ -135,36 +135,36 @@ Inferred constraints can be persistent or non-persistent. Persistant constraints
 
 Usually, constraints will restrict you from freemoving geometry. For example, if you have two circles with a concentric constraint, moving one circle will also cause the other to move. When Relax Mode is enabled, geometry can be moved freely. Instead of also moving constrained geometry, any constraints which are broken will be deleted. In the above case, only the selected circle will move and the concentric constraint will be removed. You can also choose to only enable Relax Mode for specific constraint types.
 
-Settings for constraints can be modified under "Constraint Settings" under the "Constrain" tab. You can:
+Settings for constraints can be modified under \appcommand{Constrain \textgreater Constraint Settings} You can:
 
 
 \begin{enumerate}
-    \item Under "Inference", turn all inferred constraints on/off
-    \item Under "Inference", turn specific inferred constraints on/off, such as turning off any inferred horizontal constraints
-    \item Under "Inference", choose to infer parallel/perpendicular constraints over horizontal/vertical constraints, when there is an option
-    \item Enable "Relax Mode"
+    \item Under \appcommand{Inference}, turn all inferred constraints on/off
+    \item Under \appcommand{Inference}, turn specific inferred constraints on/off, such as turning off any inferred horizontal constraints
+    \item Under \appcommand{Inference}, choose to infer parallel/perpendicular constraints over horizontal/vertical constraints, when there is an option
+    \item Enable Relax Mode
 \end{enumerate}
 
-You can also edit the scope at which constraints are inferred. Under "Constrain > Constraint Inference Scope", the three options are:
+You can also edit the scope at which constraints are inferred. Under \appcommand{Constrain \textgreater Constraint Inference Scope}, the three options are:
 
 \begin{enumerate}
     \item Geometry in current command: constraints will only be inferred with the same type of geometry (e.g line, arc, rectangle). Remember that guide lines will still appear with reference to other geometry types.
     \item All geometry: constraints will be inferred with all geometry, regardless of type or location.
     \item Select: you can choose which pieces of geometry constraints can be inferred with.
 
-It is also possible to realign a coordinate system, either by relocating the origin or the two axes. Select "Constrain > Edit Coordinate System", and then relocate either the origin by clicking on a new vertex or the axis/axes by clicking on new edges. To flip the direction of the axes, right click and select the appropriate option. You may need to move the camera in order to do this, and remember that your sketch needs to be below any reference objects in the model browser. 
+It is also possible to realign a coordinate system, either by relocating the origin or the two axes. Select \appcommand{Constrain \textgreater Edit Coordinate System}, and then relocate either the origin by clicking on a new vertex or the axis/axes by clicking on new edges. To flip the direction of the axes, right click and select the appropriate option. You may need to move the camera in order to do this, and remember that your sketch needs to be below any reference objects in the model browser. 
 
 
 \subsubsection{Automatic Dimensions}
-By selecting "Automatic Dimensions and Constraints" under the "Constrain" tab, dimensions and constraints can be added to fully paramaterise the sketch.
+By selecting \appcommand{Constrain \textgreater Automatic Dimensions and Constraints}, dimensions and constraints can be added to fully paramaterise the sketch.
 
 \subsection{Formatting}
 
-The graphic display of geometry can be adjusted under the "Format" tab. Construction formatting identifies geometry as being a scaffold to the sketch and not part of the final product, such as radius lines. These are still visible and can be dimensioned/constrained, however cannot be used for extrusions or any other 3D feature. Some shapes, such as center point rectangles, automatically come with construction lines, and in order to use these lines for 3D features it must be disabled in the same way construction lines are enabled.
+The graphic display of geometry can be adjusted under \appcommand{Format}. Construction formatting identifies geometry as being a scaffold to the sketch and not part of the final product, such as radius lines. These are still visible and can be dimensioned/constrained, however cannot be used for extrusions or any other 3D feature. Some shapes, such as center point rectangles, automatically come with construction lines, and in order to use these lines for 3D features it must be disabled in the same way construction lines are enabled.
 
 Centerline formatting signifies a line being a symmetric center of geometry, and behaves in the same way as construction lines. Center points have the same philosophy.
 
-Geometry can also be custom formatted by changing the pattern, colour and weight. These custom formats can be turned on/off by clicking "Show Format" under the "Format" tab.
+Geometry can also be custom formatted by changing the pattern, colour and weight. These custom formats can be turned on/off by clicking \appcommand{Format \textgreater Show Format}.
 
 \subsection{Layout}
 
@@ -181,7 +181,7 @@ Sketch blocks are similar to object grouping in Microsoft Office; it allows you 
 $ $
 
 \subsubsection{Inserting Images}
-Images can be inserted into a 2D sketch under "Insert > Image", and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the "3D Sketch" section!
+Images can be inserted into a 2D sketch under \appcommand{Insert \textgreater Image}, and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the "3D Sketch" section!
 
 \subsubsection{Inserting Points Spreadsheets}
 If you have a large number of points that you want to copy into modelling software - such as from point cloud scanners - your best option is to import it via an excel spreadsheet. Your first row should contain only your units specification, your second row should contain the headings x, y and (optionally) z. Each subsequent row should represent the coordinates of one point.
