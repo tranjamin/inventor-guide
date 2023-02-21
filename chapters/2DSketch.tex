@@ -1,17 +1,18 @@
 \section{2D Sketches}
 
-2D Sketching is one of the most fundamental parts of Autodesk Inventor, providing the baseline geometry for creating 3D features. They are used everywhere, from extrusion cross-sections to guide rails to surface boundaries.
+2D sketching is one of the most fundamental parts of Autodesk Inventor. A 2D sketch is essentially a collection of pieces of geometry, and are usually used as building blocks to create 3D features.
 
 \subsection{Creating a Sketch}
 
 2D sketches can be created in any plane or flat surface. There are many different ways to create a sketch, but the easiest by selecting 3D Model > Sketch > Start 2D Sketch" and then clicking on the desired plane or flat surface.
+
 \subsection{Adding Geometry}
 
 $ $
 
 \subsubsection{Tips and Tricks for Adding Geometry}
 \begin{itemize}
-    \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press "Tab" to specify coordinates or switch between multiple dimensions.
+    \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press Tab to specify coordinates or switch between multiple dimensions.
     \item The bottom right of your workspace will display a lot of useful imformation when creating geometry, such as coordinate positions, deltas, and dimensions.
     \item You can "snap" your geometry to existing points. A green dot will signify you are placing your geometry on an existing point, and a yellow dot will signify you are placing your geometry along an existing curve. This is often useful to make sure that all your lines connect to form a closed shape.
     \item The above is a case of constraint inference (ref. Constraints), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding CTRL.
@@ -25,7 +26,7 @@ $ $
 When selecting the start point of a line, you can click and drag on existing geometry to create a line which is tangent/perpendicular (see "Constraints"). There are several types of geometry which can be placed:
 
 \begin{itemize}
-\item Line: Creates either simple lines or joined segments of lines and arcs. Click on your starting point, and then your endpoint (to create a line) or click and drag your starting point (to create a curve). Finish the command by double clicking on the final endpoint or click ESC.
+\item Line: Creates either simple lines or joined segments of lines and arcs. Click on your starting point, and then your endpoint (to create a line) or click and drag your starting point (to create a curve). Finish the command by double clicking on the final endpoint or clicking ESC.
 \item Spline: Creates a spline (parametric curve), either by specifying points for the spline to pass through or control vertices. 
 \item Equation Curve: Creates a curve based on a mathematical equation. The equation can be explicit or parametric, and use polar or cartesian coordinates.
 \item Bridge Curve: Creates a curve that joins two line/curve endpoints together such that the bridge curve is tangent to both segments (ref. G2 Smooth Constraint).
