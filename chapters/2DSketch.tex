@@ -4,6 +4,8 @@
 
 \section{2D Sketches: Key Takeaways}
 \begin{itemize}
+\cbstart
+\cbcolor{ForestGreen}
 \item Use dimensions or constraints to ensure your sketch is fully constrained. To make this faster, utilise snapping geometry to points and using inferred constraints.
 \item Use \hotkey{F8} and \hotkey{F9} to show and hide your constraints. It makes it very easy to delete unwanted constraints.
 \item The automatic dimension tool will automatically create all the dimensions you could need.
@@ -14,16 +16,22 @@
 \item If you find you are getting confused with complex sketches, you can change the formatting of the shapes.
 \item You can group pieces of geometry into sketch blocks to move around as one.
 \item Inventor allows you to analyse the geometric properties of the sections of your sketches through \appcommand{Region Properties}.
-
+\cbend
 \end{itemize}
 
 \section{Creating a Sketch}
 
-2D sketches can be created in any plane or flat surface. There are many different ways to create a sketch, but the easiest by selecting \appcommand{3D Model \textgreater Sketch \textgreater Start 2D Sketch} and then clicking on the desired plane or flat surface.
+\cbstart
+\cbcolor{ForestGreen}
 
+2D sketches can be created in any plane or flat surface. There are many different ways to create a sketch, but the easiest by selecting \appcommand{3D Model \textgreater Sketch \textgreater Start 2D Sketch} and then clicking on the desired plane or flat surface.
+\cbend
 \section{Adding Geometry}
 
 \subsection{Types of Geometry}
+
+\cbstart
+\cbcolor{ForestGreen}
 
 There are several types of geometry which can be placed:
 
@@ -42,10 +50,15 @@ There are several types of geometry which can be placed:
 \item Text: Creates text as geometry, which can be further extruded, swept, etc. Various formatting options can be adjusted in the popup dialog.
 \item Geometry Text: Creates text that lies along lines or simple curves. Cannot be used for more complex geometries such as splines.
 \item Point: Creates points.
+\cbend
 
 \end{itemize}
 
 \subsection{Tips and Tricks for Adding Geometry}
+
+\cbstart
+\cbcolor{ForestGreen}
+
 \begin{itemize}
     \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press Tab to specify coordinates or switch between multiple dimensions. You can change the coordinate type (for example, absolute vs relative) by \appcommand{Right Click \textgreater Coordinate Type}.
     \item The bottom right of your workspace will display a lot of useful information when creating geometry, such as coordinate positions, deltas, and dimensions.
@@ -55,7 +68,13 @@ There are several types of geometry which can be placed:
     \item Splines are very powerful tools that are commonly used. If you have created a spline using control vertices, you can move these vertices around to change the shape of the spline. If you hvae created a spline using interpolation points, you can either move around the interpolation points or adjust the "handles" of the spline - these are construction lines that appear when you click on the spline, and represent the tangent lines at the interpolation points.
 \end{itemize}
 
+\cbend
+
 \subsection{Projecting Geometry}
+
+\cbstart
+\cbcolor{ForestGreen}
+
 The Project Geometry feature is a very powerful tool which allows you to copy existing geometry, whether 2D or 3D, to your current sketch. Try to always project geometry which is above the current sketch in the model browser. Generally, projected geometry is adaptive, which means changes to the reference geometry will be reflected in your sketch. To prevent this, hold down \hotkey{CTRL} when projecting geometry, right click on the geometry and select \appcommand{Break Link}, or manually delete the Project Geometry Constraint (\hyperref[chap:constraints]{ref. Constraints}). There are the following options:
 
 \begin{itemize}
@@ -66,10 +85,21 @@ The Project Geometry feature is a very powerful tool which allows you to copy ex
 \item Project DWG Geometry:  ------------------------------
 \end{itemize}
 
+\cbend
+
 \section{Geometry Patterns}
+
+\cbstart
+\cbcolor{ForestGreen}
+
 Inventor allows you to duplicate geometries to streamline your work. Geometry can be mirrored or repeated in a circular or rectangular pattern. The patterns are associative, so changes to any one of the object instances will change the entire pattern.
 
+\cbend
+
 \section{Modifying Existing Geometry}
+
+\cbstart
+\cbcolor{ForestGreen}
 The Modify tab allows you to make changes to geometry you have already created. You can:
 
 \begin{itemize}
@@ -83,19 +113,29 @@ The Modify tab allows you to make changes to geometry you have already created. 
 \item Stretch certain geometry out
 \item Offset geometry by creating a slightly larger or smaller copy.
 \end{itemize}
+\cbend
 
 \subsection{Tips and Tricks}
+\cbstart
+\cbcolor{BurntOrange}
 \begin{itemize}
 \item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error) by clicking the \appcommand{\textgreater \textgreater} button on the popup dialog of the modify tools and changing the settings.
 \item By checking the \fcolorbox{black}{lightgray}{Precise Input} box on the popup dialog of many of these tools, you can specify the exact coordinates with which you want to modify your geometry with.
 \item You can choose whether an offset geometry adapts to changes in the original geometry by right clicking when using the Offset tool and toggling \appcommand{Constrain Offset}. Under these options, you can also change whether Inventor offsets entire loops or single line/curve segments.
 \end{itemize}
+\cbend
 
 \section{Constraints and Dimensions}
 \label{chap:constraints}
+
+\cbstart
+\cbcolor{ForestGreen}
 Constraints and dimensions determine the relationships between geometries. If a sketch is not fully constrained, it means that you can freely move it around by simply clicking and dragging. We recommend that, in general, you fully constrain all sketches. The bottom right of your workspace will tell you how many more dimensions/constraints you would need to achieve this.
 
+\cbend
+
 \subsection{Dimensions}
+\cbstart
 Dimensions allow to you to display and specify the length or angle between two pieces of geometry. Dimensions can also be added when creating geometry, by pressing \hotkey{Tab} to toggle between possible dimensions. The following dimensions can be created (noting that curves are usually dimensioned by the center point):
 
 \begin{enumerate}
@@ -108,8 +148,11 @@ Two types of dimensions can be created: regular dimensions and driven dimensions
 
 Dimensions can be edited by double clicking on the dimension. The formatting of the dimension can be modified by \appcommand{Right Click \textgreater Dimension Properties}, allowing you to specify naming, precision, and tolerance type for both the individual dimension and the default settings.
 
+\cbend
 
 \subsection{Types of Constraints}
+
+\cbstart
 
 Constraints allow you to set relationships between two pieces of geometry. The types of constraints are:
 
@@ -129,10 +172,14 @@ Constraints allow you to set relationships between two pieces of geometry. The t
 \item Project Geometry: essentially a fixed constraint, it cannot be added to geometry but instead is automatically applied to any projected geometry. If you want to edit projected geometry, you need to remove these constraints.
 \end{enumerate}
 
-\subsection{Adding Constraints}
-Constraints can be added through the \appcommand{Constrain} tab. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
+\cbend
 
+\subsection{Adding Constraints}
+\cbstart
+Constraints can be added through the \appcommand{Constrain} tab. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
+\cbend
 \subsection{Viewing and Editing Constraints}
+\cbstart
 All constraints can be viewed by right clicking on the workspace and selecting \appcommand{Show All Constraints} or using the \hotkey{F8} hotkey. Constraints can be hidden by right clicking on the workspace and selecting \appcommand{Hide All Constraints} or using the \hotkey{F9} hotkey.
 
 To toggle the visibility of a selected geometry's constraints, click on the \appcommand{Show Constraints} icon under the \appcommand{Constrain} tab in the ribbon.
@@ -140,8 +187,11 @@ To toggle the visibility of a selected geometry's constraints, click on the \app
 To delete all constraints from geometry, select the desired geometry, press right click and select \appcommand{Delete Constraints}.
 
 To delete specific constraints, show constraints either by using F8 or selecting the parent geometry, click on the respective constraint icon beside the geometry and press DEL.
-
+\cbend
 \subsection{Constraint Inference, Relax Mode and Settings}
+
+\cbstart
+\cbcolor{Maroon}
 
 Sometimes constraints can be inferred while placing geometry. For example, drawing a line which is horizontal will create an inferred horizontal constraint, and likewise for constraints such as parallel constraints. If you find that a constraint is being inferred with the wrong geometry (for example if you want to a parallel constraint to one line but it infers a parallel constraint with another), you can first mouseover ("scrub") the desired constraint geometry. You can temporarily disable inferred constraints by holding \hotkey{CTRL} when placing geometry.
 
@@ -155,11 +205,13 @@ Settings for constraints can be modified under \appcommand{Constrain \textgreate
 \begin{enumerate}
     \item Under \appcommand{Inference}, turn all inferred constraints on/off
     \item Under \appcommand{Inference}, turn specific inferred constraints on/off, such as turning off any inferred horizontal constraints
-    \item Under \appcommand{Inference}, choose to infer parallel/perpendicular constraints over horizontal/vertical constraints, when there is an option
+    \item Under \appcommand{Inference}, choose to infer parallel/perpendicular constraints over horizontal / vertical constraints, when there is an option
     \item Enable Relax Mode
 \end{enumerate}
 
-You can also edit the scope at which constraints are inferred. Under \appcommand{Constrain \textgreater Constraint Inference Scope}, the three options are:
+You can also edit the scope at which constraints are inferred. Under 
+
+\appcommand{Constrain \textgreater Constraint Inference Scope}, the three options are:
 
 \begin{enumerate}
     \item Geometry in current command: constraints will only be inferred with the same type of geometry (e.g line, arc, rectangle). Remember that guide lines will still appear with reference to other geometry types.
@@ -167,12 +219,20 @@ You can also edit the scope at which constraints are inferred. Under \appcommand
     \item Select: you can choose which pieces of geometry constraints can be inferred with.
 
 It is also possible to realign a coordinate system, either by relocating the origin or the two axes. Select \appcommand{Constrain \textgreater Edit Coordinate System}, and then relocate either the origin by clicking on a new vertex or the axis/axes by clicking on new edges. To flip the direction of the axes, right click and select the appropriate option. You may need to move the camera in order to do this, and remember that your sketch needs to be below any reference objects in the model browser. 
-
+\cbend
 
 \subsection{Automatic Dimensions}
+\cbstart
+\cbcolor{ForestGreen}
+
 By selecting \appcommand{Constrain \textgreater Automatic Dimensions and Constraints}, dimensions and constraints can be added to fully paramaterise the sketch. This is a very powerful tool!
 
+\cbend
+
 \section{Formatting}
+
+\cbstart
+\cbcolor{BurntOrange}
 
 The graphic display of geometry can be adjusted under \appcommand{Format}. Construction formatting identifies geometry as being a scaffold to the sketch and not part of the final product, such as radius lines. These are still visible and can be dimensioned/constrained, however cannot be used for extrusions or any other 3D feature. Some shapes, such as center point rectangles, automatically come with construction lines, and in order to use these lines for 3D features it must be disabled in the same way construction lines are enabled.
 
@@ -180,26 +240,49 @@ Centerline formatting signifies a line being a symmetric center of geometry, and
 
 Geometry can also be custom formatted by changing the pattern, colour and weight. These custom formats can be turned on/off by clicking \appcommand{Format \textgreater Show Format}.
 
+\cbend
 \section{Layout}
 
 \subsection{Assembly and Component Layouts}
+\cbstart
+\cbcolor{Maroon}
+
 This is part of a more complex feature of Inventor which comprises of creating hierarchies of assemblies, components and parts. In short, the \appcommand{Make Part} and \appcommand{Make Components} features allows you to import 2D sketches into assemblies as layout parts. This is useful because you can create 3D features in the assembly without changing the layout file, and as such these files can be used concurrently for multiple projects.
 
+\cbend
+
 \subsection{Sketch Blocks}
+
+\cbstart
+\cbcolor{BurntOrange}
 Sketch blocks are similar to object grouping in Microsoft Office; it allows you to constrain portions of sketches to be fixed relative to each other, and instead of moving each piece of individual geometry the entire block moves. This is especially useful if you copy and paste a lot of sketch data from other applications or do a lot of sketching over images - it removes the need to constrain every line and curve. Sketch blocks can be created under \appcommand{Layout \textgreater Create Block}
+
+\cbend
 
 \section{Insert}
 
 \subsection{Inserting Images}
+\cbstart
+\cbcolor{ForestGreen}
 Images can be inserted into a 2D sketch under \appcommand{Insert \textgreater Image}, and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the \hyperref[section: 3D Sketches]{3D Sketch} section!
 
+\cbend
+
 \subsection{Inserting Points Spreadsheets}
+
+\cbstart
+\cbcolor{BurntOrange}
 If you have a large number of points that you want to copy into modelling software - such as from point cloud scanners - your best option is to import it via an excel spreadsheet. Your first row should contain only your units specification, your second row should contain the headings x, y and (optionally) z. Each subsequent row should represent the coordinates of one point.
+\cbend
 
-\subsection{Inserting AutoCAD Files}
+\subsection{Inserting AutoCAD Files}\cbstart
 If you use AutoCAD to create drawings, you can import 2D drawings into a sketch here. This should work for any DWG or DXF file.
-
+\cbend
 \section{Managing 2D Sketches}
+
+\cbstart
+\cbcolor{ForestGreen}
+
 After creating a sketch, there are several things you can do:
 
 \appcommand{Right Click} on the sketch under the part navigator and you can:
@@ -211,7 +294,12 @@ After creating a sketch, there are several things you can do:
 \item Visibility: You can toggle the visibility of the entire sketch and the sketch dimensions.
 \end{itemize}
 
+\cbend
+
 \section{More Sketch Options}
+\cbstart
+\cbcolor{BurntOrange}
+
 While still in your sketch, you can \appcommand{Right Click} on the workspace and:
 
 \begin{itemize}
@@ -223,4 +311,5 @@ While still in your sketch, you can \appcommand{Right Click} on the workspace an
 \begin{itemize}
     \item Curvature Lines: if you want to project the radial and angular lines of a curve outwards, you can right click on the curve and select \appcommand{Display Curvature}. To change the settings of these lines, select \appcommand{Setup Curvature Display}.
 \end{itemize}
-    
+
+\cbend
