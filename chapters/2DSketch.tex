@@ -15,7 +15,7 @@ $ $
     \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press Tab to specify coordinates or switch between multiple dimensions.
     \item The bottom right of your workspace will display a lot of useful imformation when creating geometry, such as coordinate positions, deltas, and dimensions.
     \item You can "snap" your geometry to existing points. A green dot will signify you are placing your geometry on an existing point, and a yellow dot will signify you are placing your geometry along an existing curve. This is often useful to make sure that all your lines connect to form a closed shape.
-    \item The above is a case of constraint inference (ref. Constraints), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding CTRL.
+    \item The above is a case of constraint inference (\hyperref[chap:constraints]{ref. Constraints}), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding \hotkey{CTRL}.
     \item When starting the Line command, you can easily create tangent or normal lines. Click your starting point on existing geometry, and then click and drag the starting point. The direction you drag determines whether the line will be tangential or normal.
     \item Splines are very powerful tools that are commonly used. If you have created a spline using control vertices, you can move these vertices around to change the shape of the spline. If you hvae created a spline using interpolation points, you can either move around the interpolation points or adjust the "handles" of the spline - these are construction lines that appear when you click on the spline, and represent the tangent lines at the interpolation points.
     \item Existing 3D objects can sometimes obstruct your view of your sketch. You can either change the camera angle or \appcommand{Right Click \textgreater Slice Graphics}.
@@ -23,7 +23,7 @@ $ $
 
 \subsubsection{Types of Geometry}
 
-When selecting the start point of a line, you can click and drag on existing geometry to create a line which is tangent/perpendicular (see "Constraints"). There are several types of geometry which can be placed:
+When selecting the start point of a line, you can click and drag on existing geometry to create a line which is tangent/perpendicular (\hyperref[chap:constraints]{ref. Constraints}). There are several types of geometry which can be placed:
 
 \begin{itemize}
 \item Line: Creates either simple lines or joined segments of lines and arcs. Click on your starting point, and then your endpoint (to create a line) or click and drag your starting point (to create a curve). Finish the command by double clicking on the final endpoint or clicking \hotkey{ESC}.
@@ -44,13 +44,13 @@ When selecting the start point of a line, you can click and drag on existing geo
 \end{itemize}
 
 \subsubsection{Projecting Geometry}
-The Project Geometry feature is a very powerful tool which allows you to copy existing geometry, whether 2D or 3D, to your current sketch. Try to always project geometry which is above the current sketch in the model browser. Generally, projected geometry is adaptive, which means changes to the reference geometry will be reflected in your sketch. To prevent this, hold down CTRL when projecting geometry, right click on the geometry and select \appcommand{Break Link}, or manually delete the Project Geometry Constraint (ref. Constraints). There are the following options:
+The Project Geometry feature is a very powerful tool which allows you to copy existing geometry, whether 2D or 3D, to your current sketch. Try to always project geometry which is above the current sketch in the model browser. Generally, projected geometry is adaptive, which means changes to the reference geometry will be reflected in your sketch. To prevent this, hold down \hotkey{CTRL} when projecting geometry, right click on the geometry and select \appcommand{Break Link}, or manually delete the Project Geometry Constraint (ref. Constraints). There are the following options:
 
 \begin{itemize}
 \item Project Geometry: Projects 2D sketches, 3D sketches, object edges and more into your sketch.
 \item Project Cut Edges: Projects the cross-section that the sketch plane makes with any object. Can also be used to project the intersection of the sketch plane with a composite feature or surface.
 \item Project Flat Pattern: Used predominately in sheet metal projects, unfolds an object into the plane.
-\item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see "3D Sketches" or \appcommand{3D Model \textgreater Surface}.
+\item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see \hyperref[section: 3D Sketches]{3D Sketches} or \hyperref[subsection: 3D Model Surface]{3D Model \textgreater Surface}.
 \item Project DWG Geometry:  ------------------------------
 \end{itemize}
 
@@ -76,10 +76,11 @@ The Modify tab allows you to make changes to geometry you have already created. 
 \begin{itemize}
 \item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error) by clicking the \appcommand{\textgreater \textgreater} button on the popup dialog of the modify tools and changing the settings.
 \item By checking the \fcolorbox{black}{lightgray}{Precise Input} box on the popup dialog of many of these tools, you can specify the exact coordinates with which you want to modify your geometry with.
-\item You can choose whether an offset geometry adapts to changes in the original geometry by right clicking when using the Offset tool and toggling "Constrain Offset". Under these options, you can also change whether Inventor offsets entire loops or single line/curve segments.
+\item You can choose whether an offset geometry adapts to changes in the original geometry by right clicking when using the Offset tool and toggling \appcommand{Constrain Offset}. Under these options, you can also change whether Inventor offsets entire loops or single line/curve segments.
 \end{itemize}
 
 \subsection{Constraints and Dimensions}
+\label{chap:constraints}
 Constraints and dimensions determine the relationships between geometries. If a sketch is not fully constrained, it means that you can freely move it around by simply clicking and dragging. We recommend that, in general, you fully constrain all sketches. The bottom right of your workspace will tell you how many more dimensions/constraints you would need to achieve this.
 
 \subsubsection{Dimensions}
@@ -119,7 +120,7 @@ Dimensions can be edited by double clicking on the dimension. The formatting of 
 Constraints can be added through the \appcommand{Constrain} tab. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
 
 \subsubsection{Viewing and Editing Constraints}
-All constraints can be viewed by right clicking on the workspace and selecting \appcommand{Show All Constraints} or using the F8 hotkey. Constraints can be hidden by right clicking on the workspace and selecting \appcommand{Hide All Constraints} or using the F9 hotkey.
+All constraints can be viewed by right clicking on the workspace and selecting \appcommand{Show All Constraints} or using the \hotkey{F8} hotkey. Constraints can be hidden by right clicking on the workspace and selecting \appcommand{Hide All Constraints} or using the \hotkey{F9} hotkey.
 
 To toggle the visibility of a selected geometry's constraints, click on the \appcommand{Show Constraints} icon under the \appcommand{Constrain} tab in the ribbon.
 
@@ -129,7 +130,7 @@ To delete specific constraints, show constraints either by using F8 or selecting
 
 \subsubsection{Constraint Inference, Relax Mode and Settings}
 
-Sometimes constraints can be inferred while placing geometry. For example, drawing a line which is horizontal will create an inferred horizontal constraint, and likewise for constraints such as parallel constraints. If you find that a constraint is being inferred with the wrong geometry (for example if you want to a parallel constraint to one line but it infers a parallel constraint with another), you can first mouseover ("scrub") the desired constraint geometry. You can temporarily disable inferred constraints by holding CTRL when placing geometry.
+Sometimes constraints can be inferred while placing geometry. For example, drawing a line which is horizontal will create an inferred horizontal constraint, and likewise for constraints such as parallel constraints. If you find that a constraint is being inferred with the wrong geometry (for example if you want to a parallel constraint to one line but it infers a parallel constraint with another), you can first mouseover ("scrub") the desired constraint geometry. You can temporarily disable inferred constraints by holding \hotkey{CTRL} when placing geometry.
 
 Inferred constraints can be persistent or non-persistent. Persistant constraints remain after the geometry is placed, however non-persistent constraints will not, and will only help you while placing geometry. In general, inferred constraints will appear as a small grey box when you are creating geometry. They will also either include yellow/green points (for coincident constraints) or solid lines (for other constraints). Any dotted lines that appear are NOT inferred constraints and are merely guide lines that will not persist (though otherwise they behave similarly).
 
@@ -174,14 +175,14 @@ $ $
 This is part of a more complex feature of Inventor which comprises of creating hierarchies of assemblies, components and parts. In short, the Make Part and Make Components features allows you to import 2D sketches into assemblies as layout parts. This is useful because you can create 3D features in the assembly without changing the layout file, and as such these files can be used concurrently for multiple projects.
 
 \subsubsection{Sketch Blocks}
-Sketch blocks are similar to object grouping in Microsoft Office; it allows you to constrain portions of sketches to be fixed relative to each other, and instead of moving each piece of individual geometry the entire block moves. This is especially useful if you copy and paste a lot of sketch data from other applications or do a lot of sketching over images - it removes the need to constrain every line and curve. Sketch blocks can be created under "Layout > Create Block"
+Sketch blocks are similar to object grouping in Microsoft Office; it allows you to constrain portions of sketches to be fixed relative to each other, and instead of moving each piece of individual geometry the entire block moves. This is especially useful if you copy and paste a lot of sketch data from other applications or do a lot of sketching over images - it removes the need to constrain every line and curve. Sketch blocks can be created under \appcommand{Layout \textgreater Create Block}
 
 \subsection{Insert}
 
 $ $
 
 \subsubsection{Inserting Images}
-Images can be inserted into a 2D sketch under \appcommand{Insert \textgreater Image}, and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the "3D Sketch" section!
+Images can be inserted into a 2D sketch under \appcommand{Insert \textgreater Image}, and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the \hyperref[section: 3D Sketches]{3D Sketch} section!
 
 \subsubsection{Inserting Points Spreadsheets}
 If you have a large number of points that you want to copy into modelling software - such as from point cloud scanners - your best option is to import it via an excel spreadsheet. Your first row should contain only your units specification, your second row should contain the headings x, y and (optionally) z. Each subsequent row should represent the coordinates of one point.
@@ -190,3 +191,27 @@ If you have a large number of points that you want to copy into modelling softwa
 If you use AutoCAD to create drawings, you can import 2D drawings into a sketch here. This should work for any DWG or DXF file.
 
 \subsection{Managing 2D Sketches}
+After creating a sketch, there are several things you can do:
+
+By Right Clicking on the sketch under the part navigator, you can:
+\begin{itemize}
+\item Redefine: if you want to move a sketch from one plane to another. To see the current sketch plane, select Show Input.
+\item To change the appearance properties of the sketch, such as colour and line style.
+\item Engineer's Notebook: The Engineer's Notebook allows you to log your progress through the design stage. You can add a note in your notebook about your sketch by selecting \appcommand{Create Note}.
+\item Export: You can export your sketch as a drawing format.
+\item Visibility: You can toggle the visibility of the entire sketch and the sketch dimensions.
+\end{itemize}
+
+\subsection{More Sketch Options}
+While still in your sketch, you can right click on the workspace and:
+
+\begin{itemize}
+\item Degrees of Freedom: By Right Clicking on the workspace or a piece of geometry, you can display the degrees of freedom present. This is useful to make sure that you have enough dimensions - if you don't, you will see which directions have not been constrained yet.
+\item Slice Graphics / Hide Others: If you find that other pieces sketches and 3D features are being obstructive, you can either completely isolate the sketch by selecting \appcommand{Hide Others} or cut through the existing 3D features by selecting \appcommand{Slice Graphics}.
+\item By selecting \appcommand{Region Properties}, you can analyse the important geometric features of an area in your sketch, including moments of inertia and radii of gyration.
+\end{itemize}
+
+\begin{itemize}
+    \item Curvature Lines: if you want to project the radial and angular lines of a curve outwards, you can right click on the curve and select \appcommand{Display Curvature}. To change the settings of these lines, select \appcommand{Setup Curvature Display}.
+\end{itemize}
+    
