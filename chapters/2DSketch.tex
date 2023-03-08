@@ -1,6 +1,6 @@
 \chapter{2D Sketches}
 
-2D sketching is one of the most fundamental parts of Autodesk Inventor. A 2D sketch is essentially a collection of pieces of geometry, and are usually used as building blocks to create 3D features.
+2D sketching is one of the most fundamental parts of Autodesk Inventor. A 2D sketch is essentially a collection of pieces of geometry, and are usually used as building blocks to create 3D features. Generally, when we create sketches we first place down any geometry that we want. We can then modify parts of the geometry and use constraints and dimensions to specify the position and size. We can then use the sketch to either analyse shapes or create 3D features.
 
 \section{2D Sketches: Key Takeaways}
 \begin{itemize}
@@ -193,7 +193,9 @@ To delete specific constraints, show constraints either by using F8 or selecting
 \cbstart
 \cbcolor{Maroon}
 
-Sometimes constraints can be inferred while placing geometry. For example, drawing a line which is horizontal will create an inferred horizontal constraint, and likewise for constraints such as parallel constraints. If you find that a constraint is being inferred with the wrong geometry (for example if you want to a parallel constraint to one line but it infers a parallel constraint with another), you can first mouseover ("scrub") the desired constraint geometry. You can temporarily disable inferred constraints by holding \hotkey{CTRL} when placing geometry.
+Sometimes constraints can be automatically added while placing geometry. For example, drawing a line which is horizontal will create an inferred horizontal constraint. If you find that a constraint is being inferred with the wrong geometry, you can first mouseover ("scrub") the desired geometry. You can temporarily disable inferred constraints by holding \hotkey{CTRL} when placing geometry.
+
+
 
 Inferred constraints can be persistent or non-persistent. Persistant constraints remain after the geometry is placed, however non-persistent constraints will not, and will only help you while placing geometry. In general, inferred constraints will appear as a small grey box when you are creating geometry. They will also either include yellow/green points (for coincident constraints) or solid lines (for other constraints). Any dotted lines that appear are NOT inferred constraints and are merely guide lines that will not persist (though otherwise they behave similarly).
 

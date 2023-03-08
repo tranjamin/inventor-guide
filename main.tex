@@ -21,9 +21,22 @@
 \usepackage{subfiles}
 \usepackage{lipsum}
 \usepackage[color, leftbars]{changebar}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[skins]{tcolorbox}
 \setlength\changebarsep{10pt}
 
-\newcommand{\hotkey}[1]{\fcolorbox{black}{lightgray}{#1}}
+\newtcbox{\hotkeybox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
+  right=0mm,left=0mm,arc=2pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=black,coltext=black,colback=gray}
+
+
+\newcommand{\hotkey}[1]{
+    \footnotesize
+    \begin{hotkeybox}
+        {#1} 
+    \end{hotkeybox}
+    \normalsize        
+        }
 \newcommand{\appcommand}[1]{\fcolorbox{black}{lightgray}{#1}}
 
 \usepackage{xcolor}
