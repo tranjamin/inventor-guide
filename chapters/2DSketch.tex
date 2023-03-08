@@ -24,7 +24,7 @@
 \cbstart
 \cbcolor{ForestGreen}
 
-2D sketches can be created in any plane or flat surface. There are many different ways to create a sketch, but the easiest by selecting \appcommand{3D Model \textgreater Sketch \textgreater Start 2D Sketch} and then clicking on the desired plane or flat surface.
+2D sketches can be created in any plane or flat surface. There are many different ways to create a sketch, but the easiest by selecting \appcommand{3D Model $\blacktriangleright$ Sketch $\blacktriangleright$ Start 2D Sketch} and then clicking on the desired plane or flat surface.
 \cbend
 \section{Adding Geometry}
 
@@ -60,9 +60,9 @@ There are several types of geometry which can be placed:
 \cbcolor{ForestGreen}
 
 \begin{itemize}
-    \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press Tab to specify coordinates or switch between multiple dimensions. You can change the coordinate type (for example, absolute vs relative) by \appcommand{Right Click \textgreater Coordinate Type}.
+    \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press Tab to specify coordinates or switch between multiple dimensions. You can change the coordinate type (for example, absolute vs relative) by \appcommand{Right Click $\blacktriangleright$ Coordinate Type}.
     \item The bottom right of your workspace will display a lot of useful information when creating geometry, such as coordinate positions, deltas, and dimensions.
-    \item You can "snap" your geometry to existing points. A green dot will signify you are placing your geometry on an existing point, and a yellow dot will signify you are placing your geometry along an existing curve. This is often useful to make sure that all your lines connect to form a closed shape. If you are having trouble snapping to geometry, you can \appcommand{Right Click \textgreater Point Snaps} when placing down geometry and choose whether you want to snap to a midpoint, endpoint or various other points.
+    \item You can "snap" your geometry to existing points. A green dot will signify you are placing your geometry on an existing point, and a yellow dot will signify you are placing your geometry along an existing curve. This is often useful to make sure that all your lines connect to form a closed shape. If you are having trouble snapping to geometry, you can \appcommand{Right Click $\blacktriangleright$ Point Snaps} when placing down geometry and choose whether you want to snap to a midpoint, endpoint or various other points.
     \item The above is a case of constraint inference (\hyperref[chap:constraints]{ref. Constraints}), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding \hotkey{CTRL}.
     \item When starting the Line command, you can easily create tangent or normal lines. Click your starting point on existing geometry, and then click and drag the starting point. The direction you drag determines whether the line will be tangential or normal.
     \item Splines are very powerful tools that are commonly used. If you have created a spline using control vertices, you can move these vertices around to change the shape of the spline. If you hvae created a spline using interpolation points, you can either move around the interpolation points or adjust the "handles" of the spline - these are construction lines that appear when you click on the spline, and represent the tangent lines at the interpolation points.
@@ -81,7 +81,7 @@ The Project Geometry feature is a very powerful tool which allows you to copy ex
 \item Project Geometry: Projects 2D sketches, 3D sketches, object edges and more into your sketch.
 \item Project Cut Edges: Projects a 3D object or surface as if the sketch was to cut through the cross-sectin of it.
 \item Project Flat Pattern: Used predominately in sheet metal projects, unfolds an object into the plane.
-\item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see \hyperref[section: 3D Sketches]{3D Sketches} or \hyperref[subsection: 3D Model Surface]{3D Model \textgreater Surface}.
+\item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see \hyperref[section: 3D Sketches]{3D Sketches} or \hyperref[subsection: 3D Model Surface]{3D Model $\blacktriangleright$ Surface}.
 \item Project DWG Geometry:  ------------------------------
 \end{itemize}
 
@@ -119,7 +119,7 @@ The Modify tab allows you to make changes to geometry you have already created. 
 \cbstart
 \cbcolor{BurntOrange}
 \begin{itemize}
-\item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error) by clicking the \appcommand{\textgreater \textgreater} button on the popup dialog of the modify tools and changing the settings.
+\item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error) by clicking the \appcommand{\(\gg\)} button on the popup dialog of the modify tools and changing the settings.
 \item By checking the \fcolorbox{black}{lightgray}{Precise Input} box on the popup dialog of many of these tools, you can specify the exact coordinates with which you want to modify your geometry with.
 \item You can choose whether an offset geometry adapts to changes in the original geometry by right clicking when using the Offset tool and toggling \appcommand{Constrain Offset}. Under these options, you can also change whether Inventor offsets entire loops or single line/curve segments.
 \end{itemize}
@@ -144,9 +144,9 @@ Dimensions allow to you to display and specify the length or angle between two p
 \item A line and curve/point: the distance between them in the direction orthogonal to that of the line
 \end{enumerate}
 
-Two types of dimensions can be created: regular dimensions and driven dimensions. Driven dimensions are dimensions which are redundant (already specified by existing constraints/dimensions), and thus are only used to display measurements. They are signified by brackets. On the other hand, regular dimensions can be edited to change the geometry. Regular dimensions can be made and unmade driven with \appcommand{Format \textgreater Driven Dimension} or \appcommand{Right Click \textgreater Driven Dimension}.
+Two types of dimensions can be created: regular dimensions and driven dimensions. Driven dimensions are dimensions which are redundant (already specified by existing constraints/dimensions), and thus are only used to display measurements. They are signified by brackets. On the other hand, regular dimensions can be edited to change the geometry. Regular dimensions can be made and unmade driven with \appcommand{Format $\blacktriangleright$ Driven Dimension} or \appcommand{Right Click $\blacktriangleright$ Driven Dimension}.
 
-Dimensions can be edited by double clicking on the dimension. The formatting of the dimension can be modified by \appcommand{Right Click \textgreater Dimension Properties}, allowing you to specify naming, precision, and tolerance type for both the individual dimension and the default settings.
+Dimensions can be edited by double clicking on the dimension. The formatting of the dimension can be modified by \appcommand{Right Click $\blacktriangleright$ Dimension Properties}, allowing you to specify naming, precision, and tolerance type for both the individual dimension and the default settings.
 
 \cbend
 
@@ -201,7 +201,7 @@ Inferred constraints can be persistent or non-persistent. Persistant constraints
 
 Usually, constraints will restrict you from freemoving geometry. For example, if you have two circles with a concentric constraint, moving one circle will also cause the other to move. When Relax Mode is enabled, geometry can be moved freely. Instead of also moving constrained geometry, any constraints which are broken will be deleted. In the above case, only the selected circle will move and the concentric constraint will be removed. You can also choose to only enable Relax Mode for specific constraint types.
 
-Settings for constraints can be modified under \appcommand{Constrain \textgreater Constraint Settings} You can:
+Settings for constraints can be modified under \appcommand{Constrain $\blacktriangleright$ Constraint Settings} You can:
 
 
 \begin{enumerate}
@@ -213,21 +213,21 @@ Settings for constraints can be modified under \appcommand{Constrain \textgreate
 
 You can also edit the scope at which constraints are inferred. Under 
 
-\appcommand{Constrain \textgreater Constraint Inference Scope}, the three options are:
+\appcommand{Constrain $\blacktriangleright$ Constraint Inference Scope}, the three options are:
 
 \begin{enumerate}
     \item Geometry in current command: constraints will only be inferred with the same type of geometry (e.g line, arc, rectangle). Remember that guide lines will still appear with reference to other geometry types.
     \item All geometry: constraints will be inferred with all geometry, regardless of type or location.
     \item Select: you can choose which pieces of geometry constraints can be inferred with.
 
-It is also possible to realign a coordinate system, either by relocating the origin or the two axes. Select \appcommand{Constrain \textgreater Edit Coordinate System}, and then relocate either the origin by clicking on a new vertex or the axis/axes by clicking on new edges. To flip the direction of the axes, right click and select the appropriate option. You may need to move the camera in order to do this, and remember that your sketch needs to be below any reference objects in the model browser. 
+It is also possible to realign a coordinate system, either by relocating the origin or the two axes. Select \appcommand{Constrain $\blacktriangleright$ Edit Coordinate System}, and then relocate either the origin by clicking on a new vertex or the axis/axes by clicking on new edges. To flip the direction of the axes, right click and select the appropriate option. You may need to move the camera in order to do this, and remember that your sketch needs to be below any reference objects in the model browser. 
 \cbend
 
 \subsection{Automatic Dimensions}
 \cbstart
 \cbcolor{ForestGreen}
 
-By selecting \appcommand{Constrain \textgreater Automatic Dimensions and Constraints}, dimensions and constraints can be added to fully paramaterise the sketch. This is a very powerful tool!
+By selecting \appcommand{Constrain $\blacktriangleright$ Automatic Dimensions and Constraints}, dimensions and constraints can be added to fully paramaterise the sketch. This is a very powerful tool!
 
 \cbend
 
@@ -240,7 +240,7 @@ The graphic display of geometry can be adjusted under \appcommand{Format}. Const
 
 Centerline formatting signifies a line being a symmetric center of geometry, and behaves in the same way as construction lines. Center points have the same philosophy.
 
-Geometry can also be custom formatted by changing the pattern, colour and weight. These custom formats can be turned on/off by clicking \appcommand{Format \textgreater Show Format}.
+Geometry can also be custom formatted by changing the pattern, colour and weight. These custom formats can be turned on/off by clicking \appcommand{Format $\blacktriangleright$ Show Format}.
 
 \cbend
 \section{Layout}
@@ -257,7 +257,7 @@ This is part of a more complex feature of Inventor which comprises of creating h
 
 \cbstart
 \cbcolor{BurntOrange}
-Sketch blocks are similar to object grouping in Microsoft Office; it allows you to constrain portions of sketches to be fixed relative to each other, and instead of moving each piece of individual geometry the entire block moves. This is especially useful if you copy and paste a lot of sketch data from other applications or do a lot of sketching over images - it removes the need to constrain every line and curve. Sketch blocks can be created under \appcommand{Layout \textgreater Create Block}
+Sketch blocks are similar to object grouping in Microsoft Office; it allows you to constrain portions of sketches to be fixed relative to each other, and instead of moving each piece of individual geometry the entire block moves. This is especially useful if you copy and paste a lot of sketch data from other applications or do a lot of sketching over images - it removes the need to constrain every line and curve. Sketch blocks can be created under \appcommand{Layout $\blacktriangleright$ Create Block}
 
 \cbend
 
@@ -266,7 +266,7 @@ Sketch blocks are similar to object grouping in Microsoft Office; it allows you 
 \subsection{Inserting Images}
 \cbstart
 \cbcolor{ForestGreen}
-Images can be inserted into a 2D sketch under \appcommand{Insert \textgreater Image}, and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the \hyperref[section: 3D Sketches]{3D Sketch} section!
+Images can be inserted into a 2D sketch under \appcommand{Insert $\blacktriangleright$ Image}, and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the \hyperref[section: 3D Sketches]{3D Sketch} section!
 
 \cbend
 

@@ -5,6 +5,7 @@
 \usepackage[usenames,dvipsnames]{xcolor}  
 \usepackage{soul}
 
+\usepackage{amssymb}
 \usepackage{titling}
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -26,8 +27,12 @@
 \setlength\changebarsep{10pt}
 
 \newtcbox{\hotkeybox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
-  right=0mm,left=0mm,arc=2pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  right=0mm,left=0mm,arc=2pt,boxsep=2pt,before upper={\vphantom{dlg}}, 
   colframe=black,coltext=black,colback=gray}
+
+\newtcbox{\appcommandbox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.8pt,top=0mm,bottom=0mm,
+  right=0mm,left=0mm,arc=2pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=Salmon,coltext=black,colback=Dandelion}
 
 
 \newcommand{\hotkey}[1]{
@@ -36,8 +41,16 @@
         {#1} 
     \end{hotkeybox}
     \normalsize        
-        }
-\newcommand{\appcommand}[1]{\fcolorbox{black}{lightgray}{#1}}
+}
+
+\newcommand{\appcommand}[1]{
+\footnotesize
+\begin{appcommandbox}
+    {#1} 
+\end{appcommandbox}
+\normalsize        
+    }
+
 
 \usepackage{xcolor}
 \definecolor{turbo_purple}{RGB}{112,105,160}
