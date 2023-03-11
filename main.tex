@@ -2,8 +2,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage[sfdefault]{roboto}
 
-\usepackage{xcolor, soul}  
+\usepackage[usenames,dvipsnames]{xcolor}  
+\usepackage{soul}
 
+\usepackage{amssymb}
 \usepackage{titling}
 \usepackage{graphicx}
 \usepackage{wrapfig}
@@ -18,9 +20,37 @@
 \usepackage[margin=20mm]{geometry}
 \usepackage{multicol}
 \usepackage{subfiles}
+\usepackage{lipsum}
+\usepackage[color, leftbars]{changebar}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage[skins]{tcolorbox}
+\setlength\changebarsep{10pt}
 
-\newcommand{\hotkey}[1]{\fcolorbox{black}{lightgray}{#1}}
-\newcommand{\appcommand}[1]{\fcolorbox{black}{lightgray}{#1}}
+\newtcbox{\hotkeybox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
+  right=0mm,left=0mm,arc=2pt,boxsep=2pt,before upper={\vphantom{dlg}}, 
+  colframe=black,coltext=black,colback=gray}
+
+\newtcbox{\appcommandbox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.8pt,top=0mm,bottom=0mm,
+  right=0mm,left=0mm,arc=2pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=Salmon,coltext=black,colback=Dandelion}
+
+
+\newcommand{\hotkey}[1]{
+    \footnotesize
+    \begin{hotkeybox}
+        {#1} 
+    \end{hotkeybox}
+    \normalsize        
+}
+
+\newcommand{\appcommand}[1]{
+\footnotesize
+\begin{appcommandbox}
+    {#1} 
+\end{appcommandbox}
+\normalsize        
+    }
+
 
 \usepackage{xcolor}
 \definecolor{turbo_purple}{RGB}{112,105,160}
@@ -30,9 +60,9 @@
 
 \usepackage{titlesec}
 \titleformat{\chapter}[display]{\normalfont\Huge\bfseries\centering}{}{1em}{\vspace{-4em}}[\vspace{-1em}]
-\titleformat{\section}[display]{\normalfont\huge\bfseries}{}{1em}{\vspace{-2em}}
-\titleformat{\subsection}[display]{\normalfont\Large\bfseries\color{turbo_purple}}{}{1em}{\vspace{-0.5em}}[\vspace{-0.5em}]
-\titleformat{\subsubsection}[display]{\normalfont\large\bfseries}{}{1em}{\vspace{-1em}}[\vspace{-0.7em}]
+\titleformat{\section}[display]{\normalfont\huge\bfseries\color{turbo_purple}}{}{1em}{\vspace{-2em}}
+\titleformat{\subsection}[display]{\normalfont\Large\bfseries\color{gray}}{}{1em}{\vspace{-0.5em}}[\vspace{-0.5em}]
+\titleformat{\subsubsection}[display]{\normalfont\large\bfseries\color{turbo_purple}}{}{1em}{\vspace{-1em}}[\vspace{-0.7em}]
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -40,6 +70,7 @@
 \usetikzlibrary{calc}
 \usepackage{tikzpagenodes}
 \fancyfoot{}
+
 \renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{25pt}
 \lhead{}
@@ -61,9 +92,6 @@ node [inner sep=0,outer sep=0,above right]
 
 \usepackage[hidelinks]{hyperref}
 
-\def\cstar{\faStar}
-\def\ostar{\faStar[regular]}
-
 \begin{document}
 
 \begin{titlepage}
@@ -73,7 +101,7 @@ node [inner sep=0,outer sep=0,above right]
         \includegraphics[width=0.7\paperwidth]{./assets/Logo (Dark).png} \\
         \vspace{1cm}
         \Huge MARS CAD Guide \\
-        \huge \textcolor{turbo_purple}{Autodesk Inventor (R) 2023}
+        \huge \textcolor{turbo_purple}{Autodesk Inventor 2023}
     \end{center}
     \vfill
     \includegraphics[height=0.5\paperheight, right]{./assets/Pattern - PCB (Solid).png}
@@ -84,34 +112,34 @@ node [inner sep=0,outer sep=0,above right]
 \tableofcontents
 
 \newpage\subfile{chapters/Introduction.tex}
-\newpage\subfile{chapters/CrashCourse.tex}
+%\newpage\subfile{chapters/CrashCourse.tex}
 
-\newpage\subfile{chapters/UI.tex}
-\newpage\subfile{chapters/Collaborate.tex}
-\newpage\subfile{chapters/Tools.tex}
-\newpage\subfile{chapters/WorkFeatures.tex}
+%\newpage\subfile{chapters/UI.tex}
+%\newpage\subfile{chapters/Collaborate.tex}
+%\newpage\subfile{chapters/Tools.tex}
+%\newpage\subfile{chapters/WorkFeatures.tex}
 \newpage\subfile{chapters/2DSketch.tex}
-\newpage\subfile{chapters/3DSketch.tex}
-\newpage\subfile{chapters/3DModel.tex}
-\newpage\subfile{chapters/Assemble.tex}
-\newpage\subfile{chapters/Design.tex}
-\newpage\subfile{chapters/Analysis.tex}
-\newpage\subfile{chapters/Annotations.tex}
-\newpage\subfile{chapters/Studio.tex}
-\newpage\subfile{chapters/Drawings.tex}
-\newpage\subfile{chapters/Presentations.tex}
-\newpage\subfile{chapters/SheetMetal.tex}
-\newpage\subfile{chapters/CAM.tex}
-\newpage\subfile{chapters/BIM.tex}
-\newpage\subfile{chapters/FusionInteropability.tex}
-\newpage\subfile{chapters/3DPrint.tex}
-\newpage\subfile{chapters/Electromechanical.tex}
-\newpage\subfile{chapters/PipeTube.tex}
-\newpage\subfile{chapters/CableHarness.tex}
-\newpage\subfile{chapters/MoldDesign.tex}
-\newpage\subfile{chapters/Weldment.tex}
-\newpage\subfile{chapters/Nesting.tex}
-\newpage\subfile{chapters/Programming.tex}
+%\newpage\subfile{chapters/3DSketch.tex}
+%\newpage\subfile{chapters/3DModel.tex}
+%\newpage\subfile{chapters/Assemble.tex}
+%\newpage\subfile{chapters/Design.tex}
+%\newpage\subfile{chapters/Analysis.tex}
+%\newpage\subfile{chapters/Annotations.tex}
+%\newpage\subfile{chapters/Studio.tex}
+%\newpage\subfile{chapters/Drawings.tex}
+%\newpage\subfile{chapters/Presentations.tex}
+%\newpage\subfile{chapters/SheetMetal.tex}
+%\newpage\subfile{chapters/CAM.tex}
+%\newpage\subfile{chapters/BIM.tex}
+%\newpage\subfile{chapters/FusionInteropability.tex}
+%\newpage\subfile{chapters/3DPrint.tex}
+%\newpage\subfile{chapters/Electromechanical.tex}
+%\newpage\subfile{chapters/PipeTube.tex}
+%\newpage\subfile{chapters/CableHarness.tex}
+%\newpage\subfile{chapters/MoldDesign.tex}
+%\newpage\subfile{chapters/Weldment.tex}
+%\newpage\subfile{chapters/Nesting.tex}
+%\newpage\subfile{chapters/Programming.tex}
 
 \newpage\subfile{chapters/Acknowledgements.tex}
 
