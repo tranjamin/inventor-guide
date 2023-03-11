@@ -9,15 +9,16 @@ This section will be a deeper dive into 2D sketching in Inventor, beyond just th
 \cbstart
 \cbcolor{ForestGreen}
 \item Use dimensions or constraints to ensure your sketch is fully constrained. To make this faster, utilise snapping geometry to points and using inferred constraints.
-\item Use \hotkey{F8} and \hotkey{F9} to show and hide your constraints. It makes it very easy to delete unwanted constraints.
+\item Use \hotkey{F8} and \hotkey{F9} to show and hide your constraints.
 \item The automatic dimension tool will automatically create all the dimensions you could need.
 \item The bottom right of your workspace will display a lot of important information such as missing dimensions and coordinates.
 \item If you want to recreate a physical object, you can import a picture into your sketch and use your geometry tools (most commonly Splines - Interpolation Points) to draw over it.
 \item Projecting geometry and cut edges is a very powerful tool that lets you copy existing sketches and features into your sketch.
 \item Geometry patterns and mirrors are very useful if you are creating repeating shapes.
-\item If you find you are getting confused with complex sketches, you can change the formatting of the shapes.
+\item If you find you are getting confused with complex sketches, you can change the formatting of different pieces of geometry to make it clearer.
 \item You can group pieces of geometry into sketch blocks to move around as one.
-\item Inventor allows you to analyse the geometric properties of the sections of your sketches through \appcommand{Region Properties}.
+\item Using parameters allows you to quickly change the dimensions of sketches and objects, no matter where you are in the application.
+\item Inventor allows you to analyse the geometric properties of the sections of your sketches through Region Properties.
 \cbend
 \end{itemize}
 
@@ -84,7 +85,7 @@ The Project Geometry feature is a very powerful tool which allows you to copy ex
 \item Project Cut Edges: Projects a 3D object or surface as if the sketch was to cut through the cross-sectin of it.
 \item Project Flat Pattern: Used predominately in sheet metal projects, unfolds an object into the plane.
 \item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see \hyperref[section: 3D Sketches]{3D Sketches} or \hyperref[subsection: 3D Model Surface]{3D Model $\blacktriangleright$ Surface}.
-\item Project DWG Geometry:  ------------------------------
+\item Project DWG Geometry:  Allows you to copy a DWG (drawing) file from your workspace into a sketch. Not very useful for most scenarios.
 \end{itemize}
 
 \cbend
@@ -94,7 +95,7 @@ The Project Geometry feature is a very powerful tool which allows you to copy ex
 \cbstart
 \cbcolor{ForestGreen}
 
-Inventor allows you to duplicate geometries to streamline your work. Geometry can be mirrored or repeated in a circular or rectangular pattern. The patterns are associative, so changes to any one of the object instances will change the entire pattern.
+Inventor allows you to duplicate geometries to streamline your work. Geometry can be \newline mirrored or repeated in a circular or rectangular pattern. The patterns are associative, so changes to any one of the object instances will change the entire pattern.
 
 \cbend
 
@@ -183,7 +184,7 @@ Constraints can be added through the \appcommand{Constrain} tab. Select the desi
 \cbend
 \subsection{Viewing and Editing Constraints}
 \cbstart
-All constraints can be viewed by right clicking on the workspace and selecting \appcommand{Show All Constraints} or using the \hotkey{F8} hotkey. Constraints can be hidden by right clicking on the workspace and selecting \appcommand{Hide All Constraints} or using the \hotkey{F9} hotkey.
+All constraints can be viewed by right clicking on the workspace and selecting \newline \appcommand{Show All Constraints} or using the \hotkey{F8} hotkey. Constraints can be hidden by right clicking on the workspace and selecting \appcommand{Hide All Constraints} or using the \hotkey{F9} hotkey.
 
 To toggle the visibility of a selected geometry's constraints, click on the \appcommand{Show Constraints} icon under the \appcommand{Constrain} tab in the ribbon.
 
@@ -230,7 +231,7 @@ It is also possible to realign a coordinate system, either by relocating the ori
 \cbstart
 \cbcolor{ForestGreen}
 
-By selecting \appcommand{Constrain $\blacktriangleright$ Automatic Dimensions and Constraints}, dimensions and constraints can be added to fully paramaterise the sketch. This is a very powerful tool!
+By selecting \appcommand{Constrain $\blacktriangleright$ Automatic Dimensions and Constraints}, dimensions and \newline constraints can be added to fully paramaterise the sketch. This is a very powerful tool!
 
 \cbend
 
@@ -252,7 +253,7 @@ Geometry can also be custom formatted by changing the pattern, colour and weight
 \cbstart
 \cbcolor{Maroon}
 
-This is part of a more complex feature of Inventor which comprises of creating hierarchies of assemblies, components and parts. In short, the \appcommand{Make Part} and \appcommand{Make Components} features allows you to import 2D sketches into assemblies as layout parts. This is useful because you can create 3D features in the assembly without changing the layout file, and as such these files can be used concurrently for multiple projects.
+This is part of a more complex feature of Inventor which comprises of creating hierarchies of assemblies, components and parts. In short, the \appcommand{Make Part} and \newline \appcommand{Make Components} features allows you to import 2D sketches into assemblies as layout parts. This is useful because you can create 3D features in the assembly without changing the layout file, and as such these files can be used concurrently for multiple projects. This will be covered in a later section and is not a necessary tool to know.
 
 \cbend
 
@@ -269,7 +270,7 @@ Sketch blocks are similar to object grouping in Microsoft Office; it allows you 
 \subsection{Inserting Images}
 \cbstart
 \cbcolor{ForestGreen}
-Images can be inserted into a 2D sketch under \appcommand{Insert $\blacktriangleright$ Image}, and behave like construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the \hyperref[section: 3D Sketches]{3D Sketch} section!
+Images can be inserted into a 2D sketch under \appcommand{Insert $\blacktriangleright$ Image}, and behave like \newline construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the \hyperref[section: 3D Sketches]{3D Sketch} section!
 
 \cbend
 
@@ -300,6 +301,19 @@ After creating a sketch, there are several things you can do:
 \end{itemize}
 
 \cbend
+
+\section{Parameters}
+\cbstart
+The majority of information about parameters will be covered in a later section, however they are very commonly used for sketches. With parameters, instead of specifying numeric values for dimensions, you can instead assign a global variable to it, which you can change later at will. This is useful if you have multiple dimensions which reference the same physical measurement, or if you want to create a series of the same object but with different sizings - such as for screws. Two useful things you can do with parameters are:
+
+\begin{itemize}
+\item Link your parameters with an excel file that you can adjust in real time
+\item Import and export parameters from XML files
+\item Share parameters between files
+\end{itemize}
+\cbend
+
+
 
 \section{More Sketch Options}
 \cbstart
