@@ -8,16 +8,16 @@ This section will be a deeper dive into 2D sketching in Inventor, beyond just th
 \begin{itemize}
 \cbstart
 \cbcolor{ForestGreen}
-\item Use dimensions or constraints to ensure your sketch is fully constrained. To make this faster, utilise snapping geometry to points and using inferred constraints.
-\item The automatic dimension tool will automatically create all the dimensions you could need.
+\item Use \hyperref[chap:constraints]{Dimensions or Constraints} to ensure your sketch is fully constrained. To make this faster, utilise snapping geometry to points and using inferred constraints.
+\item The \hyperref[subsec:auto-dim]{Automatic Dimension} tool will automatically create all the dimensions you could need.
 \item The bottom right of your workspace will display a lot of important information such as missing dimensions and coordinates.
-\item If you want to recreate a physical object, you can import a picture into your sketch and use your geometry tools (most commonly Splines - Interpolation Points) to draw over it.
-\item Projecting geometry and cut edges is a very powerful tool that lets you copy existing sketches and features into your sketch.
-\item Geometry patterns and mirrors are very useful if you are creating repeating shapes.
-\item If you find you are getting confused with complex sketches, you can change the formatting of different pieces of geometry to make it clearer.
-\item You can group pieces of geometry into sketch blocks to move around as one.
-\item Using parameters allows you to quickly change the dimensions of sketches and objects, no matter where you are in the application.
-\item Inventor allows you to analyse the geometric properties of the sections of your sketches through Region Properties.
+\item If you want to recreate a physical object, you can \hyperref[section:insert]{Import a Picture} into your sketch and use your geometry tools (most commonly Splines - Interpolation Points) to draw over it.
+\item \hyperref[subsec:proj]{Project Geometry and Cut Edges} are very powerful tools that lets you copy existing sketches and features into your sketch.
+\item Duplicate and pattern your shapes with \hyperref[section:geom-pattern]{Geometry Patterns}.
+\item Change the \hyperref[section:format]{Format} of your geometry to make complex sketches easier to read.
+\item You can group pieces of geometry into \hyperref[subsec:sketch-block]{Sketch Blocks} to move around as one.
+\item Using \hyperref[section:param]{Parameters} allows you to quickly change the dimensions of sketches and objects, no matter where you are in the application.
+\item Inventor allows you to analyse the geometric properties of the sections of your sketches through \hyperref[section:aux]{Region Properties}.
 \cbend
 \end{itemize}
 
@@ -73,6 +73,7 @@ There are several types of geometry which can be placed:
 \cbend
 
 \subsection{Projecting Geometry}
+\label{subsec:proj}
 
 \cbstart
 \cbcolor{ForestGreen}
@@ -90,6 +91,7 @@ The Project Geometry feature is a very powerful tool which allows you to copy ex
 \cbend
 
 \section{Geometry Patterns}
+\label{section:geom-pattern}
 
 \cbstart
 \cbcolor{ForestGreen}
@@ -227,6 +229,7 @@ It is also possible to realign a coordinate system, either by relocating the ori
 \cbend
 
 \subsection{Automatic Dimensions}
+\label{subsec:auto-dim}
 \cbstart
 \cbcolor{ForestGreen}
 
@@ -235,6 +238,7 @@ By selecting \appcommand{Constrain $\blacktriangleright$ Automatic Dimensions an
 \cbend
 
 \section{Formatting}
+\label{section:format}
 
 \cbstart
 \cbcolor{BurntOrange}
@@ -257,6 +261,7 @@ This is part of a more complex feature of Inventor which comprises of creating h
 \cbend
 
 \subsection{Sketch Blocks}
+\label{subsec:sketch-block}
 
 \cbstart
 \cbcolor{BurntOrange}
@@ -265,7 +270,7 @@ Sketch blocks are similar to object grouping in Microsoft Office; it allows you 
 \cbend
 
 \section{Insert}
-
+\label{section:insert}
 \subsection{Inserting Images}
 \cbstart
 \cbcolor{ForestGreen}
@@ -302,6 +307,7 @@ After creating a sketch, there are several things you can do:
 \cbend
 
 \section{Parameters}
+\label{section:param}
 \cbstart
 The majority of information about parameters will be covered in a later section, however they are very commonly used for sketches. With parameters, instead of specifying numeric values for dimensions, you can instead assign a global variable to it, which you can change later at will. This is useful if you have multiple dimensions which reference the same physical measurement, or if you want to create a series of the same object but with different sizings - such as for screws. Two useful things you can do with parameters are:
 
@@ -315,6 +321,7 @@ The majority of information about parameters will be covered in a later section,
 
 
 \section{More Sketch Options}
+\label{section:aux}
 \cbstart
 \cbcolor{BurntOrange}
 
