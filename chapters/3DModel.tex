@@ -1,12 +1,12 @@
-\section{3D Modelling}
+\chapter{3D Modelling}section
 
 This is where all the magic happens! Transform sketches into 3D features, surfaces and more.
 
-\subsection{Creating Features}
+\section{Creating Features}
 
 $ $
 
-\subsubsection{Types of Features: At a Glance}
+\subsection{Types of Features: At a Glance}
 \begin{itemize}
 \item Extrude: takes a cross-section from a 2D sketch and extrudes it into a prism.
 \item Revolve: takes a section from a 2D sketch and rotates it around a specified axis.
@@ -21,7 +21,7 @@ $ $
 \item Derive: allows you to import an Inventor model to form the base of the current part, which you can then build on top of and is adaptive.
 \end{itemize}
 
-\subsubsection{Examples of When to use Features}
+\subsection{Examples of When to use Features}
 \begin{itemize}
     \item Extrude: you want to create basic objects, prisms and boxes.
     \item Revolve: you have a solid of revolution that you would like to model, such as a sphere or torus.
@@ -36,7 +36,7 @@ $ $
     \item Derive: you have a 3D modelled product and want to personalise it by adding an engraving. Insert the generic part with the Derive tool, and then add an your engraving. Changes to the generic part will update in the new part, but adding an engraving in the new part will not add it to the old part.
 \end{itemize}
 
-\subsubsection{Common Options}
+\subsection{Common Options}
 When using the Create tools above, most of them have options which allow you even more flexibility with 3D modelling:
 
 \begin{itemize}
@@ -52,7 +52,7 @@ When using the Create tools above, most of them have options which allow you eve
 
 \end{itemize}
 
-\subsubsection{Additional Options: Extrusions}
+\subsection{Additional Options: Extrusions}
 
 \begin{itemize}
     \item From (Start Plane): you can choose the plane the extrusion will start at - it does not have to be the sketch plane!
@@ -69,7 +69,7 @@ When using the Create tools above, most of them have options which allow you eve
 
 \end{itemize}
 
-\subsubsection{Additional Options: Revolve}
+\subsection{Additional Options: Revolve}
 
 \begin{itemize}
     \item From (Start Plane): you can choose the plane the revolution will start at - it does not have to be the sketch plane!
@@ -84,7 +84,7 @@ When using the Create tools above, most of them have options which allow you eve
 
 \end{itemize}
 
-\subsubsection{Additional Options: Sweep}
+\subsection{Additional Options: Sweep}
 
 \begin{itemize}
     \item Path: Choose the path (a 2D/3D curve or edge) for the profiles to follow. It does not necessarily have to intersect the profiles, but the path must intersect the profile plane.
@@ -98,7 +98,7 @@ When using the Create tools above, most of them have options which allow you eve
 \end{itemize}
 
 
-\subsubsection{Additional Options: Loft}
+\subsection{Additional Options: Loft}
 
 \begin{itemize}
     \item Sections: the cross-sections for the loft to transition through. You need at least two profiles, however they do not have to be in parallel planes. You can also loft between two profiles on the same plane, which will create a flat (2D) feature. You can also loft to single points rather than sections by simply selecting a point.
@@ -111,14 +111,14 @@ When using the Create tools above, most of them have options which allow you eve
 
 \end{itemize}
 
-\subsubsection{Additional Options: Coil}
+\subsection{Additional Options: Coil}
 
 \begin{itemize}
 \item Axis: the axis the sketch will coil about. An internal axis will create a threaded object, and an external axis will create a helical object.
 \item Behaviour: controls the physical properties of the coil, such as pitch height and revolution. Allows you to create a spiral (no vertical displacement)
 \end{itemize}
 
-\subsubsection{Additional Options: Emboss}
+\subsection{Additional Options: Emboss}
 
 \begin{itemize}
 \item Behaviour: determines whether the emboss raises up or recesses into the object. There is a third option, Emboss/Engrave From Plane, which allows you to create an emboss/engraving where the depth changes. In this option, you can also transition from an emboss to an engraving, which is a very powerful tool.
@@ -127,13 +127,13 @@ When using the Create tools above, most of them have options which allow you eve
 \item Wrap to Face: if embossing on a curved face, allows the emboss to follow the curve around. With this enabled, the emboss will always have the same depth at every location.
 \end{itemize}
 
-\subsubsection{Additional Options: Decal}
+\subsection{Additional Options: Decal}
 
 \begin{itemize}
     \item Automatic Face Chain: the image automatically wraps over adjacent faces.
 \end{itemize}
 
-\subsubsection{Additional Options: Derive}
+\subsection{Additional Options: Derive}
 
 \begin{itemize}
 \item Derive Style: determines how the solid bodies of the derived part import.
@@ -141,13 +141,13 @@ When using the Create tools above, most of them have options which allow you eve
 \item Options: more options which, most importantly, allows you to scale and flip the part before importing.
 \end{itemize}
 
-\subsubsection{Additional Options: Import}
+\subsection{Additional Options: Import}
 
 \begin{itemize}
 \item Import Options: some file types have additional options (beside the "Open" button) which allows you to control the unit imported, change the subformat and more.
 \end{itemize}
 
-\subsubsection{Additional Options: Rib}
+\subsection{Additional Options: Rib}
 
 \begin{itemize}
 \item Style: allows you to specify whether the ribs are created parallel or normal to the sketch plane. This is not important for basic ribs, but further customisation usually requires the style to be Normal to Sketch Plane
@@ -158,7 +158,7 @@ When using the Create tools above, most of them have options which allow you eve
 \item Distance: determines the thickness of the ribs in the other direction. 
 \end{itemize}
 
-\subsubsection{Additional Options: Unwrap}
+\subsection{Additional Options: Unwrap}
 
 \begin{itemize}
 \item Auto Face Chain
@@ -166,14 +166,14 @@ When using the Create tools above, most of them have options which allow you eve
 \item Behaviour
 \end{itemize}
 
-\subsection{Primitives}
+\section{Primitives}
 Primitives provide shortcuts to easily create basic features: a box, sphere, cylinder or torus. These features just reuse the Create features detailed above.
 
-\subsection{Modifying 3D Features}
+\section{Modifying 3D Features}
 
 You can apply the following modifiers to change already existing 3D features. It is often better practice to use one of these tools, such as the Hole feature, instead of incorporating a hole into your sketch for the 3D features.
 
-\subsubsection{Modifiers}
+\subsection{Modifiers}
 
 \begin{itemize}
 \item Hole: allows you to create holes of all kinds
@@ -193,36 +193,36 @@ You can apply the following modifiers to change already existing 3D features. It
 \item Direct Edit: allows you to edit imported models
 \end{itemize}
 
-\subsection{Patterning 3D Features}
+\section{Patterning 3D Features}
 
 $ $
 
-\subsection{Freeform 3D Modelling}
+\section{Freeform 3D Modelling}
 
 $ $
 
-\subsection{Surfaces}
-\label{subsection: 3D Model Surface}
+\section{Surfaces}
+\label{section: 3D Model Surface}
 
 $ $
 
-\subsection{Simplifying 3D Models}
+\section{Simplifying 3D Models}
 
 $ $
 
-\subsection{Plastic Parts}
+\section{Plastic Parts}
 
 $ $
 
-\subsection{Insert}
+\section{Insert}
 
 $ $
 
-\subsection{Harness}
+\section{Harness}
 
 $ $
 
-\subsection{The Shape Generator}
+\section{The Shape Generator}
 Shape Generator is Autodesk Inventor's version of generative design, which is a powerful feature which takes a load scenario and creates highly optimised structural designs.
 
-\subsection{Feature Management}
+\section{Feature Management}
