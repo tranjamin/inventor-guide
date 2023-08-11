@@ -195,7 +195,40 @@ You can apply the following modifiers to change already existing 3D features. It
 
 \section{Patterning 3D Features}
 
-$ $
+\cbstart
+\cbcolor{ForestGreen}
+In the same manner as 2D sketches, most 3D features can be patterned to streamline work. Mirror features about a plane, or repeat it in a rectangular or circular pattern. Patterns are associative, so changes made to one object reflect to the others. Follows the same principles as 2D patterns, however there are a few more additional options which are available:
+\cbend
+
+
+\subsection{Pattern Orientation}
+\cbstart
+\cbcolor{BurntOrange}
+Choose whether the pattern copies stay in a fixed orientation or become rotated. For a circular pattern, this dictates whether all object face the same cartesian direction or all face inwards. For a rectangular pattern, determines whether all objects face the same cartesian direction or all lie tangent to either the first or second direction (this is under the additional options).
+\cbend
+
+\subsection{Path-Based Patterns}
+\cbstart
+Unlike 2D sketches, rectangular patterns can also be generated along paths, including curved paths. Simply choose a custom 2D/3D sketch (or the edge of a 3D feature) and select it as the direction of patterning.
+\cbend
+
+\subsection{Sketch-Driven Patterns}
+\cbstart
+Inventor also allows you to place down duplicate features according to a sketch of points. The feature is duplicated for each point, with the base point of the feature being the point that maps on top of each sketch point. The reference faces dictate the orientation (the face for the duplicates to lie tangent to). These can both be adjusted.
+\cbend
+
+
+\subsection{Creation Method}
+\cbstart
+\cbcolor{Maroon}
+This defines the method Inventor uses to generate duplicates, and although this is usually unimportant certain situations require certain creation methods.
+
+Optimised: This is the fastest method, so useful for large quantities of duplication. However, it does not permit overlapping duplicates or patterns that intersect with other faces. Under the hood, it duplicates the faces of the features.
+
+Identical: The second fastest method, for when optimised is not possible. Under the hood, it duplicates the entire feature.
+
+Adjust: The slowest method, with each duplication have potential adjustments made to it. Used for the preservation of design intent and constraints - where it is not needed to keep each instance exactly the same. The best use-case for this is for a part which has been extruded to "terminate at face". Each duplicate will also be set to the same termination condition, even if it results in objects being lengthened and shortened from the reference feature.
+\cbend
 
 \section{Freeform 3D Modelling}
 
