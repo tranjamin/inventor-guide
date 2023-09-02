@@ -288,17 +288,55 @@ Align points or symmetry planes to planes using \appcommand{Edit $\blacktriangle
 
 \subsection{Modifying Freeforms}
 
+This section allows us to modify the existing freeform objects we have.
 
+\subsubsection{Inserting Edges and Points and Subdividing}
+
+A common method used to modify freeforms is the introduction of additional geometry. This makes the the model more intricate and gives us greater control over how the blocky model translates to the smooth model. The three primary ways to introduce more detail is by inserting an edge, inserting points and subdividing faces.
+
+In edge inserting, we split a face by offsetting one of the edges that bounds it. The location (from 0 to 1) represents how far down the face to insert the new edge. We can also choose if we want the new edge on one or both of the faces the reference edge lies on.   If we want to make a new edge that is not parallel from an existing one, we can instead add two points and create a new edge between them - we can also add a single point to bisect an existing edge. To split faces into many parts, we use the Subdivide tool. This allows us to break down down a face into equidistant rows and columns.
+
+For each of these tools, we can either choose the simple or exact mode. Simple mode will create the exact number of faces specified, however in doing so may change the overall shape. If you only care about getting the number of faces you want, use this mode. If you want to refine the detail of an existing model without yet changing the overall shape, use Exact Mode. This adds extra faces to surrounding geometry in order to preserve the original shape.
+
+\subsubsection{Merging, Bridging and Creasing}
+
+Two sets of open edges (those connected to only one edge) can be joined together using the \appcommand{Merge Edge} feature. This acts in a similar way to the Loft feature in 3D modelling, creating a bridge between the two edges. The merging point can be defined as at the two edge sets or in the middle of them. This is particularly useful for joining two holes together - remember we can double click to select the entire loop of an edge.
+
+Bridges perform similarly, however they join two faces together without having to create a hole first. Between two bodies, this will create a solid bridge, however within a single body, this will create a hole between the two faces. You can bridge from any number of faces to any other number of faces, and customise the bridge by specifying the number of faces it will have and the number of twists it will perform. This is also very similar to the Loft feature. Note that by default the preview for this feature is disabled because it is computationally expensive. This can be changed in the dialog box.
+
+Freeforms convert blocky models to smooth models, removing any sharp edges. However, we may sometimes want these sharp edges for particular purposes. The \appcommand{Crease Edges} tool allows us to specify which edges should not be smoothened. They can be uncreased in like.
+
+\subsubsection{Welding}
+
+If there are two or more points on the freeform that we want to connect, we can do so by using \appcommand{Weld Vertices}. The weld can be made to be at the centre of the points or towards the second vertex. In addition, with multiple points the welds can be made to a specific tolerance. 
+
+An edge weld is defined as a loop which cuts the freeform object in two, and is often the result of either basic modelling or features such as mirroring. To break apart a freeform, we use the \appcommand{Unweld Edges} and then select the loop we want to split along. 
+
+\subsubsection{Matching}
+
+Edge Matching is a critical step in incorporating freeform models into CAD designs. Often, freeform models tend to be very quick to make, but difficult to do precisely - and are therefore difficult to design around. Usually what we do is design our freeform to what it approximately needs to be and then edge match to the shape we need in reality. This tool, \appcommand{Match Edges}, matches an edge or loop from a freeform to a 2D sketch or 3D geometry, ensuring these models can be integrated into larger projects. We can also set tolerances and flip the way to connect these edegs - for those familiar with topography, this creates a non-orientable surface homeomorphic to the mobius strip because we are introducing a twist. Therefore, we usually don't want to do this! In addition, we usually avoid sharp corners because these are difficult for Inventor to model in 3D. 
+
+A special case arises if the edge of the freeform is from a NURBS (Non-Uniform Rational B-Spline) Surface. These surfaces are usually imported from other softwares or created in the Surfaces menu and then transformed into freeform. If we are using these types of surfaces, we can define the continuity of the matching to be G0, G1 or G2.
+
+Note that matching edges will create a Matches folder under the freeform object in the Part Navigator, and if any of the sketches change the edge matchings can be rematched or redefined here. It doesn't do this automatically because of how computationally expensive this process is. 
+
+\subsubsection{Flattening and Thickening}
+
+Flattening allows us to compress selected vertices into one plane. We can either define the plane we want the points to lie on, a corresponding parallel plane, or we can let Inventor compute a line of best fit automatically.
+
+Thickening lets us add thickness to surfaces - in reality, this is not strictly true because the inside of our thicker surface is actually hollow. This tool takes a body and offsets it by a specified amount to add thickness (or remove existing thickness). This results in two copies of the same body, one slightly smaller inside the slightly larger one - this gives the thickness. We can choose not to join these together, or more typically with either a sharp or a rounded edge. Typically this offset is applied in all directions (normal to the surface), but we can also choose a specific axis to add thickness to.
 
 \subsection{Symmetry and Mirroring}
 
 Like the corresponding tools for sketching and modelling, these tools allow us to define associative symmetries and mirrors in our freeform model. Under the \appcommand{Symmetry} subpanel, we can mirror a body along a mirror plane. Any changes to one side will be reflected in its mirror. Touching geometry across the mirror plane is typically welded together to form one large feature. The same effect of associative features can be achieved through the Symmetry tool, in the case that the body has already been or does not need to be mirrored.
 
+A further option is to make a freeform body uniform. This removes the pinch points and attempts to smooth out the surfaces as much as possible.
+
 \subsection{Visual Tools}
 
 There are four visual options available specifically for freeform modelling.
 
-- Add Distance: Adds a constrained dimension between a feature of a freeform body and a plane. This is useful for 
+- Add Distance: Adds a constrained dimension between a feature of a freeform body and a plane. This is useful for Model-Based Definition paradigms. Note that this has to be done in Smooth Mode rather than Blocky Mode.
 
 - Toggle Smooth: Toggle between the smooth freeform model and it's blocky representation. It is usually better practice to model in blocky mode, as it shows the underlying geometry and is easier to edit. Smooth mode is usually the final product, so is reserved for renders and the like.
 
@@ -306,7 +344,33 @@ There are four visual options available specifically for freeform modelling.
 
 - Select Through: Enabling this option will allow you to highlight and select geometry that is behind other geometry. This option is initially disabled, meaning that only parts of the model you can see will be selectable. Toggle this if you want to select all geometry or only geometry visible from a certain plane.
 
+\subsection{How to Use Freeforms}
 
+Freeform modelling can be really good for certain parts of the design proces, but can lack the necessary precision for many engineering applications. To use them effectively, we recommend following the below process:
+
+- Identify where freeform modelling is useful. They are often used for complex 3D surfaces and shapes that don't necessarily need to be precise, or to join two components together.
+
+- Create the surrounding model that you want to integrate your freeform into. This should include sketches and faces for it to connect to. Also define planes and axes to guide your freeform modelling.
+
+- Choose the primitive that most closely aligns with that you want to design. Remember that for a spherical-based object that behaves the same in all directions, choose the quadball. Decide how detailed your model will be: the finer the mesh, the greater control you will have over the shape but the more computationally expensive it will be.
+
+- Define any symmetries or mirrors in the design. These should be used whenever possible to maintain symmetry of the design if needed.
+
+- Edit and modify your model as necessary.
+
+- Ground your freeform model to the correct location relative to your model using the Align Form tool.
+
+- Use the Match Edge tool to connect the freeform to the rest of the model precisely.
+
+\subsection{Glossary of Freeform Terms}
+
+Freeform object/model: a connected group of faces, edges and vertices/points.
+
+Open surface: a surface which does not join in on itself to create volume. The boundary of this open surface is the edge that is only connected to a single face.
+
+Loop: a series of edges connected by vertices which forms a closed chain (i.e forms the boundary of a surface)
+
+Freeform geometry: the edges, points and faces that comprise a freeform model.
 
 \section{Surfaces}
 \label{section: 3D Model Surface}
