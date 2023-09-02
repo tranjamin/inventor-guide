@@ -265,6 +265,28 @@ Under \appcommand{3D Model $\blacktriangleright$ Create Freeform}, freeform mode
 
 \subsection{Editing Freeform Models}
 
+After creating a freeform body, its geometry can be changed using \appcommand{Freeform $\blacktriangleright$ Edit Form}. Select one more multiple bodies, faces, edges or points - it is convenient to drag select an area of the body and then using the filtering options to select only faces, only edges or only points. (Double clicking on an edge will instead select the edge loop it belongs to). These geometries can then be translated, rotated, and/or scaled in all 3 dimensions, morphing the surrounding geometry to meet the new requirements.
+
+You'll often find yourself making multiple transformations at once. There is an included undo, redo and reset button for each time you edit a freeform.
+
+\subsubsection{The Nuances of the Extrude Mode}
+\appcommand{Extrude} is an option that instead of morphing the surrounding geometry will only change the highlighted geometry. This is most commonly used for faces. Typically in transformations, pulling a face up will also pull the surrounding faces up to maintain smoothness. In extrude mode this is not the case, and it will look like a regular extrusion. This creates sharp angles in the blocky model, which translates to concave curves. A useful feature of extrusions is to create shells. Extrusions can be cut into the existing geometry to create hollow sections, which can then lead to very interesting concave shapes. A common technique is to extrude a face in one direction and then immediately the other, which removes the solid mass but keeps the outer shell.
+
+Extrusions also have some quirks when used with edges. In most cases, translating will not change its orientation (i.e there will be no rotation). However, after selecting the Extrude mode when making edge transformations, the resulting edge will associate with surrounding edges. Trying to transform this new edge will then pull along other edges in ways that were not previously possible. 
+
+\subsubsection{The Coordinate System for Transformations}
+An important note when editing freeform models is that the coordinate system used for transforming can be set to either the world coordinates, local coordinates or view coordinates. Most commonly the former two are used. Use world coordinates to move the geometry vetically or horizontally, while use local coordinates to move orthogonally or tangent to the face.
+
+\subsubsection{Soft Modification}
+Soft modifications allow for more gradual geometries, but in a trade off usually affect a wider amount of the freeform body. The type of modification (Circle, Rectangle, or Grow) determines the "range of influence" (i.e the area of the freeform body which is affected) and can be varied using parameters. For example, a Circle modification with radius 10mm will affect any geometry within 10mm of the entity being edited. Usually, larger influence radii correspond to more gradual change. The Falloff and Gradient determine how the change will be distributed through this area.
+
+\subsubsection{Deleting Features}
+Features are deleted under \appcommand{Edit $\blacktriangleright$ Delete}. Typically, deleting edges will merge faces together, deleting faces will hollow out the freeform body and deleting points will merge all adjacent faces and edges.
+
+\subsubsection{Aligning Freeforms}
+Align points or symmetry planes to planes using \appcommand{Edit $\blacktriangleright$ Align Form}. 
+
+
 \subsection{Visual Tools}
 
 There are three visual options available specifically for freeform modelling.
