@@ -8,6 +8,9 @@
 \usepackage{amssymb}
 \usepackage{titling}
 \usepackage{graphicx}
+\graphicspath{{./assets/icons}{./assets}}
+
+\usepackage{calc}
 \usepackage{wrapfig}
 \usepackage{subcaption}
 \usepackage{float}
@@ -26,14 +29,29 @@
 \usepackage[skins]{tcolorbox}
 \setlength\changebarsep{10pt}
 
+\definecolor{InventorBoxBlue}{RGB}{240, 250, 255}
+\definecolor{InventorBorderBlue}{RGB}{137, 208, 239}
+\definecolor{InventorBoxGray}{RGB}{227, 227, 227}
+\definecolor{InventorBorderGray}{RGB}{215, 215, 215}
+
 \newtcbox{\hotkeybox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.4pt,top=0mm,bottom=0mm,
   right=0mm,left=0mm,arc=2pt,boxsep=2pt,before upper={\vphantom{dlg}}, 
-  colframe=black,coltext=black,colback=gray}
+  colframe=InventorBorderGray,coltext=black,colback=InventorBoxGray}
 
 \newtcbox{\appcommandbox}{enhanced,nobeforeafter,tcbox raise base,boxrule=0.8pt,top=0mm,bottom=0mm,
-  right=0mm,left=0mm,arc=2pt,boxsep=2pt,before upper={\vphantom{dlg}},
-  colframe=Salmon,coltext=black,colback=Dandelion}
+  right=0mm,left=0mm,arc=0.25pt,boxsep=2pt,before upper={\vphantom{dlg}},
+  colframe=InventorBorderBlue,coltext=black,colback=InventorBoxBlue}
 
+\newlength\myheight
+\newlength\mydepth
+\settototalheight\myheight{Xygp}
+\settodepth\mydepth{Xygp}
+\setlength\fboxsep{0pt}
+\newcommand*\inlinegraphics[1]{
+  \settototalheight\myheight{Xygp}
+  \settodepth\mydepth{Xygp}
+  \raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}
+}
 
 \newcommand{\hotkey}[1]{
     \footnotesize
