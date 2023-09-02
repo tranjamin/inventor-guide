@@ -284,12 +284,21 @@ Soft modifications allow for more gradual geometries, but in a trade off usually
 Features are deleted under \appcommand{Edit $\blacktriangleright$ Delete}. Typically, deleting edges will merge faces together, deleting faces will hollow out the freeform body and deleting points will merge all adjacent faces and edges.
 
 \subsubsection{Aligning Freeforms}
-Align points or symmetry planes to planes using \appcommand{Edit $\blacktriangleright$ Align Form}. 
+Align points or symmetry planes to planes using \appcommand{Edit $\blacktriangleright$ Align Form}. Note that for freeform models, planes are more difficult to define because you can't create work features (planes, axes, etc) based on freeform geometry. Therefore, it is often practical to align freeforms to existing planes. By doing this, we know where our freeform is in relation to the rest of the model, and can more easily create new planes (such as for symmetry operations).
 
+\subsection{Modifying Freeforms}
+
+
+
+\subsection{Symmetry and Mirroring}
+
+Like the corresponding tools for sketching and modelling, these tools allow us to define associative symmetries and mirrors in our freeform model. Under the \appcommand{Symmetry} subpanel, we can mirror a body along a mirror plane. Any changes to one side will be reflected in its mirror. Touching geometry across the mirror plane is typically welded together to form one large feature. The same effect of associative features can be achieved through the Symmetry tool, in the case that the body has already been or does not need to be mirrored.
 
 \subsection{Visual Tools}
 
-There are three visual options available specifically for freeform modelling.
+There are four visual options available specifically for freeform modelling.
+
+- Add Distance: Adds a constrained dimension between a feature of a freeform body and a plane. This is useful for 
 
 - Toggle Smooth: Toggle between the smooth freeform model and it's blocky representation. It is usually better practice to model in blocky mode, as it shows the underlying geometry and is easier to edit. Smooth mode is usually the final product, so is reserved for renders and the like.
 
