@@ -257,15 +257,17 @@ Adjust: The slowest method, with each duplication have potential adjustments mad
 
 \section{Freeform 3D Modelling}
 
+\ribbon{freeform_ribbon}
+
 Freeform modelling is an alternative technique to 3D modelling, which allows for direct manipulation of objects and quick creation of complex shapes. This style of modelling is more similar to mesh-based design, and although it can take practice to get used to, it is a much faster way of editing models.
 
 \subsection{Creating Freeform Models}
 
-Under \appcommand{3D Model $\blacktriangleright$ Create Freeform}, freeform models can be created. Various different 3D objects can be created, with additional options for defining symmetry, dimensioning and the number of segments (mesh faces) each object is divided into. Note that for spherical objects, quadballs (rounded cubes) are often preferred over spheres because they deform uniformly in the same direction. In a similar manner, freeform faces can also be created, and freeforms can be created from existing faces and features.
+Under \appcommand{3D Model \then Create Freeform}, freeform models can be created. Various different 3D objects can be created, with additional options for defining symmetry, dimensioning and the number of segments (mesh faces) each object is divided into. Note that for spherical objects, quadballs (rounded cubes) are often preferred over spheres because they deform uniformly in the same direction. In a similar manner, freeform faces can also be created, and freeforms can be created from existing faces and features.
 
 \subsection{Editing Freeform Models}
 
-After creating a freeform body, its geometry can be changed using \appcommand{Freeform $\blacktriangleright$ Edit Form}. Select one more multiple bodies, faces, edges or points - it is convenient to drag select an area of the body and then using the filtering options to select only faces, only edges or only points. (Double clicking on an edge will instead select the edge loop it belongs to). These geometries can then be translated, rotated, and/or scaled in all 3 dimensions, morphing the surrounding geometry to meet the new requirements.
+After creating a freeform body, its geometry can be changed using \appcommand{Freeform \then Edit Form}. Select one more multiple bodies, faces, edges or points - it is convenient to drag select an area of the body and then using the filtering options to select only faces, only edges or only points. (Double clicking on an edge will instead select the edge loop it belongs to). These geometries can then be translated, rotated, and/or scaled in all 3 dimensions, morphing the surrounding geometry to meet the new requirements.
 
 You'll often find yourself making multiple transformations at once. There is an included undo, redo and reset button for each time you edit a freeform.
 
@@ -281,10 +283,10 @@ An important note when editing freeform models is that the coordinate system use
 Soft modifications allow for more gradual geometries, but in a trade off usually affect a wider amount of the freeform body. The type of modification (Circle, Rectangle, or Grow) determines the "range of influence" (i.e the area of the freeform body which is affected) and can be varied using parameters. For example, a Circle modification with radius 10mm will affect any geometry within 10mm of the entity being edited. Usually, larger influence radii correspond to more gradual change. The Falloff and Gradient determine how the change will be distributed through this area.
 
 \subsubsection{Deleting Features}
-Features are deleted under \appcommand{Edit $\blacktriangleright$ Delete}. Typically, deleting edges will merge faces together, deleting faces will hollow out the freeform body and deleting points will merge all adjacent faces and edges.
+Features are deleted under \appcommand{Edit \then Delete}. Typically, deleting edges will merge faces together, deleting faces will hollow out the freeform body and deleting points will merge all adjacent faces and edges.
 
 \subsubsection{Aligning Freeforms}
-Align points or symmetry planes to planes using \appcommand{Edit $\blacktriangleright$ Align Form}. Note that for freeform models, planes are more difficult to define because you can't create work features (planes, axes, etc) based on freeform geometry. Therefore, it is often practical to align freeforms to existing planes. By doing this, we know where our freeform is in relation to the rest of the model, and can more easily create new planes (such as for symmetry operations).
+Align points or symmetry planes to planes using \appcommand{Edit \then Align Form}. Note that for freeform models, planes are more difficult to define because you can't create work features (planes, axes, etc) based on freeform geometry. Therefore, it is often practical to align freeforms to existing planes. By doing this, we know where our freeform is in relation to the rest of the model, and can more easily create new planes (such as for symmetry operations).
 
 \subsection{Modifying Freeforms}
 
@@ -371,6 +373,8 @@ Open surface: a surface which does not join in on itself to create volume. The b
 Loop: a series of edges connected by vertices which forms a closed chain (i.e forms the boundary of a surface)
 
 Freeform geometry: the edges, points and faces that comprise a freeform model.
+
+Mesh: the group of edges that make up the model.
 
 \section{Surfaces}
 \label{section: 3D Model Surface}

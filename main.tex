@@ -42,6 +42,8 @@
   right=0mm,left=0mm,arc=0.25pt,boxsep=2pt,before upper={\vphantom{dlg}},
   colframe=InventorBorderBlue,coltext=black,colback=InventorBoxBlue}
 
+
+
 \newlength\myheight
 \newlength\mydepth
 \settototalheight\myheight{Xygp}
@@ -51,6 +53,14 @@
   \settototalheight\myheight{Xygp}
   \settodepth\mydepth{Xygp}
   \raisebox{-\mydepth}{\includegraphics[height=\myheight]{#1}}
+}
+
+\newcommand{\then} {
+    $\rightarrow$
+}
+
+\newcommand{\ribbon}[1]{
+    \includegraphics[width=\textwidth]{{#1}}
 }
 
 \newcommand{\hotkey}[1]{
