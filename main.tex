@@ -138,7 +138,7 @@
     [\vspace{-0.7em}]
 
 \NewCommandCopy{\oldchapter}{\chapter}
-\renewcommand{\chapter}[1]{\cbend \oldchapter{#1}}
+\renewcommand{\chapter}[1]{\oldchapter{#1} \cbstart}
 
 \NewCommandCopy{\oldsection}{\section}
 \renewcommand{\section}[1]{\cbend \oldsection{#1} \cbstart}
