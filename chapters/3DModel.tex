@@ -435,11 +435,27 @@ This section covers a series of tools which are used to very quickly create plas
 
 \subsection{Snap Fit}
 
-One of the most common ways to connect plastic parts together is by using snap-fits, taking advantage of the flexiblity of plastic parts. The \appcommand{Plastic Part \then Snap Fit} tool allows us to easily create snap fits without having to worry about the designing the specific geometry of it. One component we add a hook to, while the other component we add a catch (or loop). Either 3D points of 2D sketch points are used to dictate where to place the geometry. We can also modify various dimensions of the snap fit mechanism, as well as changing the direction of the mechanism.
-
-\subsection{Rule Fillet}
+One of the most common ways to connect plastic parts together is by using snap-fits, taking advantage of the flexiblity of plastic parts. The \appcommand{Plastic Part \then Snap Fit} tool allows us to easily create snap fits without having to worry about the designing the specific geometry of it. One component we add a hook to, while the other component we add a catch (or loop). Either 3D points of 2D sketch points are used to dictate where to place the geometry. We can also modify various dimensions of the snap fit mechanism, as well as changing the direction of the mechanism. Snap fit parts work the best for thin-walled components.
 
 \subsection{Grill}
+
+To create grills, vents and other similar openings, we can use the \appcommand{Plastic Part \then Grill} feature. There are four main elements of these grills: a boundary, an island, ribs and spars.
+
+Boundary:
+The boundary of a grill is the outer rim which encloses the grill. This rim is usually raised from the surface and has a definable thickness, height and height offset. The height offset is how far the rim is raised from the surface, while the total height dips below the surface.
+
+Island:
+The island is an optional area of solid material. This area is defined by an enclosed loop and must lie within the boundary. The island will also morph to the shape of the grill, so we typically want to use this feature rather than using simple extrusions.
+
+Ribs:
+The ribs are thin walls that fill up the boundary area and form the main part of the grill. These ribs can have a specified thickness, height and height offset in a similar fashion to the boundary. We use 2D curves to define where to create the ribs - note that they don't necessary have to be straight.
+
+Spars:
+Spars are secondary ribs that add stiffness and support to the grill, and usually are placed orthogonal to the ribs. They have the exact same properties as ribs, but are defined not by their total height but by their offset from the top and bottom of the ribs.
+
+In addition to these four elements, the grill can also have a draft. This adds extra thickness to the grill at the centre, and is usually defined by a draft angle. The way the grill is drafted is largely out of our control; instead Inventor designs it coording to best practice. 
+
+\subsection{Rule Fillet}
 
 \subsection{Boss}
 
