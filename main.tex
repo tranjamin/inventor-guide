@@ -27,6 +27,8 @@
 \usepackage[color, leftbars]{changebar}
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage[skins]{tcolorbox}
+\usepackage[parfill]{parskip}
+
 \setlength\changebarsep{10pt}
 
 \definecolor{InventorBoxBlue}{RGB}{240, 250, 255}
@@ -78,6 +80,14 @@
 \end{appcommandbox}
 \normalsize        
     }
+
+\newcommand{\appoption}[1]{
+    \footnotesize
+    \begin{appcommandbox}
+        {#1} 
+    \end{appcommandbox}
+    \normalsize        
+        }
 
 
 \usepackage{xcolor}
