@@ -456,7 +456,9 @@ Spars are secondary ribs that add stiffness and support to the grill, and usuall
 In addition to these four elements, the grill can also have a draft. This adds extra thickness to the grill at the centre, and is usually defined by a draft angle. The way the grill is drafted is largely out of our control; instead Inventor designs it coording to best practice. 
 
 \subsection{Rest}
-The \appcommand{Plastic Part \then Rest} tool is very similar to the Emboss feature in 3D modelling. It allows us to create a flat "landing area" on a curved surface, which is useful because we can the create new planes and components on this area.
+The \appcommand{Plastic Part \then Rest} tool is very similar to the Emboss feature in 3D modelling. It allows us to create a flat "landing area" on a curved surface, which is useful because we can the create new planes and components on this area. To create a rest, we usually first create a work plane in which we want our landing area to lie. We then create a 2D sketch to represent the shape of the landing. 
+
+Once we have sketched out the landing area, we can then use the \appcommand{Rest} tool. The direction of the rest determines whether the rest is supported from above, below or both. This is in effect the same as the emboss tool, where one direction will result in material being cut out and one will not. The thickness of the landing can also be specified, as well as defining how the thickness is calculated. Finally, a taper can be added to both the landing area and the support walls.
 
 \subsection{Rule Fillet}
 
