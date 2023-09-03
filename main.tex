@@ -65,6 +65,10 @@
     \includegraphics[width=\textwidth]{{#1}}
 }
 
+\newcommand{\example}[1]{
+    \includegraphics[width=\textwidth]{{#1}}
+}
+
 \newcommand{\hotkey}[1]{
     \footnotesize
     \begin{hotkeybox}
@@ -106,7 +110,7 @@
     {\normalfont\Huge\bfseries\centering}
     {}
     {1em}
-    {\vspace{-4em}}
+    {\pagebreak\vspace{-4em}}
     [\vspace{-1em}]
 
 \titleformat{\section}
@@ -114,7 +118,7 @@
     {\normalfont\huge\bfseries\color{turbo_purple}}
     {}
     {1em}
-    {\vspace{-2em}}
+    {\pagebreak}
     []
 
 \titleformat{\subsection}
@@ -122,19 +126,19 @@
     {\normalfont\Large\bfseries\color{gray}}
     {}
     {1em}
-    {\vspace{-0.5em}}
-    [\vspace{-0.5em}]
+    {\vspace{-2em}}
+    [\vspace{0em}]
 
 \titleformat{\subsubsection}
     [display]
     {\normalfont\large\bfseries\color{turbo_purple}}
     {}
     {1em}
-    {\vspace{-1em}}
+    {\vspace{0em}}
     [\vspace{-0.7em}]
 
 \NewCommandCopy{\oldchapter}{\chapter}
-\renewcommand{\chapter}[1]{\cbend \oldchapter{#1} \cbstart}
+\renewcommand{\chapter}[1]{\cbend \oldchapter{#1}}
 
 \NewCommandCopy{\oldsection}{\section}
 \renewcommand{\section}[1]{\cbend \oldsection{#1} \cbstart}

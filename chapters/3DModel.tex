@@ -258,10 +258,10 @@ Freeform modelling is an alternative technique to 3D modelling, which lets us di
 
 This section will cover how to create freeforms and the various tools used to manipulate them. It will also give you tips on when to best use freeforms and the design process associated with them.
 
-\ribbon{freeform_example}
-
+\example{freeform_example}
 
 \subsection{Creating Freeform Models}
+\easydifficulty
 
 We can create freeforms from the \appcommand{3D Model \then Create Freeform} panel. This will then put us in the Freeform environment, allowing us to create additional freeforms and edit them. Typically, we start our freeform model with one 6 primitve shapes, depending on which one best resembles the final shape we want our freeform to take. These base shapes are as follows: box, plane, cylinder, sphere, torus \& quadball. Note that for spherical or revolved shapes, we usually prefer quadball to sphere because it deforms uniformly in every direction. 
 
@@ -278,14 +278,16 @@ There are four visual options available specifically for freeform modelling.
 \appcommand{Freeform \then Check \then Add Distance}: \newline
 Adds a constrained dimension between a feature of a freeform body and a plane. This is useful for Model-Based Definition paradigms. Note that this has to be done in Smooth Mode rather than Blocky Mode.
 
-\appcommand{Freeform \then Tools \then Toggle Smooth}: \newline
-Toggle between the smooth freeform model and it's blocky representation. It is usually better practice to model in blocky mode, as it shows the underlying geometry and is easier to edit. Smooth mode is usually the final product, so is reserved for renders and the like. This is the "actual" shape of the freeform.
-
 \appcommand{Freeform \then Tools \then Toggle Translucent}: \newline
 Change the opacity of the model. 
 
 \appcommand{Freeform \then Tools \then Select Through}: \newline
 Enabling this option will allow you to highlight and select geometry that is behind other geometry. This option is initially disabled, meaning that only parts of the model you can see will be selectable. Toggle this if you want to select all geometry or only geometry visible from a certain plane.
+
+\appcommand{Freeform \then Tools \then Toggle Smooth}: \newline
+Toggle between the smooth freeform model and it's blocky representation. It is usually better practice to model in blocky mode, as it shows the underlying geometry and is easier to edit. Smooth mode is usually the final product, so is reserved for renders and the like. This is the "actual" shape of the freeform.
+
+\example{freeform_smooth_mode}
 
 \subsection{Editing Freeform Models}
 
@@ -294,12 +296,14 @@ After creating a freeform body, we can change its geometry with \appcommand{Free
 Make sure to be in blocky mode when editing models. If you're in smooth mode, it's near-impossible to be able to predict how changes affect the overall shape. The blocky representation makes it very clear what is being changed.
 
 \subsubsection{The Nuances of the Extrude Mode}
-\harddifficulty
+\mediumdifficulty
 \appoption{Extrude} is an option that instead of morphing the surrounding geometry will only change the highlighted geometry. This is most commonly used for faces. Typically in transformations, pulling a face up will also pull the surrounding faces up to maintain smoothness. In extrude mode this is not the case, and it will look like a regular extrusion. This creates sharp angles in the blocky model, which translates to concave curves. 
 
 A useful feature of extrusions is to create shells. Extrusions can be cut into the existing geometry to create hollow sections, which can then lead to very interesting concave shapes. A common technique is to extrude a face in one direction and then immediately the other, which removes the solid mass but keeps the outer shell.
 
 Extrusions also have some quirks when used with edges. In most cases, translating will not change its orientation (i.e there will be no rotation). However, after selecting the Extrude mode when making edge transformations, the resulting edge will associate with surrounding edges. Trying to transform this new edge will then pull along other edges in ways that were not previously possible. 
+
+\example{freeform_extrude}
 
 \subsubsection{The Coordinate System for Transformations}
 \mediumdifficulty
@@ -309,6 +313,7 @@ An important note when editing freeform models is that the coordinate system use
 Soft modifications allow for more gradual geometries, but as a trade off usually affect a wider amount of the freeform body. The type of modification (Circle, Rectangle, or Grow) determines the "range of influence" (i.e the area of the freeform body which is affected) and can be varied using parameters. For example, a \appoption{Circle} modification with radius 10mm will affect any geometry within 10mm of the entity being edited. Usually, larger influence radii correspond to more gradual change. The \appoption{Falloff} and \appoption{Gradient} determine how the change will be distributed through this area.
 
 \subsubsection{Deleting Features}
+\easydifficulty
 We delete features under \appcommand{Freeform \then Edit \then Delete}. Typically, deleting edges will merge faces together, deleting faces will hollow out the freeform body and deleting points will merge all adjacent faces and edges.
 
 \subsubsection{Aligning Freeforms}
@@ -331,6 +336,7 @@ To split faces into many parts, we use the (\appcommand{Modify \then Subdivide})
 For each of these tools, we can either choose the simple or exact mode. \appoption{Simple} Mode will create the exact number of faces specified, however in doing so may change the overall shape. If you only care about getting the number of faces you want, use this mode. If you want to refine the detail of an existing model without yet changing the overall shape, use \appoption{Exact} Mode. This adds extra faces to surrounding geometry in order to preserve the original shape.
 
 \subsubsection{Merging, Bridging and Creasing}
+\mediumdifficulty
 
 Two sets of open edges (those connected to only one edge) can be joined together using the \appcommand{Modify \then Merge Edge} feature. This acts in a similar way to the Loft feature in 3D modelling, creating a bridge between the two edges. The merging point can be defined as being at the edge set or in the middle of them. This is particularly useful for joining two holes together - remember we can double click to select the entire loop of an edge.
 
@@ -339,6 +345,7 @@ Two sets of open edges (those connected to only one edge) can be joined together
 Freeforms convert blocky models to smooth models, removing any sharp edges. However, we may sometimes want these sharp edges for particular purposes. The \appcommand{Modify \then Crease Edges} tool allows us to specify which edges should not be smoothened. They can be uncreased in like with \appcommand{Modify \then Uncrease Edges}.
 
 \subsubsection{Welding}
+\easydifficulty
 
 If there are two or more points on the freeform that we want to connect, we can do so by using \appcommand{Modifty \then Weld Vertices}. The weld can be made to be at the centre of the points or towards the second vertex. In addition, with multiple points the welds can be made to a specific tolerance. 
 
@@ -352,6 +359,7 @@ An edge weld is defined as a loop which cuts the freeform object in two, and is 
 \appcommand{Modify \then Thicken} lets us add thickness to surfaces - in reality, this is not strictly true because the inside of our thicker surface is actually hollow. This tool takes a body and offsets it by a specified amount to add thickness (or remove existing thickness). This results in two copies of the same body, one slightly smaller inside the slightly larger one - this gives the thickness. We can choose not to join these together, or more typically join with either a sharp or a rounded edge. Typically this offset is applied in all directions (normal to the surface), but we can also choose a specific axis to add thickness to.
 
 \subsubsection{Matching}
+\mediumdifficulty
 
 Edge Matching is a critical step in incorporating freeform models into CAD designs. Often, freeform models tend to be very quick to make, but difficult to do precisely - and are therefore difficult to design around. Usually what we do is design our freeform to what it approximately needs to be and then use this tool, \appcommand{Modifty \then Match Edges}, to line the freeform up accurately. It glues an edge or loop from a freeform to a 2D sketch or 3D geometry, ensuring these models can be integrated into larger projects. 
 
@@ -361,9 +369,11 @@ A special case arises if the edge of the freeform is from a NURBS (Non-Uniform R
 
 Note that matching edges will create a "Matches" folder under the freeform object in the Part Navigator, and if any of the sketches change the edge matchings can be rematched or redefined here. It doesn't do this automatically because of how computationally expensive this process is. 
 
+\example{freeform_matching}
 
 \label{subsection:freeform-symmetry}
 \subsection{Symmetry and Mirroring}
+\easydifficulty
 
 Like the corresponding tools for sketching and modelling, these tools allow us to define associative symmetries and mirrors in our freeform model. Under the \appcommand{Symmetry} subpanel, we can \appcommand{Symmetry \then Mirror} a body along a mirror plane. Any changes to one side will be reflected in its mirror. Touching geometry across the mirror plane is typically welded together. The same effect of associative features can be achieved through the \appcommand{Symmetry \then Symmetry} tool. This adds symmetry to two already existing features. We can remove symmetries if needed as well with \appcommand{Symmetry \then Clear Symmetry}.
 
