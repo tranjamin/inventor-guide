@@ -219,32 +219,26 @@ Face Chaining:
 
 
 \section{Patterning 3D Features}
-
-\cbstart
 \cbcolor{ForestGreen}
 In the same manner as 2D sketches, most 3D features can be patterned to streamline work. Mirror features about a plane, or repeat it in a rectangular or circular pattern. Patterns are associative, so changes made to one object reflect to the others. Follows the same principles as 2D patterns, however there are a few more additional options which are available:
-\cbend
+
 
 
 \subsection{Pattern Orientation}
-\cbstart
 \cbcolor{BurntOrange}
 Choose whether the pattern copies stay in a fixed orientation or become rotated. For a circular pattern, this dictates whether all object face the same cartesian direction or all face inwards. For a rectangular pattern, determines whether all objects face the same cartesian direction or all lie tangent to either the first or second direction (this is under the additional options).
-\cbend
+
 
 \subsection{Path-Based Patterns}
-\cbstart
 Unlike 2D sketches, rectangular patterns can also be generated along paths, including curved paths. Simply choose a custom 2D/3D sketch (or the edge of a 3D feature) and select it as the direction of patterning.
-\cbend
+
 
 \subsection{Sketch-Driven Patterns}
-\cbstart
 Inventor also allows you to place down duplicate features according to a sketch of points. The feature is duplicated for each point, with the base point of the feature being the point that maps on top of each sketch point. The reference faces dictate the orientation (the face for the duplicates to lie tangent to). These can both be adjusted.
-\cbend
+
 
 
 \subsection{Creation Method}
-\cbstart
 \cbcolor{Maroon}
 This defines the method Inventor uses to generate duplicates, and although this is usually unimportant certain situations require certain creation methods.
 
@@ -253,8 +247,9 @@ Optimised: This is the fastest method, so useful for large quantities of duplica
 Identical: The second fastest method, for when optimised is not possible. Under the hood, it duplicates the entire feature.
 
 Adjust: The slowest method, with each duplication have potential adjustments made to it. Used for the preservation of design intent and constraints - where it is not needed to keep each instance exactly the same. The best use-case for this is for a part which has been extruded to "terminate at face". Each duplicate will also be set to the same termination condition, even if it results in objects being lengthened and shortened from the reference feature.
-\cbend
 
+
+\mediumdifficulty
 \section{Freeform 3D Modelling}
 
 \ribbon{freeform_ribbon}
@@ -264,6 +259,7 @@ Freeform modelling is an alternative technique to 3D modelling, which lets us di
 This section will cover how to create freeforms and the various tools used to manipulate them. It will also give you tips on when to best use freeforms and the design process associated with them.
 
 \ribbon{freeform_example}
+
 
 \subsection{Creating Freeform Models}
 
@@ -298,6 +294,7 @@ After creating a freeform body, we can change its geometry with \appcommand{Free
 Make sure to be in blocky mode when editing models. If you're in smooth mode, it's near-impossible to be able to predict how changes affect the overall shape. The blocky representation makes it very clear what is being changed.
 
 \subsubsection{The Nuances of the Extrude Mode}
+\harddifficulty
 \appoption{Extrude} is an option that instead of morphing the surrounding geometry will only change the highlighted geometry. This is most commonly used for faces. Typically in transformations, pulling a face up will also pull the surrounding faces up to maintain smoothness. In extrude mode this is not the case, and it will look like a regular extrusion. This creates sharp angles in the blocky model, which translates to concave curves. 
 
 A useful feature of extrusions is to create shells. Extrusions can be cut into the existing geometry to create hollow sections, which can then lead to very interesting concave shapes. A common technique is to extrude a face in one direction and then immediately the other, which removes the solid mass but keeps the outer shell.
@@ -305,6 +302,7 @@ A useful feature of extrusions is to create shells. Extrusions can be cut into t
 Extrusions also have some quirks when used with edges. In most cases, translating will not change its orientation (i.e there will be no rotation). However, after selecting the Extrude mode when making edge transformations, the resulting edge will associate with surrounding edges. Trying to transform this new edge will then pull along other edges in ways that were not previously possible. 
 
 \subsubsection{The Coordinate System for Transformations}
+\mediumdifficulty
 An important note when editing freeform models is that the coordinate system used for transforming can be set to either the world coordinates, local coordinates or view coordinates. Most commonly the former two are used. We use world coordinates to move the geometry vetically or horizontally, while we use local coordinates to move orthogonally or tangent to the face - this is particulary useful for angled faces.
 
 \subsubsection{Soft Modification}

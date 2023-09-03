@@ -89,6 +89,10 @@
     \normalsize        
         }
 
+\newcommand{\easydifficulty} {\cbcolor{ForestGreen}}
+\newcommand{\mediumdifficulty} {\cbcolor{BurntOrange}}
+\newcommand{\harddifficulty} {\cbcolor{Maroon}}
+
 
 \usepackage{xcolor}
 \definecolor{turbo_purple}{RGB}{112,105,160}
@@ -97,10 +101,49 @@
 \definecolor{partner_gold}{RGB}{212,175,55}
 
 \usepackage{titlesec}
-\titleformat{\chapter}[display]{\normalfont\Huge\bfseries\centering}{}{1em}{\vspace{-4em}}[\vspace{-1em}]
-\titleformat{\section}[display]{\normalfont\huge\bfseries\color{turbo_purple}}{}{1em}{\vspace{-2em}}
-\titleformat{\subsection}[display]{\normalfont\Large\bfseries\color{gray}}{}{1em}{\vspace{-0.5em}}[\vspace{-0.5em}]
-\titleformat{\subsubsection}[display]{\normalfont\large\bfseries\color{turbo_purple}}{}{1em}{\vspace{-1em}}[\vspace{-0.7em}]
+\titleformat{\chapter}
+    [display]
+    {\normalfont\Huge\bfseries\centering}
+    {}
+    {1em}
+    {\vspace{-4em}}
+    [\vspace{-1em}]
+
+\titleformat{\section}
+    [display]
+    {\normalfont\huge\bfseries\color{turbo_purple}}
+    {}
+    {1em}
+    {\vspace{-2em}}
+    []
+
+\titleformat{\subsection}
+    [display]
+    {\normalfont\Large\bfseries\color{gray}}
+    {}
+    {1em}
+    {\vspace{-0.5em}}
+    [\vspace{-0.5em}]
+
+\titleformat{\subsubsection}
+    [display]
+    {\normalfont\large\bfseries\color{turbo_purple}}
+    {}
+    {1em}
+    {\vspace{-1em}}
+    [\vspace{-0.7em}]
+
+\NewCommandCopy{\oldchapter}{\chapter}
+\renewcommand{\chapter}[1]{\cbend \oldchapter{#1} \cbstart}
+
+\NewCommandCopy{\oldsection}{\section}
+\renewcommand{\section}[1]{\cbend \oldsection{#1} \cbstart}
+
+\NewCommandCopy{\oldsubsection}{\subsection}
+\renewcommand{\subsection}[1]{\cbend \oldsubsection{#1} \cbstart}
+
+\NewCommandCopy{\oldsubsubsection}{\subsubsection}
+\renewcommand{\subsubsection}[1]{\cbend \oldsubsubsection{#1} \cbstart}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -156,28 +199,28 @@ node [inner sep=0,outer sep=0,above right]
 %\newpage\subfile{chapters/Collaborate.tex}
 %\newpage\subfile{chapters/Tools.tex}
 %\newpage\subfile{chapters/WorkFeatures.tex}
-\newpage\subfile{chapters/2DSketch.tex}
-\newpage\subfile{chapters/3DSketch.tex}
+% \newpage\subfile{chapters/2DSketch.tex}
+% \newpage\subfile{chapters/3DSketch.tex}
 \newpage\subfile{chapters/3DModel.tex}
-\newpage\subfile{chapters/Assemble.tex}
-\newpage\subfile{chapters/Design.tex}
-\newpage\subfile{chapters/Analysis.tex}
-\newpage\subfile{chapters/Annotations.tex}
-\newpage\subfile{chapters/Studio.tex}
-\newpage\subfile{chapters/Drawings.tex}
-\newpage\subfile{chapters/Presentations.tex}
-\newpage\subfile{chapters/SheetMetal.tex}
-\newpage\subfile{chapters/CAM.tex}
-\newpage\subfile{chapters/BIM.tex}
-\newpage\subfile{chapters/FusionInteropability.tex}
-\newpage\subfile{chapters/3DPrint.tex}
-\newpage\subfile{chapters/Electromechanical.tex}
-\newpage\subfile{chapters/PipeTube.tex}
-\newpage\subfile{chapters/CableHarness.tex}
-\newpage\subfile{chapters/MoldDesign.tex}
-\newpage\subfile{chapters/Weldment.tex}
-\newpage\subfile{chapters/Nesting.tex}
-\newpage\subfile{chapters/Programming.tex}
+% \newpage\subfile{chapters/Assemble.tex}
+% \newpage\subfile{chapters/Design.tex}
+% \newpage\subfile{chapters/Analysis.tex}
+% \newpage\subfile{chapters/Annotations.tex}
+% \newpage\subfile{chapters/Studio.tex}
+% \newpage\subfile{chapters/Drawings.tex}
+% \newpage\subfile{chapters/Presentations.tex}
+% \newpage\subfile{chapters/SheetMetal.tex}
+% \newpage\subfile{chapters/CAM.tex}
+% \newpage\subfile{chapters/BIM.tex}
+% \newpage\subfile{chapters/FusionInteropability.tex}
+% \newpage\subfile{chapters/3DPrint.tex}
+% \newpage\subfile{chapters/Electromechanical.tex}
+% \newpage\subfile{chapters/PipeTube.tex}
+% \newpage\subfile{chapters/CableHarness.tex}
+% \newpage\subfile{chapters/MoldDesign.tex}
+% \newpage\subfile{chapters/Weldment.tex}
+% \newpage\subfile{chapters/Nesting.tex}
+% \newpage\subfile{chapters/Programming.tex}
 
 \newpage\subfile{chapters/Acknowledgements.tex}
 
