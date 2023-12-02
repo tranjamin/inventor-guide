@@ -33,6 +33,8 @@
 \usepackage{tikz}
 \usepackage{tikzpagenodes}
 \usepackage{etoolbox}
+\usepackage{tcolorbox}
+\usepackage{fancybox}
 
 \pagestyle{fancy}
 \usetikzlibrary{calc}
@@ -154,6 +156,20 @@
 \newcommand{\easydifficulty} {\cbcolor{ForestGreen}}
 \newcommand{\mediumdifficulty} {\cbcolor{BurntOrange}}
 \newcommand{\harddifficulty} {\cbcolor{Maroon}}
+
+% ENVIRONMENTS
+\newenvironment{when-to-read}
+{\begin{tcolorbox}[colback=gray!5!white,colframe=gray!75!black,title=WHEN TO READ]}
+{\end{tcolorbox}}
+
+\newenvironment{where-to-find}
+{\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black,title=WHERE TO FIND]}
+{\end{tcolorbox}}
+
+\newcommand{\oneliner}[1]{
+    \emph{{#1}}
+}
+
 
 % MARS COLOURS
 \usepackage{xcolor}

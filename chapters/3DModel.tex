@@ -429,22 +429,38 @@ $ $
 $ $
 
 \section{Plastic Parts}
+
+\begin{when-to-read}
+    You should refer to this section when you are looking to model parts that will be eventually manufactured with a flexible material such as plastic or thin wood. This will predominately be parts that are 3D printed, injection moulded or laser cut. The difficulty with plastic and other similar materials is that regular fasteners often cannot be used because of the poor stress diffusion of the material. These tools allow you to design plastic parts quickly and properly with various types of ways to fasten plastic parts together.
+    \tcblower
+    For non-plastic parts, it is also common to use the Grill and Rule Fillet features. Familiarise yourself with the existence of these in case they could come in handy.
+\end{when-to-read}
+
+\begin{where-to-find}
+All tools are found in the Plastic Part panel under the 3D Model ribbon.
+\end{where-to-find}
+
 \mediumdifficulty
 
 \example{plastic_example}
 
-This section covers a series of tools which are used to very quickly create common features of plastic parts. They are typically designed using a multi-body part (top-down) design style, where a single part file contains many individual parts. This removes the complexity of assemblies, especially when we have parts with complex connections. However, these tools are not exclusive to only plastic; they can be used for any type of the component. The \appcommand{Rule Fillet} tool is especially useful.
+This section covers a series of tools which are used to very quickly create common features of plastic parts. They are typically designed using a multi-body part (top-down) design style, where a single part file contains many individual parts. This removes the complexity of assemblies and ensures the geometry of connecting parts line up. However, these tools are not exclusive to only plastic; they can be used for any type of the component. The \appcommand{Rule Fillet} tool is especially useful.
 
 \subsection{Snap Fit}
+\oneliner{Easily join parts together}
 
+$ $
 \example{snapfit_example}
 
-One of the most common ways to connect plastic parts together is by using snap-fits, taking advantage of the flexiblity of plastic parts. The \appcommand{Plastic Part \then Snap Fit} tool allows us to easily create snap fits without having to worry about the designing the specific geometry of it. One component we add a hook to, while the other component we add a catch (or loop). Either 3D points of 2D sketch points are used to dictate where to place the geometry. We can also modify various dimensions of the snap fit mechanism, as well as changing the direction of the mechanism. Snap fit parts work the best for thin-walled components.
+One of the most common ways to connect plastic parts together is by using snap-fits, taking advantage of the flexiblity of plastic parts. The \appcommand{Snap Fit} tool allows us to easily create snap fits without having to worry about the designing the specific geometry of it. One component we add a hook to, while the other component we add a catch (or loop). Either 3D points of 2D sketch points are used to dictate where to place the geometry. We can also modify various dimensions of the snap fit mechanism, as well as changing the direction of the mechanism. Snap fit parts work the best for thin-walled components.
 
 \subsection{Grill}
 
+\oneliner{Create vents and grills}
+
 \example{grill_example}
-To create grills, vents and other similar openings, we can use the \appcommand{Plastic Part \then Grill} feature. There are four main elements of these grills: a boundary, an island, ribs and spars.
+
+To create grills, vents and other similar openings, we can use the \appcommand{Grill} feature. There are four main elements of these grills: a boundary, an island, ribs and spars.
 
 Boundary:
 The boundary of a grill is the outer rim which encloses the grill. This rim is usually raised from the surface and has a definable thickness, height and height offset. The height offset is how far the rim is raised from the surface, while the total height dips below the surface.
@@ -461,24 +477,33 @@ Spars are secondary ribs that add stiffness and support to the grill, and usuall
 In addition to these four elements, the grill can also have a draft. This adds extra thickness to the grill at the centre, and is usually defined by a draft angle. The way the grill is drafted is largely out of our control; instead Inventor designs it coording to best practice. 
 
 \subsection{Rest}
+
+\oneliner{Create a flat landing area on a curved surface, good for joining complex parts together}
+
 \example{rest_example}
 
-The \appcommand{Plastic Part \then Rest} tool is very similar to the Emboss feature in 3D modelling. It allows us to create a flat "landing area" on a curved surface, which is useful because we can the create new planes and components on this area. To create a rest, we usually first create a work plane in which we want our landing area to lie. We then create a 2D sketch to represent the shape of the landing. 
+The \appcommand{Rest} tool is very similar to the Emboss feature in 3D modelling. It allows us to create a flat "landing area" on a curved surface, which is useful because we can the create new planes and components on this area. To create a rest, we usually first create a work plane in which we want our landing area to lie. We then create a 2D sketch to represent the shape of the landing. 
 
 Once we have sketched out the landing area, we can then use the \appcommand{Rest} tool. The direction of the rest determines whether the rest is supported from above, below or both. This is in effect the same as the emboss tool, where one direction will result in material being cut out and one will not. The thickness of the landing can also be specified, as well as defining how the thickness is calculated. Finally, a taper can be added to both the landing area and the support walls.
 
 \subsection{Rule Fillet}
+
+\oneliner{A sophisticated way to apply fillets en masse}
+
 \example{rulefillet_example}
 
-The \appcommand{Plastic Part \then Rule Fillet} is a powerful extension of the Fillet command, and are especially useful for applying fillets in bulk. Plastic parts usually should have rule fillets applied to them due to the nature of their manufacturing. Rule Fillets are also typically more versatile, as instead of encoding the specific geometry the rules are stored instead. This means that under large scale change, the fillets will dynamically change to meet the given rules.
+The \appcommand{Rule Fillet} is a powerful extension of the Fillet command, and are especially useful for applying fillets in bulk. Plastic parts usually should have rule fillets applied to them due to the nature of their manufacturing. Rule Fillets are also typically more versatile, as instead of encoding the specific geometry the rules are stored instead. This means that under large scale change, the fillets will dynamically change to meet the given rules.
 
 We can choose to apply a rule to either a face or an entire set of features. The "Rule" in \appcommand{Rule Fillet} is a rule which specifies how to apply fillets. For a feature-based rule fillet, we can choose to fillet all edges, free edges (those not shared with another feature) or the edges connecting the feature to a part or another feature. For a face-based rule fillet, we can choose all edges, edges connected to another feature or all edges incident to the face along a certain axis (and optionally in a certain direction).
 
 We can also specify whether we want to only fillet convex edges (\appcommand{All Rounds}) and/or concave edges (\appcommand{All Fillets}).
 
-There are a series of additional options that give us greater agency over the rule fillet, under \appcommand{>>}. For a certain rule, we can choose to exclude specific faces or edges from the rule. We also have the same advanced options as the \appcommand{Fillet} option, such as edge chaining, rolling and face merging.
+There are a series of additional options that give us greater agency over the rule fillet, under \appcommand{$>>$}. For a certain rule, we can choose to exclude specific faces or edges from the rule. We also have the same advanced options as the \appcommand{Fillet} option, such as edge chaining, rolling and face merging.
 
 \subsection{Boss}
+
+\oneliner{Strengthening for fastened joints}
+
 \example{boss_example}
 
 Bosses are structural features added to where thin-walled plastic parts are screwed or fastened together. It increases the strength of the joint and allows the fastening force to be better distributed through the part. There are two types of bosses: a head boss (where the head of the screw rests) and the thred boss (where the screw threads engage).
@@ -490,9 +515,12 @@ You can add stiffening ribs to any boss under \appcommand{Ribs}. At the top, ent
 For a head boss, the geometry modifiers under \appcommand{Head} are very similar to the \appcommand{Hole} feature. You can change the dimensions of the boss hole and the structural support around it, as well as adding a drafting angle if you want it to taper in. The same holds with a thread boss.
 
 \subsection{Lip}
+
+\oneliner{A way to align and snap plastic shells together}
+
 \example{lip_example}
 
-Lips are another common feature of plastic parts that are often used to seal or join two parts together along an edge or series of edges. Usually, a tolerance is required to make sure the lips on mating parts exert enough pressure on them to create a joint. Under \appcommand{Plastic Part \then Lip}, select \appcommand{Groove} or \appcommand{Lip} depending on whether you want the lip to cut into or extrude away from your part (commonly, a mate will have one of each). You can then select the edes to create the lip on, as well as the \appcommand{Guide Face} and \appcommand{Pull Direction} to dictate which direction the lip should be created in. The \appcommand{Path Extents} option allows us to constrain the lip between two points or planes. Click on the green/yellow dots that appear on the model to selecct or deselect parts. Finally, we can specify the exact geometry of the lip by either dragging the points on the model or specifying the exact geometry in the menu. 
+Lips are another common feature of plastic parts that are often used to seal or join two parts together along an edge or series of edges. Usually, a tolerance is required to make sure the lips on mating parts exert enough pressure on them to create a joint. Under \appcommand{Lip}, select \appcommand{Groove} or \appcommand{Lip} depending on whether you want the lip to cut into or extrude away from your part (commonly, a mate will have one of each). You can then select the edes to create the lip on, as well as the \appcommand{Guide Face} and \appcommand{Pull Direction} to dictate which direction the lip should be created in. The \appcommand{Path Extents} option allows us to constrain the lip between two points or planes. Click on the green/yellow dots that appear on the model to selecct or deselect parts. Finally, we can specify the exact geometry of the lip by either dragging the points on the model or specifying the exact geometry in the menu. 
 
 Note: lips are extruded perpendicular to the face specified. As such, they are best reserved for components that are connected orthogonally.
 
