@@ -1,49 +1,61 @@
 \chapter{2D Sketches}
 
-2D sketching is one of the most fundamental parts of Autodesk Inventor. A 2D sketch is essentially a collection of pieces of geometry, and are usually used as building blocks to create 3D features. Generally, when we create sketches we first place down any geometry that we want. We can then modify parts of the geometry and use constraints and dimensions to specify the position and size. We can then use the sketch to either analyse shapes or create 3D features.
+\begin{when-to-read}
+    2D sketching is core to almost all modelling done in CAD. This section should be read regardless.
+    \end{when-to-read}
+    
+\begin{where-to-find}
+All 2D tools are under the \appcommand{2D Sketch Ribbon}. This can be accessed by selecting the \appcommand{Sketch} tab or by creating a new 2D sketch.
+\end{where-to-find}
 
-This section will be a deeper dive into 2D sketching in Inventor, beyond just the basics of how to create sketches. We will highlight most of the auxiliary features that you can utilise to speed up your workflow or create more complex sketches. All of the features detailed in this chapter are accessible via the \appcommand{Sketch} tab of the workspace ribbon, or via \hotkey{Right Click} on the shared workspace. The ribbon is ordered into different tabs, which group together similar features and will be forming the basis for the subsections of this chapter.
+2D sketching is one of the most fundamental parts of Autodesk Inventor. A 2D sketch is essentially a collection of geometry on a flat plane or surface, and are usually used as building blocks to create 3D features. A good way to design sketches is to place down geometry in approximately the location we want, and then using constraints and dimensions to specify the exact position and size. We can then use the sketch to either analyse shapes or create 3D features.
 
-\section{2D Sketches: Key Takeaways}
+This section will be a deeper dive into 2D sketching in Inventor, beyond just the basics of how to create sketches. We will highlight most of the auxiliary features that you can utilise to speed up your workflow or create more complex sketches.
+
+\begin{summary}
 \begin{itemize}
 \easydifficulty
-\item Use \hyperref[chap:constraints]{Dimensions or Constraints} to ensure your sketch is fully constrained. To make this faster, utilise snapping geometry to points and using inferred constraints.
-\item The \hyperref[subsec:auto-dim]{Automatic Dimension} tool will automatically create all the dimensions you could need.
+\item Use \hyperref[section: Constraints and Dimensions]{dimensions or constraints} to ensure your sketch is fully constrained. To make this faster, utilise snapping geometry to points and using inferred constraints.
+\item The \hyperref[subsection: Automatic Dimensions]{\appcommand{Automatic Dimension}} tool will automatically create all the dimensions you could need.
 \item The bottom right of your workspace will display a lot of important information such as missing dimensions and coordinates.
-\item If you want to recreate a physical object, you can \hyperref[section:insert]{Import a Picture} into your sketch and use your geometry tools (most commonly Splines - Interpolation Points) to draw over it.
-\item \hyperref[subsec:proj]{Project Geometry and Cut Edges} are very powerful tools that lets you copy existing sketches and features into your sketch.
-\item Duplicate and pattern your shapes with \hyperref[section:geom-pattern]{Geometry Patterns}.
-\item Change the \hyperref[section:format]{Format} of your geometry to make complex sketches easier to read.
-\item You can group pieces of geometry into \hyperref[subsec:sketch-block]{Sketch Blocks} to move around as one.
-\item Using \hyperref[section:param]{Parameters} allows you to quickly change the dimensions of sketches and objects, no matter where you are in the application.
-\item Inventor allows you to analyse the geometric properties of the sections of your sketches through \hyperref[section:aux]{Region Properties}.
-\cbend
+\item If you want to recreate a physical object, you can \hyperref[section: Sketch Insert]{\appcommand{Import Picture}} into your sketch and use your geometry tools (most commonly \appcommand{Splines - Interpolation Points}) to draw over it.
+\item \hyperref[subsection: Projecting Geometry]{\appcommand{Project Geometry} and \appcommand{Project Cut Edges}} are very powerful tools that lets you copy existing sketches and features into your sketch.
+\item Duplicate and pattern your shapes with \hyperref[section: Geometry Patterns]{geometry patterns}.
+\item Change the \hyperref[section: Formatting]{format} of your geometry to make complex sketches easier to read.
+\item You can group pieces of geometry into \hyperref[subsection: Sketch Blocks]{sketch blocks} to move around as one.
+\item Using \hyperref[section: Parameters]{parameters} allows you to quickly change the dimensions of sketches and objects, no matter where you are in the application.
+\item Inventor allows you to analyse the geometric properties of the sections of your sketches through \hyperref[section: More Sketch Options]{\appcommand{Region Properties}}. You can therefore use Inventor to purely determine the area or moments of inertia of any shape.
 \end{itemize}
+\end{summary}
 
 \section{Creating a Sketch}
 
 2D sketches can be created in any plane or flat surface. There are many different ways to create a sketch, but the easiest by selecting \appcommand{3D Model \then Sketch \then Start 2D Sketch} and then clicking on the desired plane or flat surface.
 \section{Adding Geometry}
 
+\begin{where-to-find}
+    Under the \appcommand{Create Panel} of the \appcommand{2D Sketch Ribbon}.
+    \end{where-to-find}
+    
 \subsection{Types of Geometry}
 
 There are several types of geometry which can be placed:
 
 \begin{itemize}
-\item Line: Creates either simple lines or joined segments of lines and arcs. Click on your starting point, and then your endpoint (to create a line) or click and drag your starting point (to create a curve). Finish the command by double clicking on the final endpoint or clicking \hotkey{ESC}.
-\item Spline: Creates a spline (parametric curve), either by specifying points for the spline to pass through or control vertices. 
-\item Equation Curve: Creates a curve based on a mathematical equation. The equation can be explicit or parametric, and use polar or cartesian coordinates.
-\item Bridge Curve: Creates a curve that joins two line/curve endpoints together such that the bridge curve is tangent to both segments (ref. \hyperref[subchap:constraint-types]{Smooth Constraints}).
-\item Circle: Creates a circle, using either a center point or three tangent lines.
-\item Ellipse: Creates an ellipse based on two axial lines
-\item Arc: Creates an arc, using the endpoints and either a center point or midpoint (Three Point Arc). Can also create an arc that joins a line's endpoint and is tangent to it.
-\item Rectangle: Creates a rectangle using various key points.
-\item Slot: Creates a slot or capsule, using various key points.
-\item Polygon: Creates a polygon of any order, and can be drawn inscribed or circumscribed.
-\item Fillets and Chamfers: Transforms sharp corners into curved corners (fillets) or bevelled corners (chamfers). The radius or angle of these fillets/chamfers can be adjusted in the popup dialog.
-\item Text: Creates text as geometry, which can be further extruded, swept, etc. Various formatting options can be adjusted in the popup dialog.
-\item Geometry Text: Creates text that lies along lines or simple curves. Cannot be used for more complex geometries such as splines.
-\item Point: Creates points.
+\item \appcommand{Line}: Creates either simple lines or joined segments of lines and arcs. Click on your starting point, and then your endpoint (to create a line) or click and drag your starting point (to create a curve). Finish the command by double clicking on the final endpoint or clicking \hotkey{ESC}.
+\item \appcommand{Spline}: Creates a spline (parametric curve), either by specifying points for the spline to pass through or control vertices. 
+\item \appcommand{Equation Curve}: Creates a curve based on a mathematical equation. The equation can be explicit or parametric, and use polar or cartesian coordinates.
+\item \appcommand{Bridge Curve}: Creates a curve that joins two line/curve endpoints together such that the bridge curve is tangent to both segments (ref. \hyperref[subsection: Types of Constraints]{Smooth Constraints}).
+\item \appcommand{Circle}: Creates a circle, using either a center point or three tangent lines.
+\item \appcommand{Ellipse}: Creates an ellipse based on two axial lines
+\item \appcommand{Arc}: Creates an arc, using the endpoints and either a center point or midpoint (Three Point Arc). Can also create an arc that joins a line's endpoint and is tangent to it.
+\item \appcommand{Rectangle}: Creates a rectangle using various key points.
+\item \appcommand{Slot}: Creates a slot or capsule, using various key points.
+\item \appcommand{Polygon}: Creates a polygon of any order, and can be drawn inscribed or circumscribed.
+\item \appcommand{Fillets} and \appcommand{Chamfers}: Transforms sharp corners into curved corners (fillets) or bevelled corners (chamfers). The radius or angle of these fillets/chamfers can be adjusted in the popup dialog.
+\item \appcommand{Text}: Creates text as geometry, which can be further extruded, swept, etc. Various formatting options can be adjusted in the popup dialog.
+\item \appcommand{Geometry Text}: Creates text that lies along lines or simple curves. Cannot be used for more complex geometries such as splines.
+\item \appcommand{Point}: Creates points.
 
 \end{itemize}
 
@@ -51,156 +63,169 @@ There are several types of geometry which can be placed:
 
 
 \begin{itemize}
-    \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press Tab to specify coordinates or switch between multiple dimensions. You can change the coordinate type (for example, absolute vs relative) by \appcommand{Right Click \then Coordinate Type}.
+    \item You can usually specify the coordinates of key points or the dimensions of your geometry (magnitude and angle). Press \hotkey{Tab} to specify coordinates or switch between multiple dimensions. You can change the coordinate type (for example, absolute vs relative) by \appcommand{Right Click \then Coordinate Type}.
     \item The bottom right of your workspace will display a lot of useful information when creating geometry, such as coordinate positions, deltas, and dimensions.
     \item You can "snap" your geometry to existing points. A green dot will signify you are placing your geometry on an existing point, and a yellow dot will signify you are placing your geometry along an existing curve. This is often useful to make sure that all your lines connect to form a closed shape. If you are having trouble snapping to geometry, you can \appcommand{Right Click \then Point Snaps} when placing down geometry and choose whether you want to snap to a midpoint, endpoint or various other points.
-    \item The above is a case of constraint inference (\hyperref[chap:constraints]{ref. Constraints}), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding \hotkey{CTRL}.
-    \item When starting the Line command, you can easily create tangent or normal lines. Click your starting point on existing geometry, and then click and drag the starting point. The direction you drag determines whether the line will be tangential or normal.
-    \item Splines are very powerful tools that are commonly used. If you have created a spline using control vertices, you can move these vertices around to change the shape of the spline. If you hvae created a spline using interpolation points, you can either move around the interpolation points or adjust the "handles" of the spline - these are construction lines that appear when you click on the spline, and represent the tangent lines at the interpolation points.
+    \item The above is a case of constraint inference (\hyperref[section: Constraints and Dimensions]{ref. Constraints}), and you can align your geometry in other ways, such as drawing a line which is tangent to another curve. You can temporarily disable constraint inference or point snapping by holding \hotkey{CTRL}.
+    \item When starting the \appcommand{Line} command, you can easily create tangent or normal lines. Click your starting point on existing geometry, and then click and drag the starting point. The direction you drag determines whether the line will be tangential or normal.
+    \item Splines are very powerful tools that are commonly used to create complex curves. If you have created a spline using control vertices, you can move these vertices around to change the shape of the spline. If you have created a spline using interpolation points, you can either move around the interpolation points or adjust the "handles" of the spline - these are construction lines that appear when you click on the spline, and represent the tangent lines at the interpolation points.
 \end{itemize}
 
 \subsection{Projecting Geometry}
-\label{subsec:proj}
 
 
-The Project Geometry feature is a very powerful tool which allows you to copy existing geometry, whether 2D or 3D, to your current sketch. Try to always project geometry which is above the current sketch in the model browser. Generally, projected geometry is adaptive, which means changes to the reference geometry will be reflected in your sketch. To prevent this, hold down \hotkey{CTRL} when projecting geometry, right click on the geometry and select \appcommand{Break Link}, or manually delete the Project Geometry Constraint (\hyperref[chap:constraints]{ref. Constraints}). There are the following options:
+The \appcommand{Project Geometry} feature is a very powerful tool which allows you to copy existing geometry, whether 2D or 3D, to your current sketch. Try to always project geometry which is above the current sketch in the model browser. Generally, projected geometry is adaptive, which means changes to the reference geometry will be reflected in your sketch. To prevent this, hold down \hotkey{CTRL} when projecting geometry, \hotkey{Right Click} on the geometry and select \appcommand{Break Link}, or manually delete the Project Geometry Constraint (\hyperref[section: Constraints and Dimensions]{ref. Constraints}). There are the following options:
 
 \begin{itemize}
-\item Project Geometry: Projects 2D sketches, 3D sketches, object edges and more into your sketch.
-\item Project Cut Edges: Projects a 3D object or surface as if the sketch was to cut through the cross-sectin of it.
-\item Project Flat Pattern: Used predominately in sheet metal projects, unfolds an object into the plane.
-\item Project to 3D Sketch: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see \hyperref[section: 3D Sketches]{3D Sketches} or \hyperref[subsection: 3D Model Surface]{3D Model \then Surface}.
-\item Project DWG Geometry:  Allows you to copy a DWG (drawing) file from your workspace into a sketch. Not very useful for most scenarios.
+\item \appcommand{Project Geometry}: Projects 2D sketches, 3D sketches, object edges and more into your sketch.
+\item \appcommand{Project Flat Pattern}: Used predominately in sheet metal projects, unfolds an object into the plane.
+\item \appcommand{Project to 3D Sketch}: Used to project your 2D sketch onto a 3D surface. For more information on this group of features, see \hyperref[chapter: 3D Sketches]{3D Sketches} or \hyperref[section: Surfaces]{Surfaces}.
+\item \appcommand{Project DWG Geometry}:  Allows you to copy a DWG (drawing) file from your workspace into a sketch. Not very useful for most scenarios.
 \end{itemize}
 
 
 
 \section{Geometry Patterns}
-\label{section:geom-pattern}
 
+\begin{where-to-find}
+    Under the \appcommand{Pattern Panel} of the \appcommand{2D Sketch Ribbon}.
+    \end{where-to-find}
+    
 
 Inventor allows you to duplicate geometries to streamline your work. Geometry can be \newline mirrored or repeated in a circular or rectangular pattern. The patterns are associative, so changes to any one of the object instances will change the entire pattern.
 
 
 \section{Modifying Existing Geometry}
 
-The Modify tab allows you to make changes to geometry you have already created. You can:
+\begin{where-to-find}
+    Under the \appcommand{Modify Panel} of the \appcommand{2D Sketch Ribbon}.
+    \end{where-to-find}    
+
+The \appcommand{Modify Panel} allows you to make changes to geometry you have already created. You can:
 
 \begin{itemize}
-\item Move geometry
-\item Copy geometry to a new location
-\item Rotate geometry
-\item Scale geometry
-\item Trim parts of your geometry off by points of intersection
-\item Extend a line or other geometry until it intersects with another geometry
-\item Split geometry into multiple parts according to points of intersection.
-\item Stretch certain geometry out
-\item Offset geometry by creating a slightly larger or smaller copy.
+\item \appcommand{Move} geometry.
+\item \appcommand{Copy} geometry to a new location.
+\item \appcommand{Rotate} geometry.
+\item \appcommand{Scale} geometry.
+\item \appcommand{Trim} parts of your geometry off by points of intersection.
+\item \appcommand{Extend} a line or other geometry until it intersects with another geometry.
+\item \appcommand{Split} geometry into multiple parts according to points of intersection.
+\item \appcommand{Stretch} certain geometry out.
+\item \appcommand{Offset} geometry by creating a slightly larger or smaller copy.
 \end{itemize}
 
 
 \subsection{Tips and Tricks}
 \mediumdifficulty
 \begin{itemize}
-\item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error) by clicking the \appcommand{\(\gg\)} button on the popup dialog of the modify tools and changing the settings.
-\item By checking the \fcolorbox{black}{lightgray}{Precise Input} box on the popup dialog of many of these tools, you can specify the exact coordinates with which you want to modify your geometry with.
+\item You can change how Inventor treats dimensions and constraints (i.e if it breaks constraints or throws an error when you modify geometry in a way that violates them) by clicking the \appcommand{\(\gg\)} button on the popup dialog of the modify tools and changing the settings.
+\item By checking the \appcommand{Precise Input} box on the popup dialog of many of these tools, you can specify the exact coordinates with which you want to modify your geometry with.
 \item You can choose whether an offset geometry adapts to changes in the original geometry by right clicking when using the Offset tool and toggling \appcommand{Constrain Offset}. Under these options, you can also change whether Inventor offsets entire loops or single line/curve segments.
 \end{itemize}
 
 \section{Constraints and Dimensions}
-\label{chap:constraints}
 
 \easydifficulty
+
+\begin{where-to-find}
+    Under the \appcommand{Constrain Panel} of the \appcommand{2D Sketch Ribbon}.
+    \end{where-to-find}
+    
+
 Constraints and dimensions determine the relationships between geometries. If a sketch is not fully constrained, it means that you can freely move it around by simply clicking and dragging. We recommend that, in general, you fully constrain all sketches. The bottom right of your workspace will tell you how many more dimensions/constraints you would need to achieve this.
 
 
 \subsection{Dimensions}
-Dimensions allow to you to display and specify the length or angle between two pieces of geometry. Dimensions can also be added when creating geometry, by pressing \hotkey{Tab} to toggle between possible dimensions. The following dimensions can be created (noting that curves are usually dimensioned by the center point):
+Dimensions allow to you to display and specify the length or angle between two pieces of geometry. Dimensions can also be added when creating geometry by pressing \hotkey{Tab} to toggle between possible dimensions. The following dimensions can be created (noting that curves are usually dimensioned by the center point):
 
 \begin{enumerate}
-\item The distance or angle between two lines
+\item The distance or angle between two lines.
 \item The distance between two curves/points. Drag the cursor to specify if this distance is vertical, horizonal or euclidean (by clicking between two points).
-\item A line and curve/point: the distance between them in the direction orthogonal to that of the line
+\item A line and curve/point: the (minimum) distance between them in the normal direction.
 \end{enumerate}
 
-Two types of dimensions can be created: regular dimensions and driven dimensions. Driven dimensions are dimensions which are redundant (already specified by existing constraints/dimensions), and thus are only used to display measurements. They are signified by brackets. On the other hand, regular dimensions can be edited to change the geometry. Regular dimensions can be made and unmade driven with \appcommand{Format \then Driven Dimension} or \appcommand{Right Click \then Driven Dimension}.
+Two types of dimensions can be created: regular dimensions and driven dimensions. Driven dimensions are dimensions which are redundant (already specified by existing constraints or dimensions), and thus are only used to display measurements. They are signified in brackets. On the other hand, regular dimensions can be edited to change the geometry. Regular dimensions can be made and unmade driven with \appcommand{Format \then Driven Dimension} or with \appcommand{Right Click \then Driven Dimension}.
 
 Dimensions can be edited by double clicking on the dimension. The formatting of the dimension can be modified by \appcommand{Right Click \then Dimension Properties}, allowing you to specify naming, precision, and tolerance type for both the individual dimension and the default settings.
 
 
 \subsection{Types of Constraints}
-\label{subchap:constraint-types}
 
 Constraints allow you to set relationships between two pieces of geometry. The types of constraints are:
 
 \begin{enumerate}
-\item Coincident: a point is constrained to another point or along another curve
-\item Collinear: two straight lines (or axes) constrained to lie along the same line
-\item Concentric: two curves, ellipses or circles constrained to the same center point
-\item Fixed: locks geometry in place
-\item Parallel: two lines constrained to lie parallel
-\item Perpendicular: two lines constrained to lie perpendicular
-\item Horizontal: a line or pair of points constrained parallel to the x axis
-\item Vertical: a line or pair of points constrained parallel to the z axis
-\item Tangent: two curves constrained to be tangent to each other
-\item Smooth: a splined curve constrained to be tangent to and join endpoints with a curve
-\item Symmetric: two curves constrained to be symmetric about a third selected line
-\item Equal: two curves constrained to have the same radius or two lines constrained to have the same length
-\item Project Geometry: essentially a fixed constraint, it cannot be added to geometry but instead is automatically applied to any projected geometry. If you want to edit projected geometry, you need to remove these constraints.
+\item \appcommand{Coincident}: a point is constrained to another point or along another curve.
+\item \appcommand{Collinear}: two straight lines (or axes) constrained to lie along the same line.
+\item \appcommand{Concentric}: two curves, ellipses or circles constrained to the same center point.
+\item \appcommand{Fixed}: locks geometry in place.
+\item \appcommand{Parallel}: two lines constrained to lie parallel.
+\item \appcommand{Perpendicular}: two lines constrained to lie perpendicular.
+\item \appcommand{Horizontal}: a line or pair of points constrained parallel to the x axis.
+\item \appcommand{Vertical}: a line or pair of points constrained parallel to the z axis.
+\item \appcommand{Tangent}: two curves constrained to be tangent to each other.
+\item \appcommand{Smooth}: a splined curve constrained to be tangent to and join endpoints with a curve.
+\item \appcommand{Symmetric}: two curves constrained to be symmetric about a third selected line.
+\item \appcommand{Equal}: two curves constrained to have the same radius or two lines constrained to have the same length.
+\item \appcommand{Project Geometry}: essentially a fixed constraint, it cannot be added to geometry but instead is automatically applied to any projected geometry. If you want to edit projected geometry, you need to remove these constraints.
 \end{enumerate}
 
 
 \subsection{Adding Constraints}
-Constraints can be added through the \appcommand{Constrain} tab. Select the desired constraint in the tab and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
+Constraints can be added through the \appcommand{Constrain Panel}. Select the desired constraint in the panel and then select the geometry to be constrained. For some constraints such as the fixed or equal constraint, you can select multiple geometry and then click on the desired constraint to apply to all.
 \subsection{Viewing and Editing Constraints}
 All constraints can be viewed by right clicking on the workspace and selecting \newline \appcommand{Show All Constraints} or using the \hotkey{F8} hotkey. Constraints can be hidden by right clicking on the workspace and selecting \appcommand{Hide All Constraints} or using the \hotkey{F9} hotkey.
 
-To toggle the visibility of a selected geometry's constraints, click on the \appcommand{Show Constraints} icon under the \appcommand{Constrain} tab in the ribbon.
+To toggle the visibility of a selected geometry's constraints, click on the \appcommand{Show Constraints} icon under the \appcommand{Constrain Panel} in the ribbon.
 
 To delete all constraints from geometry, select the desired geometry, press right click and select \appcommand{Delete Constraints}.
 
 To delete specific constraints, show constraints either by using F8 or selecting the parent geometry, click on the respective constraint icon beside the geometry and press DEL.
 \subsection{Constraint Inference, Relax Mode and Settings}
 
+\begin{where-to-find}
+Under the \appcommand{Constrain Panel} of the \appcommand{2D Sketch Ribbon}.
+\end{where-to-find}
+
 \harddifficulty
 
 Sometimes constraints can be automatically added while placing geometry. For example, drawing a line which is horizontal will create an inferred horizontal constraint. If you find that a constraint is being inferred with the wrong geometry, you can first mouseover ("scrub") the desired geometry. You can temporarily disable inferred constraints by holding \hotkey{CTRL} when placing geometry.
 
-
-
 Inferred constraints can be persistent or non-persistent. Persistant constraints remain after the geometry is placed, however non-persistent constraints will not, and will only help you while placing geometry. In general, inferred constraints will appear as a small grey box when you are creating geometry. They will also either include yellow/green points (for coincident constraints) or solid lines (for other constraints). Any dotted lines that appear are NOT inferred constraints and are merely guide lines that will not persist (though otherwise they behave similarly).
 
-Usually, constraints will restrict you from freemoving geometry. For example, if you have two circles with a concentric constraint, moving one circle will also cause the other to move. When Relax Mode is enabled, geometry can be moved freely. Instead of also moving constrained geometry, any constraints which are broken will be deleted. In the above case, only the selected circle will move and the concentric constraint will be removed. You can also choose to only enable Relax Mode for specific constraint types.
+Usually, constraints will restrict you from freemoving geometry. For example, if you have two circles with a concentric constraint, moving one circle will also cause the other to move. When \appcommand{Relax Mode} is enabled, geometry can be moved freely. Instead of also moving constrained geometry, any constraints which are broken will be deleted. In the above case, only the selected circle will move and the concentric constraint will be removed. You can also choose to only enable Relax Mode for specific constraint types.
 
-Settings for constraints can be modified under \appcommand{Constrain \then Constraint Settings} You can:
-
+Under \appcommand{Constraint Settings}, you can:
 
 \begin{enumerate}
-    \item Under \appcommand{Inference}, turn all inferred constraints on/off
-    \item Under \appcommand{Inference}, turn specific inferred constraints on/off, such as turning off any inferred horizontal constraints
-    \item Under \appcommand{Inference}, choose to infer parallel/perpendicular constraints over horizontal / vertical constraints, when there is an option
-    \item Enable Relax Mode
+    \item Under \appcommand{Inference}, turn all inferred constraints on/off.
+    \item Under \appcommand{Inference}, turn specific inferred constraints on/off, such as turning off any inferred horizontal constraints.
+    \item Under \appcommand{Inference}, choose to infer parallel/perpendicular constraints over horizontal / vertical constraints, when there is an option.
+    \item Enable \appcommand{Relax Mode}.
 \end{enumerate}
 
 You can also edit the scope at which constraints are inferred. Under 
 
-\appcommand{Constrain \then Constraint Inference Scope}, the three options are:
+\appcommand{Constraint Inference Scope}, the three options are:
 
 \begin{enumerate}
-    \item Geometry in current command: constraints will only be inferred with the same type of geometry (e.g line, arc, rectangle). Remember that guide lines will still appear with reference to other geometry types.
-    \item All geometry: constraints will be inferred with all geometry, regardless of type or location.
-    \item Select: you can choose which pieces of geometry constraints can be inferred with.
+    \item \appcommand{Geometry in Current Command}: constraints will only be inferred with the same type of geometry (e.g line, arc, rectangle). Remember that guide lines will still appear with reference to other geometry types.
+    \item \appcommand{All Geometry}: constraints will be inferred with all geometry, regardless of type or location.
+    \item \appcommand{Select}: you can choose which pieces of geometry constraints can be inferred with.
 
-It is also possible to realign a coordinate system, either by relocating the origin or the two axes. Select \appcommand{Constrain \then Edit Coordinate System}, and then relocate either the origin by clicking on a new vertex or the axis/axes by clicking on new edges. To flip the direction of the axes, right click and select the appropriate option. You may need to move the camera in order to do this, and remember that your sketch needs to be below any reference objects in the model browser. 
+It is also possible to realign a coordinate system, either by relocating the origin or the two axes. Select \appcommand{Edit Coordinate System}, and then relocate either the origin by clicking on a new vertex or the axis/axes by clicking on new edges. To flip the direction of the axes, right click and select the appropriate option. You may need to move the camera in order to do this, and remember that your sketch needs to be below any reference objects in the model browser. 
 
 \subsection{Automatic Dimensions}
-\label{subsec:auto-dim}
+
 \easydifficulty
 
-By selecting \appcommand{Constrain \then Automatic Dimensions and Constraints}, dimensions and \newline constraints can be added to fully paramaterise the sketch. This is a very powerful tool!
+By selecting \appcommand{Automatic Dimensions and Constraints}, dimensions and \newline constraints can be added to fully paramaterise the sketch. This is a very powerful tool!
 
 \section{Formatting}
-\label{section:format}
+
+\begin{where-to-find}
+    Under the \appcommand{Constrain Panel} of the \appcommand{2D Sketch Ribbon}.
+    \end{where-to-find}
 
 \mediumdifficulty
 
@@ -212,21 +237,29 @@ Geometry can also be custom formatted by changing the pattern, colour and weight
 
 \section{Layout}
 
-\subsection{Assembly and Component Layouts}
 \harddifficulty
+
+\begin{where-to-find}
+    Under the \appcommand{Layout Panel} of the \appcommand{2D Sketch Ribbon}.
+    \end{where-to-find}
+\subsection{Assembly and Component Layouts}
+
 
 This is part of a more complex feature of Inventor which comprises of creating hierarchies of assemblies, components and parts. In short, the \appcommand{Make Part} and \newline \appcommand{Make Components} features allows you to import 2D sketches into assemblies as layout parts. This is useful because you can create 3D features in the assembly without changing the layout file, and as such these files can be used concurrently for multiple projects. This will be covered in a later section and is not a necessary tool to know.
 
 \subsection{Sketch Blocks}
-\label{subsec:sketch-block}
 
 \mediumdifficulty
-Sketch blocks are similar to object grouping in Microsoft Office; it allows you to constrain portions of sketches to be fixed relative to each other, and instead of moving each piece of individual geometry the entire block moves. This is especially useful if you copy and paste a lot of sketch data from other applications or do a lot of sketching over images - it removes the need to constrain every line and curve. Sketch blocks can be created under \appcommand{Layout \then Create Block}
+Sketch blocks are similar to object grouping in Microsoft Office; it allows you to constrain portions of sketches to be fixed relative to each other, and instead of moving each piece of individual geometry the entire block moves. This is especially useful if you copy and paste a lot of sketch data from other applications or do a lot of sketching over images - it removes the need to constrain every line and curve. Sketch blocks can be created under \appcommand{Layout \then Create Block}.
 
-\section{Insert}
-\label{section:insert}
-\subsection{Inserting Images}
+\section{Sketch Insert}
 \easydifficulty
+
+\begin{where-to-find}
+    Under the \appcommand{Insert Panel} of the \appcommand{2D Sketch Ribbon}.
+    \end{where-to-find}
+\subsection{Inserting Images}
+
 Images can be inserted into a 2D sketch under \appcommand{Insert \then Image}, and behave like \newline construction-formatted rectangles in terms of geometry. Inserting images is a fantastic way to model objects that do not have CAD files, as you can use them to freehand outlines - learn how to create 3D models from just 2D profile images in the \hyperref[section: 3D Sketches]{3D Sketch} section!
 
 
@@ -236,7 +269,7 @@ Images can be inserted into a 2D sketch under \appcommand{Insert \then Image}, a
 If you have a large number of points that you want to copy into modelling software - such as from point cloud scanners - your best option is to import it via an excel spreadsheet. Your first row should contain only your units specification, your second row should contain the headings x, y and (optionally) z. Each subsequent row should represent the coordinates of one point.
 
 
-\subsection{Inserting AutoCAD Files}\cbstart
+\subsection{Inserting AutoCAD Files}
 If you use AutoCAD to create drawings, you can import 2D drawings into a sketch here. This should work for any DWG or DXF file.
 
 \section{Managing 2D Sketches}
@@ -245,7 +278,7 @@ If you use AutoCAD to create drawings, you can import 2D drawings into a sketch 
 
 After creating a sketch, there are several things you can do:
 
-\appcommand{Right Click} on the sketch under the part navigator and you can:
+\hotkey{Right Click} on the sketch under the part navigator and you can:
 \begin{itemize}
 \item Redefine: if you want to move a sketch from one plane to another. To see the current sketch plane, select \appcommand{Show Input}.
 \item To change the appearance properties of the sketch, such as colour and line style.
@@ -255,7 +288,7 @@ After creating a sketch, there are several things you can do:
 \end{itemize}
 
 \section{Parameters}
-\label{section:param}
+
 The majority of information about parameters will be covered in a later section, however they are very commonly used for sketches. With parameters, instead of specifying numeric values for dimensions, you can instead assign a global variable to it, which you can change later at will. This is useful if you have multiple dimensions which reference the same physical measurement, or if you want to create a series of the same object but with different sizings - such as for screws. Two useful things you can do with parameters are:
 
 \begin{itemize}
@@ -266,9 +299,9 @@ The majority of information about parameters will be covered in a later section,
 
 
 \section{More Sketch Options}
-\label{section:aux}
+
 \mediumdifficulty
-While still in your sketch, you can \appcommand{Right Click} on the workspace and:
+While still in your sketch, you can \hotkey{Right Click} on the workspace and:
 
 \begin{itemize}
 \item Degrees of Freedom: Wither on the workspace or for a specific piece of geometry, you can display the degrees of freedom present. This is useful to make sure that you have enough dimensions - if you don't, you will see which directions have not been constrained yet.

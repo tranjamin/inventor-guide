@@ -121,7 +121,7 @@ When using the Create tools above, most of them have options which allow you eve
 \subsection{Additional Options: Emboss}
 
 \begin{itemize}
-\item Behaviour: determines whether the emboss raises up or recesses into the object. There is a third option, Emboss/Engrave From Plane, which allows you to create an emboss/engraving where the depth changes. In this option, you can also transition from an emboss to an engraving, which is a very powerful tool.
+\item Behaviour: determines whether the emboss raises up or recesses into the object. There is a third option, Emboss / Engrave From Plane, which allows you to create an emboss/engraving where the depth changes. In this option, you can also transition from an emboss to an engraving, which is a very powerful tool.
 \item Taper: allows you to determine how the profile tapers (scales) when Emboss/Engrave From Plane is enabled.
 \item Appearance: allows you to automatically change the visual appearance of the emboss
 \item Wrap to Face: if embossing on a curved face, allows the emboss to follow the curve around. With this enabled, the emboss will always have the same depth at every location.
@@ -276,7 +276,7 @@ We can create freeforms from the \appcommand{3D Model \then Create Freeform} pan
 
 If we want a more complex shape, we can also start a freeform from a face (a polygon-shaped plane) or base it off an existing 3D model or surface. For more complex freeforms that need to be integrated with regular 3D modelling, this is usually the way to go, because you can exactly define how the freeform will look initially. 
 
-When creating a freeform, we can customise it in several ways. For primitive shapes, we can define the size of each dimension, or use the visual arrows to manipulate the shape as we see fit. We can also define if we want to enforce symmetric constraints in any direction (see \hyperref[subsection:freeform-symmetry]{Symmetry \& Mirroring}). Finally, we can specify the number of faces our freeform is split up into in each direction. This controls how fine our mesh is, and therefore how much detail we can add.
+When creating a freeform, we can customise it in several ways. For primitive shapes, we can define the size of each dimension, or use the visual arrows to manipulate the shape as we see fit. We can also define if we want to enforce symmetric constraints in any direction (see \hyperref[subsection: Symmetry and Mirroring]{Symmetry \& Mirroring}). Finally, we can specify the number of faces our freeform is split up into in each direction. This controls how fine our mesh is, and therefore how much detail we can add.
 
 Once we've created our freeform, the Freeform ribbon will open. We can additional freeform objects in the one instance under \appcommand{Freeform \then Create Freeform}. Usually we add planes to cover up holes in our model, or add additional bodies that we will later join to form one body. Never use the same freeform instance to create multiple parts; you should create each part separately.
 
@@ -380,7 +380,6 @@ Note that matching edges will create a "Matches" folder under the freeform objec
 
 \example{freeform_matching}
 
-\label{subsection:freeform-symmetry}
 \subsection{Symmetry and Mirroring}
 \easydifficulty
 
@@ -429,7 +428,6 @@ Freeform geometry: the edges, points and faces that comprise a freeform model.
 Mesh: the group of edges that make up the model.
 
 \section{Surfaces}
-\label{section: 3D Model Surface}
 
 $ $
 
@@ -507,7 +505,7 @@ We can choose to apply a rule to either a face or an entire set of features. The
 
 We can also specify whether we want to only fillet convex edges (\appcommand{All Rounds}) and/or concave edges (\appcommand{All Fillets}).
 
-There are a series of additional options that give us greater agency over the rule fillet, under \appcommand{$>>$}. For a certain rule, we can choose to exclude specific faces or edges from the rule. We also have the same advanced options as the \appcommand{Fillet} option, such as edge chaining, rolling and face merging.
+There are a series of additional options that give us greater agency over the rule fillet, under \appcommand{\(\gg\)}. For a certain rule, we can choose to exclude specific faces or edges from the rule. We also have the same advanced options as the \appcommand{Fillet} option, such as edge chaining, rolling and face merging.
 
 \subsection{Boss}
 

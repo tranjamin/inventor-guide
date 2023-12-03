@@ -166,6 +166,11 @@
 {\begin{tcolorbox}[colback=orange!5!white,colframe=orange!75!black,title=WHERE TO FIND]}
 {\end{tcolorbox}}
 
+\newenvironment{summary}
+{\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=SUMMARY]}
+{\end{tcolorbox}}
+
+
 \newcommand{\oneliner}[1]{
     \emph{{#1}}
 }
@@ -253,16 +258,16 @@ node [inner sep=0,outer sep=0,above right]
 \tableofcontents
 
 \NewCommandCopy{\oldchapter}{\chapter}
-\renewcommand{\chapter}[1]{\cbend \oldchapter{#1}}
+\renewcommand{\chapter}[1]{\cbend \oldchapter{#1} \label{chapter: #1}}
 
 \NewCommandCopy{\oldsection}{\section}
-\renewcommand{\section}[1]{\cbend \oldsection{#1} \cbstart}
+\renewcommand{\section}[1]{\cbend \oldsection{#1} \label{section: #1} \cbstart}
 
 \NewCommandCopy{\oldsubsection}{\subsection}
-\renewcommand{\subsection}[1]{\cbend \oldsubsection{#1} \cbstart}
+\renewcommand{\subsection}[1]{\cbend \oldsubsection{#1} \label{subsection: #1}\cbstart}
 
 \NewCommandCopy{\oldsubsubsection}{\subsubsection}
-\renewcommand{\subsubsection}[1]{\cbend \oldsubsubsection{#1} \cbstart}
+\renewcommand{\subsubsection}[1]{\cbend \oldsubsubsection{#1} \label{subsubsection: #1}\cbstart}
 
 %\newpage\subfile{chapters/CrashCourse.tex}
 \subfile{chapters/Introduction.tex}
@@ -271,7 +276,7 @@ node [inner sep=0,outer sep=0,above right]
 % \subfile{chapters/Tools.tex}
 % \subfile{chapters/WorkFeatures.tex}
 \subfile{chapters/2DSketch.tex}
-% \subfile{chapters/3DSketch.tex}
+\subfile{chapters/3DSketch.tex}
 
 \subfile{chapters/3DModel.tex}
 % \subfile{chapters/Assemble.tex}
